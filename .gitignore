@@ -1,2 +1,3 @@
 *.lock
 references/*
+.home.nix.kate-swp
