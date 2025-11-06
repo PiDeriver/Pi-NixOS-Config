@@ -25,7 +25,7 @@
     # ---- SYSTEM SETTINGS ---- #
     commonSystemSettings = {
       system = "x86_64-linux";
-      timezone = "America/Chicago";
+      timezone = "America/Los_Angeles";
       locale = "en_US.UTF-8";
     };
     
@@ -33,8 +33,8 @@
 
     # ---- USER SETTINGS ---- #
     userSettings = {
-      username = "dcreetz";
-      name = "David Reetz";
+      username = "pideriver";
+      name = "PiDeriver";
       terminal = "kitty";
       browser = "firefox";
       editor = "neovim";

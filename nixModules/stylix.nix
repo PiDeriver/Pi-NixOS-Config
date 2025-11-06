@@ -2,8 +2,8 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = ../theme/shaymintheme.yaml;
-    image = ../theme/wallpaper.jpg;
+    base16Scheme = ../theme/chiharutheme.yaml;
+    image = ../theme/wallpaper.png;
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;

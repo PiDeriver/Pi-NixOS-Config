@@ -17,7 +17,7 @@
     nixModules/bluetooth.nix
     
     ### Users ###
-    nixModules/users/user_dcreetz.nix
+    nixModules/users/user_pideriver.nix
 
     ### Theming ###
     nixModules/stylix.nix

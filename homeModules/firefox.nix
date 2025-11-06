@@ -32,7 +32,7 @@
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
       DontCheckDefaultBrowser = true;
-      DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
+      DisplayBookmarksToolbar = "newtab"; # alternatives: "always" or "newtab"
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unified"; # alternative: "separate"
       PasswordManagerEnabled = false;
@@ -58,22 +58,22 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4524394/proton_pass-1.32.2.xpi";
           installation_mode = "force_installed";
         };
-	# SponsorBlock
+        # SponsorBlock
         "sponsorBlocker@ajay.app" = {
-	  install_url = "https://addons.mozilla.org/firefox/downloads/file/4541835/sponsorblock-5.14.xpi";
-	  installation_mode = "force_installed";
-	};
-	# TamperMonkey
-	"firefox@tampermonkey.net" = {
-	  install_url = "https://addons.mozilla.org/firefox/downloads/file/4405733/tampermonkey-5.3.3.xpi";
-	  installation_mode = "force_installed";
-	};
-	# VTT Enhancer
-	"{ffed5dfa-f0e1-403d-905d-ac3f698660a7}" = {
-	  install_url = "https://addons.mozilla.org/firefox/downloads/file/4362860/roll20_enhancement_suite-1.28.22.xpi";
-	  installation-mode = "force-installed";
-	};
-	# ...
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4541835/sponsorblock-5.14.xpi";
+          installation_mode = "force_installed";
+        };
+        # TamperMonkey
+        "firefox@tampermonkey.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4405733/tampermonkey-5.3.3.xpi";
+          installation_mode = "force_installed";
+        };
+        # VTT Enhancer
+        "{ffed5dfa-f0e1-403d-905d-ac3f698660a7}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4362860/roll20_enhancement_suite-1.28.22.xpi";
+          installation-mode = "force-installed";
+        };
+        # ...
       };
       /* ---- PREFERENCES ---- */
       # Check about:config for options.

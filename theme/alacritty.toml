@@ -1,0 +1,23 @@
+[window]
+opacity = 0.7
+blur = true
+
+[font]
+normal = { family = "Noto Sans Mono", style = "Regular" }
+
+[colors.primary]
+foreground = "#B0ECFF"
+background = "#9533FF"
+
+[colors]
+cursor = { text = "#9533FF", cursor = "#FFFF00" }
+
+[colors.normal]
+red = "#FF0000"
+green = "#B0FF00"
+yellow = "#FFFF00"
+magenta = "#FF00FF"
+cyan = "#00FFFF"
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
