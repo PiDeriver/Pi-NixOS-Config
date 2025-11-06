@@ -48,8 +48,10 @@
     homeModules/vesktop.nix
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "nixos-laptop") [
-  ### laptop only ###
-    # ...
+    ### laptop only ###
+
+    # discord client
+    homeModules/vesktop.nix
   ];
   
   # extra info for home-manager
