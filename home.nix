@@ -41,13 +41,13 @@
     # other packages to be managed by home-manager
     homeModules/homePackages.nix
   
-  ] ++ lib.optionals (systemSettings.hostname == "nixos-desktop") [
+  ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### desktop only ###
 
     # discord client
     homeModules/vesktop.nix
     # ...
-  ] ++ lib.optionals (systemSettings.hostname == "nixos-laptop") [
+  ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
     ### laptop only ###
 
     # discord client

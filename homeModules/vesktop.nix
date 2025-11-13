@@ -3,48 +3,48 @@
   programs.vesktop = {
     enable = true;
     vencord.settings ={
-      enabledThemes = ../theme/ClearVision-v7-BetterDiscord.theme.css
-      plugins: {
-        ChatInputButtonAPI: {
+      #enabledThemes = ../theme/ClearVision-v7-BetterDiscord.theme.css;
+      plugins = {
+        ChatInputButtonAPI = {
           enabled = true;
         };
-        BlurNSFW: {
+        BlurNSFW = {
           enabled = true;
           blurAmount = 10;
         };
-        FixYoutubeEmbeds: {
+        FixYoutubeEmbeds = {
           enabled = true;
         };
-        OnePingPerDM: {
+        OnePingPerDM = {
           enabled = true;
           channelToAffect = "both_dms";
           allowMentions = true;
           allowEveryone = true;
         };
-        SendTimestamps: {
+        SendTimestamps = {
           enabled = true;
           replaceMessageContents = true;
         };
-        ShowConnections: {
+        ShowConnections = {
           enabled = true;
           iconSize = 32;
           iconSpacing = 1;
         };
-        SpotifyCrack: {
+        SpotifyCrack = {
           enabled = true;
           noSpotifyAutoPause = true;
           keepSpotifyActivityOnIdle = true;
         };
-        WebKeybinds: {
+        WebKeybinds = {
           enabled = true;
         };
-        WebScreenShareFixes: {
+        WebScreenShareFixes = {
           enabled = true;
         };
-        YoutubeAdblock: {
+        YoutubeAdblock = {
           enabled = true;
         };
-        VolumeBooster: {
+        VolumeBooster = {
           enabled = true;
           multiplier = 1;
         };

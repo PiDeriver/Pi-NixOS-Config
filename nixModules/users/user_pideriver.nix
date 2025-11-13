@@ -3,6 +3,8 @@
   users.users.pideriver = {
     isNormalUser = true;
     description = "PiDeriver";
+    #name = "pideriver";
+    #home = "/home/pideriver";
     extraGroups = [ 
       "networkmanager" # network managing privileges
       "wheel" # sudouser

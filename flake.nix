@@ -83,8 +83,8 @@
   in {
     # ---- NIXOS CONFIGURATIONS (Now using the common function) ----
     nixosConfigurations = {
-      nixos-desktop = mkNixosSystem "nixos-desktop";
-      nixos-laptop = mkNixosSystem "nixos-laptop";
+      pi-nixos-desktop = mkNixosSystem "pi-nixos-desktop";
+      pi-nixos-laptop = mkNixosSystem "pi-nixos-laptop";
     };
   };
 }

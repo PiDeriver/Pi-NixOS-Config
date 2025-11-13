@@ -4,6 +4,7 @@
     enable = true;
     base16Scheme = ../theme/chiharutheme.yaml;
     image = ../theme/wallpaper.png;
+    #targets.vesktop.enable = false;
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;

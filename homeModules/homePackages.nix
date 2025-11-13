@@ -35,7 +35,7 @@
 
     ### Security ###
     # Password Manager
-    bitwarden
+    bitwarden-desktop
     # VPN
     protonvpn-gui
 

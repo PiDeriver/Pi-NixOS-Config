@@ -75,7 +75,7 @@
 	"$mod, R, exec, $menu"
         
 	# PrintScreen -> Capture area
-	", Print, exec, hyprshot -m region"
+	"$mod SHIFT, S, exec, hyprshot -m region"
 	  
 	# Shift + PrintScreen -> Capture current output (monitor)
 	"SHIFT, Print, exec, hyprshot -m output"
