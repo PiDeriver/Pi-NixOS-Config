@@ -59,7 +59,9 @@
     vlc
     # Music
     spotify
-
+    # Pictures
+    krita
+    #gimp
 
     ### Backup Utility ###
     luckybackup
@@ -74,7 +76,12 @@
     reaper
     # Torrent Client
     qbittorrent
-
+    # XLR device
+    goxlr-utility
+    # Video Downloader
+    ytdownloader
+    # Wine
+    bottles
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
     ### Laptop only ###
