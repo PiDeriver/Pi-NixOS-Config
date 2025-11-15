@@ -66,7 +66,7 @@
 
 
 
-  ] ++ lib.optionals (systemSettings.hostname == "nixos-desktop") [
+  ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### Desktop only ###
     # Video Editor
     ##kdenlive #This also seems to be broken
@@ -76,7 +76,7 @@
     qbittorrent
 
     # ...
-  ] ++ lib.optionals (systemSettings.hostname == "nixos-laptop") [
+  ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
     ### Laptop only ###
 
     # DDR emulator

@@ -12,8 +12,8 @@ For first build:
 8. reboot
 
 9. copy everything to $HOME/.dotfiles
-10. Make sure to change the home.nix hostname (for lib.optionals) and flakes.nix hostname (near the bottom of file) to whatever hostnames are being used
-11. Replace the hardware file in .dotfiles with the one from /etc/nixos and make sure to rename it
+10. Make sure to change the home.nix hostname (for lib.optionals), homePackages.nix hostname, and flakes.nix hostname (near the bottom of file) to whatever hostnames are being used
+11. Copy the hardware file from /etc/nixos to the .dotfiles directory
 
 12. cd $HOME/.dotfiles
 13. sudo nixos-rebuild switch --flake .
