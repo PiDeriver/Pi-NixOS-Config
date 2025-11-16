@@ -37,7 +37,7 @@
     # Password Manager
     bitwarden-desktop
     # VPN
-    protonvpn-gui
+##    protonvpn-gui #This is now broken for some reason?
 
     ### Games/Emulation ###
     # Sound Voltex Emulator
@@ -45,6 +45,7 @@
     # Wine Emulator
     lutris
     wine
+    bottles
     # Wine Manager
     protonplus
     # Console Emulators
@@ -80,8 +81,6 @@
     goxlr-utility
     # Video Downloader
     ytdownloader
-    # Wine
-    bottles
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
     ### Laptop only ###

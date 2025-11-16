@@ -1,4 +1,4 @@
 *.lock
 references/*
 .home.nix.kate-swp
-hardware-configuration.nix
+

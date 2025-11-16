@@ -4,7 +4,7 @@
     enable = true;
     settings =
       let
-        isDesktop = (systemSettings.hostname == "nixos-desktop");
+        isDesktop = (systemSettings.hostname == "pi-nixos-desktop");
 
         monitorConfig =
           if isDesktop then [

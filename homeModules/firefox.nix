@@ -53,11 +53,6 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
           installation_mode = "force_installed";
         };
-        # Proton Pass:
-        "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4524394/proton_pass-1.32.2.xpi";
-          installation_mode = "force_installed";
-        };
         # SponsorBlock
         "sponsorBlocker@ajay.app" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4541835/sponsorblock-5.14.xpi";

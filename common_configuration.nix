@@ -9,11 +9,11 @@
     nixModules/localization.nix
 
     ### Hardware and Peripherals ###
-    ./hardware-configuration.nix
+    ./${systemSettings.hostname}_hardware-configuration.nix
     nixModules/${systemSettings.hostname}_gpu.nix
     nixModules/keyboard.nix
     nixModules/audio.nix
-    nixModules/print.nix
+#    nixModules/print.nix
     nixModules/bluetooth.nix
     
     ### Users ###
