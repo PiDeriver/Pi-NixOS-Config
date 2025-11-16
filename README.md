@@ -13,7 +13,7 @@ For first build:
 
 9. copy everything to $HOME/.dotfiles
 10. Make sure to change the home.nix hostname (for lib.optionals), homePackages.nix hostname, and flakes.nix hostname (near the bottom of file) to whatever hostnames are being used
-11. Copy the hardware file from /etc/nixos and replace the one in the .dotfiles directory with desired hostname (do NOT add it to gitignore otherwise flake will prevent the file from being used)
+11. This now uses the hardware-configuration.nix file stored in /etc/nixos/ so it no longer needs to be copied to the .dotfiles directory
 
 12. cd $HOME/.dotfiles
 13. sudo nixos-rebuild switch --flake .
