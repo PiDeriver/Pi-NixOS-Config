@@ -50,7 +50,7 @@
     protonplus
     # Console Emulators
     dolphin-emu
-    parallel-launcher #Why is this broken ;-;
+    parallel-launcher
     azahar
     melonDS
     cemu
@@ -59,7 +59,7 @@
     # Video
     vlc
     # Recording
-#    obs-studio # I think this is a program I can enable so I might do this differently
+    obs-studio
     # Music
     spotify
     # Pictures
@@ -74,7 +74,7 @@
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### Desktop only ###
     # Video Editor
-    ##kdenlive #This also seems to be broken
+    kdePackages.kdenlive
     # Audio Editor
     reaper
     # Torrent Client
