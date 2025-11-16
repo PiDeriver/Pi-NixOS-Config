@@ -68,6 +68,14 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4362860/roll20_enhancement_suite-1.28.22.xpi";
           installation-mode = "force-installed";
         };
+        # Bitwarden
+#        https://addons.mozilla.org/firefox/downloads/file/4599707/bitwarden_password_manager-2025.10.0.xpi
+        # Youtube Livestreams Theater mode
+#        https://addons.mozilla.org/firefox/downloads/file/4593934/youtubelivestreamstheatermode-4.1.2.xpi
+        # Enhancer for Youtube
+#        https://www.mrfdev.com/downloads/enhancer_for_youtube-2.0.130.1.xpi
+        # 7TV
+#        https://extension.7tv.gg/v3.1.13/ext.xpi
         # ...
       };
       /* ---- PREFERENCES ---- */

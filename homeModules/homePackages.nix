@@ -50,7 +50,7 @@
     protonplus
     # Console Emulators
     dolphin-emu
-##    parallel-launcher #Why is this broken ;-;
+    parallel-launcher #Why is this broken ;-;
     azahar
     melonDS
     cemu
@@ -58,6 +58,8 @@
     ### Video/Audio/Pictures ###
     # Video
     vlc
+    # Recording
+#    obs-studio # I think this is a program I can enable so I might do this differently
     # Music
     spotify
     # Pictures
