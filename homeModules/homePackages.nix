@@ -38,7 +38,7 @@
 
     ### Alternate browsers ###
     ungoogled-chromium
-    librewolf
+#    librewolf #This seems to cause build to hang at the moment
 
     ### Security ###
     # Password Manager

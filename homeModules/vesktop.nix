@@ -8,13 +8,10 @@
   programs.vesktop = {
     enable = true;
     vencord.themes = {
-      #test = home/pideriver/.dotfiles/homeModules/vesktopTheme.css;
-      #test = import ./vesktopcss.nix;
-      test = import /home/pideriver/.dotfiles/homeModules/vesktopcss.nix; #This works!
-      #test = import "$HOME/.dotfiles/homeModules/vesktopcss.nix";
+      nixVeskTheme = import ./vesktopcss.nix;
     };
     vencord.settings ={
-      enabledThemes = ["test.css"];
+      enabledThemes = ["nixVeskTheme.css"];
       plugins = {
         ChatInputButtonAPI = {
           enabled = true;
