@@ -16,4 +16,4 @@ For first build:
 11. This now uses the hardware-configuration.nix file stored in /etc/nixos/ so it no longer needs to be copied to the .dotfiles directory
 
 12. cd $HOME/.dotfiles
-13. sudo nixos-rebuild switch --flake .
+13. sudo nixos-rebuild switch --impure --flake .

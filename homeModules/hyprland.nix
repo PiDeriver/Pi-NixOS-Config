@@ -9,8 +9,8 @@
         monitorConfig =
           if isDesktop then [
             ### Desktop Setup ###
-            "HDMI-A-1, preferred, auto, 1" # Primary
-            "DP-1, preferred, auto, 1"     # Secondary (if it exists)
+            "HDMI-A-1, preferred, auto-left, 1" # Primary
+            "DP-3, preferred, auto-right, 1"     # Secondary (if it exists)
           ] else [
             ### Laptop Setup ###
             "eDP-1, preferred, auto, 1"    # Primary
@@ -25,10 +25,10 @@
             "3, monitor:HDMI-A-1, persistent:true"
             "4, monitor:HDMI-A-1, persistent:true"
             "5, monitor:HDMI-A-1, persistent:true"
-            "6, monitor:DP-1, persistent:true"  # Workspaces 6-9 on the DP-1 monitor
-            "7, monitor:DP-1, persistent:true"
-            "8, monitor:DP-1, persistent:true"
-            "9, monitor:DP-1, persistent:true"
+            "6, monitor:DP-3, persistent:true"  # Workspaces 6-9 on the DP-1 monitor
+            "7, monitor:DP-3, persistent:true"
+            "8, monitor:DP-3, persistent:true"
+            "9, monitor:DP-3, persistent:true"
           ] else [
             ### Laptop Workspaces ###
             "1, monitor:eDP-1, persistent:true"

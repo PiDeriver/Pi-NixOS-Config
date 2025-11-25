@@ -13,12 +13,17 @@
     ani-cli
     ani-skip
     
+    # Audio Visualizer (used in waybar)
+#    cava
+
     ### Hardware and Peripherals ###
 
     # Open-source CLI tool to manage headset settings
     headsetcontrol
     # volume control GUI
     pavucontrol
+    # Command line monitor tool
+    xorg.xrandr
 
     ### Data manipulation ###
 
@@ -54,6 +59,9 @@
     azahar
     melonDS
     cemu
+    # Archipelago
+    archipelago
+    poptracker
 
     ### Video/Audio/Pictures ###
     # Video
