@@ -31,6 +31,8 @@
     wl-clipboard
     # Open-source office suite
     libreoffice
+    # Ebook Reader
+    foliate
     # drag and drop utility
     dragon-drop
 
@@ -42,7 +44,7 @@
     # Password Manager
     bitwarden-desktop
     # VPN
-##    protonvpn-gui #This is now broken for some reason?
+    protonvpn-gui
 
     ### Games/Emulation ###
     # Sound Voltex Emulator
