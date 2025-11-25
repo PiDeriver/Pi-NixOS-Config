@@ -1,9 +1,20 @@
 { ... }: 
 {
+  stylix.targets = {
+    vesktop.enable = false;
+    vencord.enable = false;
+  };
+
   programs.vesktop = {
     enable = true;
+    vencord.themes = {
+      #test = home/pideriver/.dotfiles/homeModules/vesktopTheme.css;
+      #test = import ./vesktopcss.nix;
+      test = import /home/pideriver/.dotfiles/homeModules/vesktopcss.nix; #This works!
+      #test = import "$HOME/.dotfiles/homeModules/vesktopcss.nix";
+    };
     vencord.settings ={
-      #enabledThemes = ../theme/ClearVision-v7-BetterDiscord.theme.css;
+      enabledThemes = ["test.css"];
       plugins = {
         ChatInputButtonAPI = {
           enabled = true;
