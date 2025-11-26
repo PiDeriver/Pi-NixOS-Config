@@ -40,6 +40,9 @@
 
     # other packages to be managed by home-manager
     homeModules/homePackages.nix
+
+    ### Wine programs ###
+    homeModules/lutris.nix
   
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### desktop only ###

@@ -50,8 +50,10 @@
     # Sound Voltex Emulator
     unnamed-sdvx-clone
     # Wine Emulator
-    lutris
-    wine
+#    lutris #Changed to programs version
+#    wine
+    winetricks
+    wineWowPackages.full
     bottles
     # Wine Manager
     protonplus
