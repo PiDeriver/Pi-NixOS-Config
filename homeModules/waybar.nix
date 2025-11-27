@@ -15,7 +15,7 @@ mainBar = {
 
 
 
-	modules-left = ["custom/padd" "custom/l_end" "custom/power" "custom/cliphist" "custom/wbar" "hyprland/workspaces" "custom/theme" "custom/wallchange" "custom/r_end" "custom/l_end" "cava" "custome/r_end" "custom/l_end" "wlr/taskbar" "custom/spotify" "custom/r_end" "custom/padd"];
+	modules-left = ["custom/padd" "custom/l_end" "custom/power" "custom/cliphist" "custom/wbar" "hyprland/workspaces" "custom/theme" "custom/wallchange" "custom/r_end" "custom/l_end" "cava" "custom/r_end" "custom/l_end" "wlr/taskbar" "custom/spotify" "custom/r_end" "custom/padd"];
 
 	modules-center = ["custom/padd" "custom/l_end" "clock" "custom/r_end" "custom/padd"];
 
@@ -341,23 +341,12 @@ mainBar = {
 
     @define-color bar-bg rgba(0, 0, 0, 0.25);
 
-    @define-color main-bg #11111b;
-    @define-color main-fg #cdd6f4;
-
-    @define-color wb-act-bg #a6adc8;
-    @define-color wb-act-fg #313244;
-
-    @define-color wb-hvr-bg #f5c2e7;
-    @define-color wb-hvr-fg #313244;
- 
 
     window#waybar {
       background: @bar-bg;
     }
 
     tooltip {
-      background: @main-bg;
-      color: @main-fg;
       border-radius: 7px;
       border-width: 0px;
     }
@@ -373,13 +362,13 @@ mainBar = {
       padding-left: 2px;
       padding-right: 2px;
       margin-right: 0px;
-      color: @main-fg;
+      color: @base03;
       animation: ws_normal 20s ease-in-out 1;
     }
 
 #workspaces button.active {
-      background: @wb-act-bg;
-      color: @wb-act-fg;
+      background: @base03;
+      color: @base00;
       margin-left: 2px;
       padding-left: 10px;
       padding-right: 10px;
@@ -389,15 +378,15 @@ mainBar = {
     }
 
 #workspaces button:hover {
-      background: @wb-hvr-bg;
-      color: @wb-hvr-fg;
+      background: @base00;
+      color: @base03;
       animation: ws_hover 20s ease-in-out 1;
       transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
     }
 
 #taskbar button {
       box-shadow: none;
-    text-shadow: none;
+      text-shadow: none;
       padding: 0px;
       border-radius: 9px;
       margin-top: 3px;
@@ -406,13 +395,13 @@ mainBar = {
       padding-left: 2px;
       padding-right: 2px;
       margin-right: 0px;
-      color: @wb-color;
+      color: @base03;
       animation: tb_normal 20s ease-in-out 1;
     }
 
 #taskbar button.active {
-      background: @wb-act-bg;
-      color: @wb-act-color;
+      background: @base03;
+      color: @base00;
       margin-left: 2px;
       padding-left: 10px;
       padding-right: 10px;
@@ -422,25 +411,39 @@ mainBar = {
     }
 
 #taskbar button:hover {
-      background: @wb-hvr-bg;
-      color: @wb-hvr-color;
+      background: @base00;
+      color: @base03;
       animation: tb_hover 20s ease-in-out 1;
       transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
     }
 
 #tray menu * {
-      min-height: 16px
+      min-height: 16px;
     }
 
 #tray menu separator {
-      min-height: 10px
+      min-height: 10px;
     }
 
 #backlight,
 #battery,
 #bluetooth,
 #custom-cliphist,
-#clock,
+#clock {
+      box-shadow: none;
+      text-shadow: none;
+      padding: 0px;
+      border-radius: 9px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      margin-left: 0px;
+      padding-left: 2px;
+      padding-right: 2px;
+      margin-right: 0px;
+      background: @base00;
+      color: @base03;
+    }
+
 #custom-cpuinfo,
 #cpu,
 #custom-gpuinfo,
@@ -449,10 +452,31 @@ mainBar = {
 #language,
 #memory,
 #mpris,
-#network,
+#network {
+      color: @base03;
+    }
+
 #custom-notifications,
-#custom-power,
-# pulseaudio,
+#custom-power {
+      color: @base03;
+    }
+
+#pulseaudio,
+#cava {
+      box-shadow: none;
+      text-shadow: none;
+      padding: 0px;
+      border-radius: 9px;
+      margin-top: 3px;
+      margin-bottom: 3px;
+      margin-left: 0px;
+      padding-left: 2px;
+      padding-right: 2px;
+      margin-right: 0px;
+      background: @base00;
+      color: @base03;
+    }
+
 #custom-spotify,
 #taskbar,
 #custom-theme,
@@ -468,8 +492,8 @@ mainBar = {
 #custom-sr_end,
 #custom-rl_end,
 #custom-rr_end {
-      color: @main-fg;
-      background: @main-bg;
+      /*color: @main-fg;*/
+      /*background: @main-bg;*/
       opacity: 1;
       margin: 4px 0px 4px 0px;
       padding-left: 4px;
