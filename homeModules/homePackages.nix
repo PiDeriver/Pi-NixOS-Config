@@ -12,9 +12,6 @@
     # Anime Tools
     ani-cli
     ani-skip
-    
-    # Audio Visualizer (used in waybar)
-#    cava
 
     ### Hardware and Peripherals ###
 
@@ -31,6 +28,9 @@
     wl-clipboard
     # Open-source office suite
     libreoffice
+    # Zip Files
+    zip
+    unzip
     # Ebook Reader
     foliate
     # drag and drop utility
@@ -50,7 +50,6 @@
     # Sound Voltex Emulator
     unnamed-sdvx-clone
     # Wine Emulator
-#    lutris #Changed to programs version
 #    wine
     winetricks
     wineWowPackages.full
@@ -81,7 +80,10 @@
     ### Backup Utility ###
     luckybackup
 
-
+    ### Custom Cursor ###
+    win2xcur
+    hyprcursor
+    rose-pine-hyprcursor
 
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### Desktop only ###

@@ -69,4 +69,8 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Custom Cursor
+  home.file.".icons/Chiharu".source = ./theme/Chiharu;
+  #gtk.cursorTheme.name = "Chiharu";
 }
