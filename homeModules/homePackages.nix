@@ -14,6 +14,9 @@
     # get detailed hardware information
     lshw
 
+    # System Monitor
+    monitor
+
     # Anime Tools
     ani-cli
     ani-skip
