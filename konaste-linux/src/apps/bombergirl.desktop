@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ボンバーガール
+Type=Application
+Categories=Game
+GenericName=Strategy Game
+GenericName[ja]=戦略ゲーム
+GenericName[ko]=전략 게임
+MimeType=x-scheme-handler/konaste.bomber-girl;
+Icon=bombergirl
+Exec=/home/pideriver/.local/bin/konaste/home/pideriver/.local/bin/konastebombergirl %u

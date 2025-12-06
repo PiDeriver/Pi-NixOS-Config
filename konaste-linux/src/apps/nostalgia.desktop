@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ノスタルジア
+Type=Application
+Categories=Game
+GenericName=Rhythm Game
+GenericName[ja]=音ゲー
+GenericName[ko]=음악 게임
+MimeType=x-scheme-handler/konaste.nostalgia;
+Icon=nostalgia
+Exec=/home/pideriver/.local/bin/konaste/home/pideriver/.local/bin/konastenostalgia %u

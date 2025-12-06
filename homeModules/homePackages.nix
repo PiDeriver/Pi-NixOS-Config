@@ -6,6 +6,11 @@
     # fetch files from web address
     wget
 
+    # Linux コナステ dependancies
+    xdg-utils
+    zenity
+    (import ../konaste-linux/install-konaste.nix)
+
     # get detailed hardware information
     lshw
 
@@ -21,6 +26,8 @@
     pavucontrol
     # Command line monitor tool
     xorg.xrandr
+    # GTK patchbay for pipewire
+    helvum
 
     ### Data manipulation ###
 
@@ -50,7 +57,6 @@
     # Sound Voltex Emulator
     unnamed-sdvx-clone
     # Wine Emulator
-#    wine
     winetricks
     wineWowPackages.full
     bottles
@@ -104,4 +110,7 @@
     # DDR emulator
     stepmania
   ];
+
+  #Add enviroment path for konaste
+  home.sessionPath = [ "$HOME/.local/bin" ];
 }

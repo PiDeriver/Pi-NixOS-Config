@@ -9,7 +9,6 @@
     nixModules/localization.nix
 
     ### Hardware and Peripherals ###
-#    ./${systemSettings.hostname}_hardware-configuration.nix
     /etc/nixos/hardware-configuration.nix
     nixModules/${systemSettings.hostname}_gpu.nix
     nixModules/keyboard.nix
@@ -22,6 +21,9 @@
 
     ### Theming ###
     nixModules/stylix.nix
+
+    ### Fonts ###
+    nixModules/fonts.nix
 
   ];
   

@@ -1,0 +1,807 @@
+#!/usr/bin/env bash
+
+VERSION='0.2.4'
+#
+# Konaste Linux: A Bash script for installing and playing KONAMI Amusement Game
+# Station (Konaste) games on Linux-based operating systems, using Wine.
+# https://github.com/mizztgc/konaste-linux
+#
+# DISCLAIMER: This script is in NO WAY affiliated with, endorsed, nor supported
+# by KONAMI Amusement themselves. In order to play your preferred Konaste
+# games, you will need an active KONAMI ID, plus the necessary subscriptions to
+# each game's basic course in order to access them outside of trial mode.
+#
+# WARNING: Due to Wine's nature, some titles may exhibit SEVERE ISSUES not
+# present on Windows. This script does not address any of these issues other
+# than providing a sample rate fix for the BEMANI (rhythm game) titles. Not all
+# Konaste titles have been tested, and may exhibit some undocumented bugs.
+#
+
+#
+# HOW IT WORKS:
+# 1. User selects game launcher from DE/WM
+# 2. Konaste Linux initializes a Wineprefix, if necessary
+# 3. Search the prefix's registry for the game's InstallDir key
+# 4. Download and run the game installer, if not installed
+# 5. Open the game's launch page in a browser, if no URI is provided
+# 6. Start the game's launcher, with the URI as an argument
+# 7. GO BONGA~!
+#
+
+WINE="$(command -v wine)"
+WINEBOOT="$(command -v wineboot)"
+WINEPATH="$(command -v winepath)"
+WINESERVER="$(command -v wineserver)"
+MSIEXTRACT="$(command -v msiextract)"
+PW_LOOPBACK="$(command -v pw-loopback)"
+PACTL="$(command -v pactl)"
+WGET="$(command -v wget)"
+ZENITY="$(command -v zenity)"
+
+DEFAULT_PREFIX_LOCATION="$HOME/.local/share/konaste"
+
+log() {
+	case "$1" in
+		err|error) LOG_LABEL='\033[1;38;5;9m-> ERROR:\033[0m '; shift ;;
+		warn|warning) LOG_LABEL='\033[1;38;5;11m-> WARNING:\033[0m '; shift ;;
+		ok) LOG_LABEL='\033[1;38;5;10m->\033[0m '; shift ;;
+		info|*) LOG_LABEL='\033[1m->\033[0m '; shift ;;
+	esac
+
+	[[ "$TERM" != 'dumb' ]] && echo -en "${LOG_LABEL}" >&2
+	echo -e "$@" >&2
+	unset LOG_LABEL
+}
+
+show_help() {
+	exc=0
+	echo -en "\033[1mKonaste Linux v${VERSION} Help"
+	if [[ -n "$1" ]]; then
+		case "$1" in
+			[Ii][Dd]|[Gg][Aa][Mm][Ee][Ii][Dd])
+				echo -e ": Game IDs\033[0m\n"
+				echo -e "Each Konaste game has a game ID associated with it to help identify it with\nthis script. They are listed below:"
+				echo -e "  iidx       \033[1mbeatmania IIDX \033[38;5;81mINFINITAS\033[0m"
+				echo -e "  sdvx       \033[1mSOUND VOLTEX \033[38;5;123mEXCEED\033[0m \033[38;5;199mGEAR\033[0m \033[1;38;5;196mコナステ\033[0m"
+				echo -e "  ddr        \033[1mDanceDanceRevolution \033[38;5;212mGRAND PRIX\033[0m"
+				echo -e "  gitadora   \033[1;38;5;214mGI\033[38;5;226mTA\033[38;5;118mDO\033[38;5;39mRA\033[0m \033[1;38;5;196mコナステ\033[0m"
+				echo -e "  nostalgia  \033[1;38;5;141mノスタルジア ($(get_game_information entitle nostalgia))\033[0m"
+				echo -e "  popn       \033[1;38;5;226mpop'n music\033[0m \033[1;38;5;27mL\033[38;5;208mi\033[38;5;82mv\033[38;5;214me\033[38;5;177ml\033[38;5;198my\033[0m"
+				echo -e "  bombergirl \033[1;38;5;220mボンバーガール ($(get_game_information entitle bombergirl))\033[0m"
+
+				echo -e "\nTo install/play one of these titles, run the script with the game ID specified\nas an argument. For example, to install/play beatmania IIDX INFINITAS:\n  \033[1m\$ $(basename -- $0) iidx\033[0m"
+				;;
+			*)
+				echo -en '\r\033[2K' # Erase title line
+				log error "Unknown help section: $1"
+				show_help # Run the command, but without any args
+				return 1
+				;;
+		esac
+	else
+		echo -e "\033[0m\nUsage: $(basename -- $0) <game ID|command> ..."
+		echo -e "\n\033[1mCommands: \033[0m"
+		echo -e "  init  Initialize the Wineprefix"
+		echo -e "  list  List installed games"
+		echo -e "  help  Show this message"
+		echo -e "\n\033[1mFlags: \033[0m"
+		echo -e "  --silent            Skip the game installer and use defaults "
+		echo -e "  --wine-vd           Run through Wine's virtual desktop"
+		echo -e "\n\033[1mThe following flags are experimental and can break things:\033[0m"
+		echo -e "  --disable-dxvk      Use Wine's built-in DirectX libraries instead of DXVK"
+		echo -e "  --disable-loopback  Do not enable the virtual output workaround for some games"
+		echo -e "  --wayland           Run Wine with the Wayland driver instead of X11 "
+		echo -e "\n\nFor a list of usable game IDs, run the following:"
+		echo -e "  \033[1m\$ $(basename -- $0) help \033[4mgameid\033[0m"
+	fi
+	return
+}
+
+####################################################################################################
+####################################################################################################
+####################################################################################################
+
+parse_flags() {
+	[[ $# -eq 0 ]] && {
+		log error "No arguments provided. Type \033[1mkonaste help\033[0m for a list of commands"
+		exit 1
+	}
+
+	# TODO: Improve this.
+	while [[ $# -gt 0 ]]; do
+		case "$1" in
+			help|--help) show_help "$2"; exit $? ;;
+			version|--version)
+				echo -n "Konaste Linux v" >&2
+				echo "${VERSION}"
+				exit
+				;;
+			#list) declare -gr cmd='list' 2>/dev/null ;;
+			init) declare -gr cmd='init' 2>/dev/null ;;
+			iidx|sdvx|ddr|gitadora|nostalgia|popn|bombergirl) [[ -z "$toPlay" ]] && toPlay="$1" ;;
+			# Now we get to the good part
+			bm2dxinf://*|konaste.*://*|*://*)
+				if [[ -n "$toPlay" ]]; then
+					if [[ -n "$(grep -Eo $(get_game_information uri) <(echo $1))" ]]; then
+						launchUri="$1"
+					else
+						log error "$(get_title) cannot be launched with a $(echo $1 | sed 's/:\/\/.*//') URI"
+						exit 2
+					fi
+				else
+					# Fine. We'll just GUESS the game that needs to be played.
+					case "$1" in
+						bm2dxinf://*) [[ -z "$toPlay" ]] && toPlay='iidx' ;;
+						konaste.sdvx://*) [[ -z "$toPlay" ]] && toPlay='sdvx' ;;
+						konaste.ddr://*) [[ -z "$toPlay" ]] && toPlay='ddr' ;;
+						konaste.gitadora://*) [[ -z "$toPlay" ]] && toPlay='gitadora' ;;
+						konaste.nostalgia://*) [[ -z "$toPlay" ]] && toPlay='nostalgia' ;;
+						konaste.popn-music://*) [[ -z "$toPlay" ]] && toPlay='popn' ;;
+						konaste.bomber-girl://*) [[ -z "$toPlay" ]] && toPlay='bombergirl' ;;
+						konaste.*://*)
+							log error "Invalid Konaste URI specified: $1"
+							exit 2
+							;;
+						*)
+							log error "Unknown URI specified: $1"
+							exit 2
+							;;
+					esac
+
+					launchUri="$1"
+				fi
+				;;
+			# Install Flags
+			--silent) silentInstall=1 ;;
+			# Gameplay flags
+			--wine-vd) useWineVD=1 ;;
+			# DANGER flags:
+			--disable-dxvk) noDXVK=1 ;;
+			--disable-loopback) noLoopback=1 ;;
+			--wayland) useWayland=1 ;;
+			# Unknown.
+			--*) log error "Unknown flag: $1" && exit 1 ;;
+			*) log error "Unknown command: $1" && exit 1 ;;
+		esac
+
+		shift
+	done
+
+	if [[ $useWayland -eq 1 ]]; then
+		if [[ $XDG_SESSION_TYPE	!= 'wayland' ]]; then
+			log warning "Ignoring --wayland on X11..."
+		else
+			log warning "Make sure your build of Wine supports the Wayland driver!"
+			unset DISPLAY # Wine is configured by default to use X11 over Wayland
+		fi
+	fi
+}
+
+####################################################################################################
+####################################################################################################
+####################################################################################################
+
+function verify_uri() {
+	[[ -z "${launchUri}" || -z "$toPlay" ]] && return 127
+
+	if [[ "${launchUri}" =~ ^bm2dxinf:// || "${launchUri}" =~ ^konaste.*:// ]]; then
+		if [[ "$toPlay" == 'iidx' ]]; then
+			if [[ "${launchUri}" == konaste.*://* ]]; then
+				log error "$(get_title) cannot be started with a ${launchUri%://*}:// URI"
+				return 1
+			fi
+
+			# Work our way up
+			uriContent="${launchUri##*://}"
+			if [[ "$uriContent" =~ login\?tk= ]]; then
+				uriContent="${uriContent##*login\?tk=}"
+				uriToken="${uriContent%\&*}"
+				#uriMode=$(tr -dc '[:alpha:]' <<< "${uriContent##*\&}")
+
+				if [[ "${#uriToken}" -ne 64 ]]; then
+					log error "Token length is not equal to 64"
+					return 2
+				fi
+
+				if [[ $(grep -E '[^0-9a-f]' <<< "$uriToken") ]]; then
+					log error "Invalid URI for $(get_title) provided"
+					return 3
+				fi
+
+				uriMode=$(grep -Eo '&.*$' <<< "$uriContent" | tr -dc '[:alpha:]')
+				if [[ -z "$uriMode" ]]; then
+					# If you don't include the thing at the end, beatmania IIDX INFINITAS will
+					# always assume it is being launched in release mode (rel).
+					log warning "No mode specified! Assuming release mode..."
+					launchUri+='&rel='
+
+					unset uriMode uriContent uriToken
+					return 0
+				else
+					if [[ "$uriMode" != 'rel' && "$uriMode" != 'trial' ]]; then
+						log error "Unrecognized mode for $(get_title) specified: $uriMode" >&2
+						return 4
+					else
+						unset uriMode uriContent uriToken
+						return 0
+					fi
+				fi
+			fi
+
+			log error "Malformed URI for $(get_title) provided" >&2
+			return 1
+		else
+			if [[ "$launchUri" == bm2dxinf://* ]]; then
+				log error "$(get_title) cannot be started with a ${launchUri%://*}:// URI"
+				return 1
+			fi
+			uriId=$(cut -d'.' -f2 2>/dev/null <<< "${launchUri%://*}")
+			if [[ "$uriId" != $(cut -d'.' -f2 2>/dev/null <<< "$(get_game_information uri)") ]]; then
+				log error "Invalid Konaste URI: konaste.${uriId}"
+				return 2
+			fi
+
+			uriToken=( $(sed -e 's:\-:\ :g' 2>/dev/null <<< "${launchUri##*://}") )
+			# Now go through all the entries
+			for (( i=0; i<5; i++ )); do
+				case $i in
+					0)     grep -qE '[0-9a-f]{8}' <<< ${uriToken[$i]}  ;;
+					1|2|3) grep -qE '[0-9a-f]{4}' <<< ${uriToken[$i]}  ;;
+					4)     grep -qE '[0-9a-f]{12}' <<< ${uriToken[$i]} ;;
+				esac
+
+				if [[ $? -ne 0 ]]; then
+					log error "Malformed URI for $(get_title) provided"
+					return 3
+				fi
+			done
+
+			unset uriToken uriId
+			return 0
+		fi
+	else
+		log error "Invalid URI specified: $launchUri"
+		return 1
+	fi
+}
+
+function get_registry_key() {
+	[[ -z "$1" ]] && return 126
+
+	if [[ -z "$2" ]]; then
+		k="$(WINEDEBUG='-all' "${WINE}" reg query "${1}" '/ve' '/reg:64')"
+	else
+		k="$(WINEDEBUG='-all' "${WINE}" reg query "${1}" '/v' "${2}" '/reg:64')"
+	fi
+
+	if [[ $? -ne 0 ]]; then
+		return 1
+	fi
+
+	k="$(echo "${k}" | tr -dc '[:print:]' | sed 's:\ \ \ \ :\n:g' | tail -n+4)"
+	if [[ "$k" == '(value not set)' ]]; then
+		echo ""
+	else
+		echo "${k}"
+	fi
+
+	return 0
+}
+
+function get_launcher_for_game() {
+	# I think just trying to look for the launcher within the filesystem would've
+	# been quicker, but I REALLY want this to see if the file exists.
+	[[ -z "$toPlay" ]] && return 1
+
+	k="$(get_registry_key "HKLM\\SOFTWARE\\KONAMI\\$(get_game_information dirtitle)" 'InstallDir')"
+	if [[ -n "${k}" ]]; then
+		path="$("${WINEPATH}" -u "${k}")"
+		if [[ -d "${path}" ]]; then
+			cd "${path}"
+			if [[ -f launcher/modules/"$(get_game_information launcher)".exe ]]; then
+				echo "$("${WINEPATH}" -w launcher/modules/"$(get_game_information launcher)".exe)"
+				return 0
+			fi
+		fi
+	fi
+
+	return 1
+}
+
+function get_title() {
+	# This function is to get a proper localized title for the game
+	[[ -z "$toPlay" ]] && return 1
+	if [[ "${LANG}" != ja* ]]; then
+		if [[ -n "$(get_game_information entitle)" ]]; then
+			echo "$(get_game_information entitle)"
+		else
+			echo "$(get_game_information title)"
+		fi
+	else
+		echo "$(get_game_information title)"
+	fi
+}
+
+function get_game_information() {
+	if [[ -z "$2" ]]; then
+		if [[ -n "$toPlay" ]]; then
+			obtain="$toPlay"
+		else
+			return 1
+		fi
+	else
+		obtain="$2"
+	fi
+
+	case "$obtain" in
+		iidx)
+			GAME_TITLE='beatmania IIDX INFINITAS'
+			DIR_TITLE="${GAME_TITLE}"
+			SIMPLE_NAME="infinitas"
+			INSTALLER_LINK="https://d1rc4pwxnc0pe0.cloudfront.net/v2/installer/infinitas_installer_2022060800.msi"
+			LAUNCH_PAGE="https://p.eagate.573.jp/game/infinitas/2/api/login/login.html"
+			LAUNCHER_NAME='bm2dx_launcher'
+			URI='bm2dxinf'
+			;;
+		sdvx)
+			GAME_TITLE='SOUND VOLTEX EXCEED GEAR コナステ'
+			EN_TITLE='SOUND VOLTEX EXCEED GEAR'
+			DIR_TITLE='SOUND VOLTEX EXCEED GEAR'
+			SIMPLE_NAME="sdvx-exceedgear"
+			INSTALLER_LINK="https://dks1q2aivwkd6.cloudfront.net/vi/installer/sdvx_installer_2022011800.msi"
+			LAUNCH_PAGE="https://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=sdvx"
+			LAUNCHER_NAME='launcher'
+			URI='konaste.sdvx'
+			;;
+		ddr)
+			GAME_TITLE='DanceDanceRevolution GRAND PRIX'
+			DIR_TITLE='DanceDanceRevolution'
+			SIMPLE_NAME="ddr-gp"
+			INSTALLER_LINK="https://d2el0dli9l0x2p.cloudfront.net/installer/ddr_installer_2022012601.msi"
+			LAUNCH_PAGE="http://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=ddr"
+			LAUNCHER_NAME='launcher'
+			URI='konaste.ddr'
+			;;
+		gitadora)
+			GAME_TITLE='GITADORA コナステ'
+			EN_TITLE='GITADORA'
+			DIR_TITLE='GITADORA'
+			SIMPLE_NAME="gitadora"
+			INSTALLER_LINK="https://d1omkh45tn6edw.cloudfront.net/inst/GITADORA_installer.msi"
+			LAUNCH_PAGE="http://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=gitadora"
+			LAUNCHER_NAME='launcher'
+			URI='konaste.gitadora'
+			;;
+		nostalgia)
+			GAME_TITLE='ノスタルジア'
+			EN_TITLE='NOSTALGIA'
+			DIR_TITLE='NOSTALGIA'
+			SIMPLE_NAME="nostalgia"
+			INSTALLER_LINK="https://d26kzmeiv4899f.cloudfront.net/installer/NOSTALGIA_installer.msi"
+			LAUNCH_PAGE="http://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=NOSTALGIA"
+			LAUNCHER_NAME='launcher'
+			URI='konaste.nostalgia'
+			;;
+		popn)
+			GAME_TITLE="pop'n music Lively"
+			DIR_TITLE="${GAME_TITLE}"
+			SIMPLE_NAME="popn"
+			INSTALLER_LINK="https://d1twxdn5j8sbm3.cloudfront.net/installer/popn_installer_2021021801.msi"
+			LAUNCH_PAGE="https://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=popn-music"
+			LAUNCHER_NAME='launcher'
+			URI='konaste.popn-music'
+			;;
+		bombergirl)
+			GAME_TITLE='ボンバーガール'
+			EN_TITLE='BOMBERGIRL'
+			DIR_TITLE='BomberGirl'
+			SIMPLE_NAME="bombergirl"
+			INSTALLER_LINK="https://d1q1iflay6y5jj.cloudfront.net/Installer/2021122200_b37bc853/BomberGirl_Installer.msi"
+			LAUNCH_PAGE="https://p.eagate.573.jp/game/konasteapp/API/login/login.html?game_id=bomber-girl"
+			LAUNCHER_NAME='launcher'
+			URI='konaste.bomber-girl'
+			;;
+		*)
+			#log error "Invalid game specified: $1" >&2
+			return 1
+			;;
+	esac
+
+	# Determine what we need
+	case "$1" in
+		title)		echo -n "${GAME_TITLE}" ;;
+		entitle)	echo -n "${EN_TITLE}" ;;
+		dirtitle)	echo -n "${DIR_TITLE}" ;;
+		simple) 	echo -n "${SIMPLE_NAME}" ;;
+		installer)	echo -n "${INSTALLER_LINK}" ;;
+		webpage)	echo -n "${LAUNCH_PAGE}" ;;
+		launcher)	echo -n "${LAUNCHER_NAME}" ;;
+		uri)		echo -n "${URI}" ;;
+		*) ;;
+	esac
+
+	unset GAME_TITLE EN_TITLE DIR_TITLE SIMPLE_NAME INSTALLER_LINK LAUNCH_PAGE LAUNCHER_NAME obtain
+	return 0
+}
+
+####################################################################################################
+####################################################################################################
+####################################################################################################
+#
+# list_games() {
+# 	get() {
+# 		toPlay="$1"
+# 		[[ -n "$(get_launcher_for_game)" ]] && echo "$toPlay"
+# 	}
+#
+# 	get 'iidx'
+# 	get 'sdvx'
+# 	get 'ddr'
+# 	get 'gitadora'
+# 	get 'popn'
+# 	get 'nostalgia'
+# 	get 'bombergirl'
+# 	exit 0
+# }
+
+prepare_wineprefix() {
+	# Create the Wineprefix if it does not exist
+	if [[ ! -e "${WINEPREFIX}" && ! -f "${WINEPREFIX}/system.reg" ]]; then
+		log info "Wineprefix at ${WINEPREFIX} was not found. Creating one now..." >&2
+		mkdir -p "${WINEPREFIX}"
+		"${WINEBOOT}" -i 2>/dev/null
+	else
+		log warning "Existing Wineprefix detected. Starting initialization process..."
+		"${WINEBOOT}" -u 2>/dev/null
+	fi
+
+	DXVK_LINK="https://github.com/doitsujin/dxvk/releases/download/v2.7.1/dxvk-2.7.1.tar.gz"
+	VCR2010_LINK="https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x64.exe"
+
+	# Add the fonts so Japanese/Chinese characters render properly
+	# Distros are pretty weird with how they package fonts, especially the Noto CJK ones
+	if [[ -d "$(find /usr/share/fonts -type d -name 'noto-cjk')" ]]; then
+		log info 'Found Noto Sans CJK font family in system' >&2
+		log info 'Setting registry entries to use for CJK fonts...' >&2
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'MS Gothic' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'MS PGothic' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'MS UI Gothic' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'MS Mincho' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'MS PMincho' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Meiryo' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Meiryo UI' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'メイリオ' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'ＭＳ ゴシック' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'ＭＳ Ｐゴシック' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Microsoft JhengHei' /t 'REG_SZ' /d 'Noto Sans CJK TC' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Microsoft JhengHei UI' /t 'REG_SZ' /d 'Noto Sans CJK TC' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Microsoft YaHei' /t 'REG_SZ' /d 'Noto Sans CJK SC' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Microsoft YaHei UI' /t 'REG_SZ' /d 'Noto Sans CJK SC' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'MingLiU' /t 'REG_SZ' /d 'Noto Sans CJK TC' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'MingLiU-ExtB' /t 'REG_SZ' /d 'Noto Sans CJK TC' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'ＭＳ 明朝' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'ＭＳ Ｐゴシック' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'ＭＳ Ｐ明朝' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Yu Gothic' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Yu Gothic UI' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Fonts\Replacements' /v 'Yu Mincho' /t 'REG_SZ' /d 'Noto Sans CJK JP' /f > /dev/null
+	else
+		log warning "Noto CJK fonts were not found on your system. Japanese fonts may not render properly!"
+	fi
+
+	cd "${WINEPREFIX}/drive_c"
+
+	# might be redundant since wine already bundles a version of vcr2010
+	log info 'Downloading Microsoft Visual C++ Redist 2010...' >&2
+	"${WGET}" -t 3 -O "${WINEPREFIX}/drive_c/$(basename -- $VCR2010_LINK)" "$VCR2010_LINK"
+	if [[ $? -ne 0 ]]; then
+		log error "Failed to install Microsoft Visual C++ Redist 2010!"
+		exit 3
+	else
+		log info 'Installing Microsoft Visual C++ Redist 2010...' >&2
+		"${WINE}" 'C:\vcredist_x64.exe' '/quiet' 2>/dev/null
+		if [[ $? -ne 0 ]]; then
+			log error "Failed to install Microsoft Visual C++ Redist 2010!"
+			exit 4
+		fi
+
+		rm "$(basename -- $VCR2010_LINK)"
+	fi
+
+	log info "Downloading DXVK archive..."
+	"${WGET}" -t 3 -O "${WINEPREFIX}/drive_c/$(basename -- $DXVK_LINK)" "$DXVK_LINK"
+	if [[ $? -ne 0 ]]; then
+		log error "Failed to install DXVK!"
+		"${ZENITY}" --question \
+			--title "Failed to download DXVK" \
+			--width 300 \
+			--text "Konaste Linux was unable to download and install DXVK. Do you want to continue without it? (NOT RECOMMENDED!)" 2>/dev/null
+
+		if [[ $? -ne 0 ]]; then
+			exit 5
+		fi
+
+		log warning "Continuing without DXVK!"
+	else
+		log info "Extracting DXVK archive..." >&2
+		tar -xf dxvk-*.tar.gz
+
+		# the '-b' flag makes a backup of the built-in DLLs in case you need to revert
+		log info "Moving DXVK files to Windows directory..." >&2
+		mv -b dxvk-*/x32/*.dll windows/syswow64/
+		mv -b dxvk-*/x64/*.dll windows/system32/
+
+		# DX8 and DX10 might not be needed, since the BEMANI games run with DX9 and bonga uses DX11 (unity moment)
+		log info "Setting DLL overrides for DXVK..." >&2
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'd3d8' /t 'REG_SZ' /d 'native' /f '/reg:64' > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'd3d8' /t 'REG_SZ' /d 'native' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'd3d9' /t 'REG_SZ' /d 'native' /f '/reg:64' > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'd3d9' /t 'REG_SZ' /d 'native' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'd3d10core' /t 'REG_SZ' /d 'native' /f '/reg:64' > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'd3d10core' /t 'REG_SZ' /d 'native' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'd3d11' /t 'REG_SZ' /d 'native' /f '/reg:64' > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'd3d11' /t 'REG_SZ' /d 'native' /f > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'dxgi' /t 'REG_SZ' /d 'native' /f '/reg:64' > /dev/null
+		"${WINE}" reg add 'HKCU\SOFTWARE\Wine\DllOverrides' /v 'dxgi' /t 'REG_SZ' /d 'native' /f > /dev/null
+
+		# Clean up remaining files
+		rm -rf dxvk-*
+	fi
+
+	log info "Creating additional registry keys..." >&2
+	"${WINE}" reg add 'HKCU\SOFTWARE\Wine\X11 Driver' /v 'UseXRandR' /t 'REG_SZ' /d 'Y' /f '/reg:64' > /dev/null				# Use xrandr on X11 to change resolution + refresh if needed
+	"${WINE}" reg add 'HKLM\SOFTWARE\Microsoft\DirectDraw' /v 'ForceRefreshRate' /t 'REG_DWORD' /d 120 /f '/reg:64' > /dev/null	# Force 120Hz in virtual desktop
+	"${WINE}" reg add 'HKCU\SOFTWARE\Wine\FileOpenAssociations' /v 'Enable' /d 'N' /f > /dev/null								# Stop Wine from creating desktop & mime entries
+	"${WINE}" reg add 'HKCU\SOFTWARE\Wine\Explorer\Desktops' /v 'Konaste' /d '1920x1080' /f > /dev/null							# Virtual desktop
+
+	# Officially introduced in Wine 10.0 to use ffmpeg over gstreamer for Media Foundation libraries.
+	# Currently disabled due to an audio bug in beatmania IIDX INFINITAS involving songs that utilize the new
+	# audio container (some CANNON BALLERS & Rootage songs, and all HEROIC VERSE, BISTROVER, CastHour, and RESIDENT songs).
+	# Uncomment if you want it, but be prepared to hear some lovely static in aforementioned songs.
+	#"${WINE}" reg add 'HKCU\SOFTWARE\Wine\MediaFoundation' /v 'DisableGstByteStreamHandler' /t 'REG_DWORD' /d 1 /f '/reg:64' > /dev/null
+
+	case "${LANG}" in
+		ja*) PREFIX_INIT="Wineprefixは初期化され、コナステで使用できるようになりました" ;;
+		*)   PREFIX_INIT="Wineprefix has been initialized and is ready to use for Konaste" ;;
+	esac
+	log ok "${PREFIX_INIT}" >&2
+}
+
+launch_game() {
+	[[ -z "$toPlay" ]] && exit 1
+	log info "Launching $(get_title)..."
+
+	verify_uri # verifies the URI
+	if [[ $? -ne 0 ]]; then
+		exit 1
+	fi
+
+	declare -a launchParams=( )
+
+	if [[ $noDXVK -eq 1 ]]; then
+		# Use Wine's built-in DirectX libraries instead of the ones from DXVK
+		log warning "DXVK has been disabled. You may encounter glitched/missing graphics while playing $(get_title)!"
+		export WINEDLLOVERRIDES="${WINEDLLOVERRIDES};d3d9=b;d3d11=b;dxgi=b"
+	else
+		export DXVK_LOG_LEVEL='error' # Cut down on DXVK messages in your terminal
+	fi
+
+	# Due to how Wayland is coded, it causes IIDX INFINITAS to fail to find a suitable display mode if your refresh rate
+	# is set to anything other than 60 or 120Hz, so this warning is absolutely necessary.
+	if [[ "$toPlay" == 'iidx' && "$XDG_SESSION_TYPE" == 'wayland' && $useGamescope -ne 1 ]]; then
+		IIDX_WAYLAND_WARNING="You appear to be on a Wayland session provided by ${XDG_CURRENT_DESKTOP}. Due to how Wayland is coded, it only exposes your currently set refresh rate to applications, and because beatmania IIDX INFINITAS cannot automatically find a suitable mode, it will throw a display initialization error on startup. Before clicking 'OK', ensure that your refresh rate is set to 60Hz (or 120Hz if supported by your display)."
+
+		[[ -x "${ZENITY}" ]] && "${ZENITY}" --warning --title "Wayland Warning" --width 400 --text "${IIDX_WAYLAND_WARNING}" 2>/dev/null
+		unset IIDX_WAYLAND_WARNING
+	fi
+
+	if [[ $noLoopback -ne 1 ]]; then
+		# The BEMANI games require a loopback device for audio to work.
+		# Bomber Girl uses a proper game engine (Unity) and doesn't need such workarounds.
+		# Thanks for making things difficult, konmai!
+		if [[ "$toPlay" != 'bombergirl' ]]; then
+			[[ -z "${PW_LOOPBACK}" ]] && log error "Missing PipeWire executable: pw-loopback" && exit 1
+			[[ -z "${PACTL}" ]] && log error "Missing dependency: libpulse" && exit 1
+
+			# I may have had help from ChatGPT for this part (damn regular expressions...)
+			current_samplerate=$($PACTL info | grep -w 'Default Sample Specification:' | sed 's/.* \([0-9]*\)Hz/\1/')
+			if [[ "$current_samplerate" -ne 44100 ]]; then
+				log warning "Audio sample rate detected at ${current_samplerate}Hz. Enabling loopback device..."
+				"${PW_LOOPBACK}" -m '[ FL FR ]' --capture-props='media.class=Audio/Sink node.name=konaste node.description=Konaste audio.rate=44100' &
+				[[ $? -eq 0 ]] && log info "Successfully enabled PipeWire loopback device" >&2 && export PULSE_SINK=konaste
+			else
+				log info "Audio sample rate detected at 44100Hz. Not creating loopback device..." >&2
+			fi
+			unset current_samplerate
+		fi
+	else
+		[[ "$toPlay" != 'bombergirl' ]] && log warning "--disable-loopback flag specified! You may not have audio while playing $(get_title)!"
+	fi
+
+	launchParams+=( "${WINE}" start '/high' '/wait' )
+	[[ $useWineVD -eq 1 ]] && launchParams+=( explorer '/desktop=Konaste,1920x1080' )
+
+	# The time has finally come.
+	LANG='ja_JP.UTF-8' "${launchParams[@]}" "${launcher}" "${launchUri}"
+	"${WINESERVER}" -w
+
+	# Kill the loopback device if it's running
+	if [[ $(jobs | wc -l) -gt 0 ]]; then
+		kill -15 $(jobs -p)
+		if [[ $? -eq 0 ]]; then
+			log info "Terminated PipeWire loopback device"
+		fi
+	fi
+
+	# Little thing added for fun because IIDX EMPRESS's credits song is amazing.
+	[[ "$toPlay" == 'iidx' ]] && echo -e "\n\033[1;95mThank you for playing...\033[0m\n"
+	exit 0 # exit with a code of 0 in case the above fails (this would return a non-zero value, indicating an "error")
+}
+
+install_game() {
+	[[ -z "${WGET}" ]] && error "Missing dependency: wget" && exit 1
+
+	installer="$(get_game_information installer)"
+	dir_title="$(get_game_information dirtitle)"
+
+	cd "${WINEPREFIX}/drive_c"
+
+	if [[ ! -f "$(basename -- $installer)" ]]; then
+		log info "Downloading installer for $(get_title)..." >&2
+		"${WGET}" -t 3 -O "${WINEPREFIX}/drive_c/$(basename -- $installer)" "$installer"
+		if [[ $? -ne 0 ]]; then
+			log error "Failed to download installer for $(get_title)!"
+			exit 3
+		fi
+	fi
+
+	if [[ "$silentInstall" -eq 1 ]]; then
+		log info "Performing silent install..." >&2
+		if [[ -z "${MSIEXTRACT}" ]]; then
+			case "${LANG}" in
+				ja*) NO_MSITOOLS="$(get_title)のサイレントインストールを実行するにはmsitoolsが必要です。" ;;
+				*)   NO_MSITOOLS="msitools is required to perform a silent installation of $(get_title)"
+			esac
+			log error "${NO_MSITOOLS}"
+			exit 1
+		fi
+
+		log info "Extracting files from installer..." >&2
+		"${MSIEXTRACT}" "$(basename -- $installer)" > /dev/null
+		mkdir -p Games/"$(get_game_information dirtitle)"/Resource # make this folder so the game won't complain
+
+		[[ -d System64 ]] && {
+			mv -n System64/* windows/system32
+			rm -rf System64
+			}
+		[[ -d Win ]] && {
+			mv -n Win/System64/* windows/system32
+			rm -rf Win
+		}
+		# This is actually important, so we need to install this.
+		# It "probably" won't replace the DXVK libraries, otherwise I will cry
+		if [[ -d Games/"${dir_title}"/'DirectX 9.0c Redist' ]]; then
+			log info "Installing bundled DirectX 9.0c Runtime..." >&2
+			"${WINE}" ./Games/"${dir_title}"/'DirectX 9.0c Redist'/DXSETUP.exe '/silent'
+			if [[ $? -ne 0 ]]; then
+				case "${LANG}" in
+					ja*) DX_FAIL="バンドルされた DirectX ランタイムのインストールに失敗しました。重大な問題が発生する可能性があります。" ;;
+					*)   DX_FAIL="Failed to install bundled DirectX runtime! You may encounter severe issues" ;;
+				esac
+				log error "${DX_FAIL}" >&2
+				unset DX_FAIL
+			else
+				# Nuke it, too.
+				rm -rf Games/"${dir_title}"/'DirectX 9.0c Redist' 2>/dev/null
+			fi
+		fi
+
+		log info "Creating registry keys for $(get_title)..." >&2
+		"${WINE}" reg add "HKLM\\SOFTWARE\\KONAMI\\${dir_title}" /v 'InstallDir' /t 'REG_SZ' /d "C:\Games\\${dir_title}\\" /f '/reg:64' > /dev/null
+		"${WINE}" reg add "HKLM\\SOFTWARE\\KONAMI\\${dir_title}" /v 'ResourceDir' /t 'REG_SZ' /d "C:\Games\\${dir_title}\\Resource\\" /f '/reg:64' > /dev/null
+	else
+		log info "Performing interactive install..." >&2
+		export WINEDLLOVERRIDES="${WINEDLLOVERRIDES};ieframe=d"
+		LANG='ja_JP.UTF-8' "${WINE}" msiexec '/i' "C:\\\\$(basename -- $installer)" '/L*' "C:\\\\${simplename}_install.log"
+		case $? in
+			0)  ;;
+			1)  log error "The $(get_title) installer was terminated unexpectedly" && exit 4 ;;
+			66) log error "The $(get_title) installer was cancelled by the user" && exit 5 ;;
+			67) log error "$(get_title) failed to install. Check the log at \033[1;4m${WINEPREFIX}/drive/c/${simplename}_install.log\033[22;24m to find out what happened" && exit 6 ;;
+			*)  log error "An unknown error occurred while installing $(get_title). Check the log at \033[1;4m${WINEPREFIX}/drive/c/${simplename}_install.log\033[22;24m to find out what happened" && exit 7 ;;
+		esac
+	fi
+
+	sleep 2
+	if [[ -z "${launchUri}" ]]; then
+		log ok "$(get_title) has been successfully installed."
+		[[ "$TERM" == 'dumb' ]] && exec xdg-open "$(get_game_information webpage)"
+		exit 0
+	else
+		unset DXVK_LINK WINEBOOT WINETRICKS
+		launcher="$(get_launcher_for_game)"
+		launch_game
+	fi
+}
+
+main() {
+	# Warn if running as the root user.
+	[[ $EUID -eq 0 ]] && log warning "Avoid running this script as root/sudo."
+
+	if [[ ! -x "${ZENITY}" ]]; then
+		log warning "No dialog handler detected!"
+	fi
+
+	parse_flags "$@"
+
+	export WINEPREFIX="${DEFAULT_PREFIX_LOCATION}"
+	export WINEDLLOVERRIDES="mshtml=d;winemenubuilder.exe=d"
+
+	if [[ ! -e "${WINEPREFIX}" || ! -f "${WINEPREFIX}/system.reg" ]]; then
+		if [[ "$cmd" == 'init' ]]; then
+			prepare_wineprefix
+			exit
+		elif [[ "$TERM" == 'dumb' ]]; then
+			if [[ -x "${ZENITY}" ]]; then
+				"${ZENITY}" --question \
+					--width 300 \
+					--title "No Wineprefix Found" \
+					--text "In order to use Konaste Linux, a Wineprefix must be created. Do you want to create one now?" 2>/dev/null
+				if [[ $? -eq 0 ]]; then
+					prepare_wineprefix
+				else
+					exit 1
+				fi
+			fi
+		else
+			log error "Wineprefix has not been initialized"
+			echo -e "Run \033[1m$(basename -- $0) init\033[0m to initialize the prefix"
+			exit 1
+		fi
+	fi
+
+	if [[ -n "$cmd" ]]; then # If $cmd is set, run something here
+		case "$cmd" in
+			init) prepare_wineprefix ;;
+			#list) list_games ;;
+			*) ;;
+		esac
+
+		exit
+	else # Run the game.
+		launcher="$(get_launcher_for_game)"
+		if [[ -z "$launcher" ]]; then
+			log error "$(get_title) is not installed"
+			if [[ "$TERM" == 'dumb' && -x "${ZENITY}" ]]; then
+				# Ask the user if they want to install the game
+				"${ZENITY}" --question \
+					--title "Not Installed" \
+					--width 400 \
+					--text "$(get_title) is not installed. Would you like to install it?" 2>/dev/null
+
+				if [[ $? -eq 0 ]]; then
+					install_game
+				else
+					exit 1
+				fi
+			else
+				# Run the installer anyways
+				install_game
+			fi
+		fi
+
+		# If there's no launch URI, open the webpage for the specified game
+		if [[ -z "$launchUri" ]]; then
+			exec xdg-open "$(get_game_information webpage)"
+			[[ "$?" -ne 0 ]] && {
+				log error "Failed to open webpage for $(get_title)"
+				exit 123
+			}
+		fi
+
+		# Alright, enough lollygagging. We're at the launch phase now.
+		launch_game
+	fi
+}
+
+main "$@"
