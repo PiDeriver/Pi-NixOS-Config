@@ -25,6 +25,9 @@
     ### Fonts ###
     nixModules/fonts.nix
 
+    ### Custom Cursor ###
+    nixModules/cursor.nix
+
   ];
   
   # enable flakes

@@ -63,6 +63,7 @@
 
       exec-once = [
         "waybar &"
+        "hyprctl setcursor Chiharu 12"
       ];
 
       ### hotkeys ###

@@ -7,4 +7,4 @@ GenericName[ja]=音ゲー
 GenericName[ko]=음악 게임
 MimeType=x-scheme-handler/konaste.ddr;
 Icon=ddr-grandprix
-Exec=/home/pideriver/.local/bin/konaste/home/pideriver/.local/bin/konasteddr-grandprix %u
+Exec=/home/pideriver/.local/bin/konaste/home/pideriver/.local/bin/konaste/home/pideriver/.local/bin/konasteddr-grandprix %u

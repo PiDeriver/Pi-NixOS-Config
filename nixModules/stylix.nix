@@ -19,10 +19,10 @@
 	name = "DejaVu Serif";
       };
     };
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 12;
-    };
+#    cursor = {
+#      package = pkgs.bibata-cursors;
+#      name = "Bibata-Modern-Classic";
+#      size = 12;
+#    };
   };
 }
