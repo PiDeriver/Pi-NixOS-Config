@@ -7,4 +7,4 @@ GenericName[ja]=戦略ゲーム
 GenericName[ko]=전략 게임
 MimeType=x-scheme-handler/konaste.popn-music;
 Icon=popn-lively
-Exec=/home/pideriver/.local/bin/konaste/home/pideriver/.local/bin/konaste/home/pideriver/.local/bin/konastepopn-lively %u
+Exec=popn-lively %u
