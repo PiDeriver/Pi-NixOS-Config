@@ -10,6 +10,7 @@
     xdg-utils
     zenity
     (import ../konaste-linux/install-konaste.nix)
+    paru
 
     # get detailed hardware information
     lshw
@@ -84,15 +85,15 @@
     spotify
     # Pictures
     krita
-    #gimp
+    gimp
+#    feh
+    qimgv
 
     ### Backup Utility ###
     luckybackup
 
     ### Custom Cursor ###
 #    win2xcur
-#    hyprcursor
-#    rose-pine-hyprcursor
 
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### Desktop only ###
@@ -120,14 +121,4 @@
   #Change to custom cursor
   gtk.cursorTheme.name = "Chiharu";
   gtk.cursorTheme.size = 12;
-#  home.pointerCursor = {
-#    gtk.enable = true;
-#    x11.enable = true;
-#    name = "Chiharu";
-#    size = 12;
-#  };
-#  xsession.pointerCursor.name = "Chiharu";
-#  xsession.pointerCursor.size = 12;
-#  xsession.pointerCursor.defaultCursor = "Chiharu";
-
 }

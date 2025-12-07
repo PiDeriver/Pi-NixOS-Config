@@ -5,6 +5,14 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = systemSettings.locale;
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "ja_JP.UTF-8/UTF-8"
+  ];
+
+  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc ];
+  i18n.inputMethod.fcitx5.waylandFrontend = true;
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = systemSettings.locale;
