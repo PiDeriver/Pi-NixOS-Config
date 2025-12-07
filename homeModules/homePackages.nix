@@ -47,8 +47,8 @@
     dragon-drop
 
     ### Alternate browsers ###
-#    ungoogled-chromium
-#    librewolf #This seems to cause build to hang at the moment
+    ungoogled-chromium
+    librewolf
 
     ### Security ###
     # Password Manager
