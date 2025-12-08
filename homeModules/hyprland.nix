@@ -87,13 +87,14 @@
           "CTRL&ALT&SHIFT, right, exec, hyprctl keyword monitor HDMI-A-4, preferred, auto-right, 1, transform, 3"
           "CTRL&ALT&SHIFT, up, exec, hyprctl keyword monitor HDMI-A-4, preferred, auto-right, 1, transform, 0"
           "CTRL&ALT&SHIFT, down, exec, hyprctl keyword monitor HDMI-A-4, preferred, auto-right, 1, transform, 2"
+          "$mod, Escape, exit"
       ];
 
       bind = [
 
 	"$mod, RETURN, exec, $terminal"
 	"$mod, C, killactive"
-	"$mod, Escape, exit"
+#	"$mod, Escape, exit"
 	"$mod, F, exec, $browser"
 	"$mod, R, exec, $menu"
         
