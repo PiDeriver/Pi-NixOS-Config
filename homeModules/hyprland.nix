@@ -70,15 +70,23 @@
 
       bindo = 
         if isDesktop then [
-          "$mod SHIFT, left, exec, hyprctl keyword monitor HDMI-A-1, preferred, auto-left, 1, transform, 1"
-          "$mod SHIFT, right, exec, hyprctl keyword monitor HDMI-A-1, preferred, auto-left, 1, transform, 3"
-          "$mod SHIFT, up, exec, hyprctl keyword monitor HDMI-A-1, preferred, auto-left, 1, transform, 0"
-          "$mod SHIFT, down, exec, hyprctl keyword monitor HDMI-A-1, preferred, auto-left, 1, transform, 2"
+          "CTRL&ALT, left, exec, hyprctl keyword monitor HDMI-A-1, preferred, auto-left, 1, transform, 1"
+          "CTRL&ALT, right, exec, hyprctl keyword monitor HDMI-A-1, preferred, auto-left, 1, transform, 3"
+          "CTRL&ALT, up, exec, hyprctl keyword monitor HDMI-A-1, preferred, auto-left, 1, transform, 0"
+          "CTRL&ALT, down, exec, hyprctl keyword monitor HDMI-A-1, preferred, auto-left, 1, transform, 2"
+          "CTRL&ALT&SHIFT, left, exec, hyprctl keyword monitor DP-3, preferred, auto-right, 1, transform, 1"
+          "CTRL&ALT&SHIFT, right, exec, hyprctl keyword monitor DP-3, preferred, auto-right, 1, transform, 3"
+          "CTRL&ALT&SHIFT, up, exec, hyprctl keyword monitor DP-3, preferred, auto-right, 1, transform, 0"
+          "CTRL&ALT&SHIFT, down, exec, hyprctl keyword monitor DP-3, preferred, auto-right, 1, transform, 2"
       ] else [
-          "$mod SHIFT, left, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 1"
-          "$mod SHIFT, right, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 3"
-          "$mod SHIFT, up, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 0"
-          "$mod SHIFT, down, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 2"
+          "CTRL&ALT, left, exec, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 1"
+          "CTRL&ALT, right, exec, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 3"
+          "CTRL&ALT, up, exec, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 0"
+          "CTRL&ALT, down, exec, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 2"
+          "CTRL&ALT&SHIFT, left, exec, hyprctl keyword monitor HDMI-A-4, preferred, auto-right, 1, transform, 1"
+          "CTRL&ALT&SHIFT, right, exec, hyprctl keyword monitor HDMI-A-4, preferred, auto-right, 1, transform, 3"
+          "CTRL&ALT&SHIFT, up, exec, hyprctl keyword monitor HDMI-A-4, preferred, auto-right, 1, transform, 0"
+          "CTRL&ALT&SHIFT, down, exec, hyprctl keyword monitor HDMI-A-4, preferred, auto-right, 1, transform, 2"
       ];
 
       bind = [
