@@ -10,7 +10,7 @@
     xdg-utils
     zenity
     (import ../konaste-linux/install-konaste.nix)
-    paru
+#    paru
 
     # get detailed hardware information
     lshw
@@ -32,6 +32,9 @@
     xorg.xrandr
     # GTK patchbay for pipewire
     helvum
+    # Disk tool
+    gparted
+    ntfs3g
 
     ### Data manipulation ###
 
