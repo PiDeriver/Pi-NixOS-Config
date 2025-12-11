@@ -18,6 +18,8 @@
     homeModules/xdg-portal.nix
     # screenshot util
     homeModules/hyprshot.nix
+    # Java
+    homeModules/java.nix
 
     ### basic programs ###
 
@@ -29,6 +31,7 @@
     homeModules/${userSettings.fileManager}.nix
     # text editor   
     homeModules/${userSettings.editor}.nix
+
     ### CLI tools ###
 
     # zsh
@@ -38,11 +41,14 @@
     # fzf, general fuzzy finder
     homeModules/fzf.nix
 
-    # other packages to be managed by home-manager
-    homeModules/homePackages.nix
-
     ### Wine programs ###
     homeModules/lutris.nix
+
+    ### Data manipulation ###
+    homeModules/obsidian.nix
+
+    ### Home-manager packages ###
+    homeModules/homePackages.nix
   
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### desktop only ###

@@ -10,7 +10,6 @@
     xdg-utils
     zenity
     (import ../konaste-linux/install-konaste.nix)
-#    paru
 
     # get detailed hardware information
     lshw

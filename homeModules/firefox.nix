@@ -13,7 +13,7 @@
 {
   programs.firefox = {
     enable = true;
-    languagePacks = [ "de" "en-US" ];
+    languagePacks = [ "de" "en-US" "ja" ];
     /* ---- POLICIES ---- */
     # Check about:policies#documentation for options.
     policies = {
@@ -25,9 +25,9 @@
         Cryptomining = true;
         Fingerprinting = true;
       };
-      DisablePocket = true;
-      DisableFirefoxAccounts = true;
-      DisableAccounts = true;
+      DisablePocket = false;
+      DisableFirefoxAccounts = false;
+      DisableAccounts = false;
       DisableFirefoxScreenshots = true;
       OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
@@ -47,27 +47,30 @@
         "uBlock0@raymondhill.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
+          private_browsing = true;
         };
         # Privacy Badger:
         "jid1-MnnxcxisBPnSXQ@jetpack" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
           installation_mode = "force_installed";
+          private_browsing = true;
         };
         # SponsorBlock
         "sponsorBlocker@ajay.app" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4541835/sponsorblock-5.14.xpi";
           installation_mode = "force_installed";
+          private_browsing = true;
         };
         # TamperMonkey
         "firefox@tampermonkey.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4405733/tampermonkey-5.3.3.xpi";
           installation_mode = "force_installed";
         };
-        # VTT Enhancer
-        "{ffed5dfa-f0e1-403d-905d-ac3f698660a7}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4362860/roll20_enhancement_suite-1.28.22.xpi";
-          installation-mode = "force-installed";
-        };
+#        # VTT Enhancer
+#        "{ffed5dfa-f0e1-403d-905d-ac3f698660a7}" = {
+#          install_url = "https://addons.mozilla.org/firefox/downloads/file/4362860/roll20_enhancement_suite-1.28.22.xpi";
+#          installation-mode = "force-installed";
+#        };
         # Bitwarden
 #        https://addons.mozilla.org/firefox/downloads/file/4599707/bitwarden_password_manager-2025.10.0.xpi
         # Youtube Livestreams Theater mode
@@ -82,7 +85,7 @@
       # Check about:config for options.
       Preferences = { 
         "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
-        "extensions.pocket.enabled" = lock-false;
+        "extensions.pocket.enabled" = lock-true;
         "extensions.screenshots.disabled" = lock-true;
         "browser.topsites.contile.enabled" = lock-false;
         "browser.formfill.enable" = lock-false;
