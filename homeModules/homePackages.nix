@@ -51,7 +51,7 @@
 
     ### Alternate browsers ###
     ungoogled-chromium
-    librewolf
+#    librewolf
 
     ### Security ###
     # Password Manager
