@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     home-manager = {
         url = "github:nix-community/home-manager";
@@ -20,7 +24,7 @@
     };
     # ...
   };
-  outputs = {self, nixpkgs, home-manager, stylix, nvf, ... }: let
+  outputs = {self, nixpkgs, home-manager, stylix, nvf, nur, ... }: let
     lib = nixpkgs.lib;
     # ---- SYSTEM SETTINGS ---- #
     commonSystemSettings = {
@@ -53,6 +57,16 @@
 
           # Common UI and configuration modules
           stylix.nixosModules.stylix
+
+          # Adds the NUR overlay
+          nur.modules.nixos.default
+          # NUR modules to import
+#          nur.legacyPackages."${system}".repos.iopq.modules.xraya
+          # This adds the NUR nixpkgs overlay.
+          # Example:
+          ({ pkgs, ... }: {
+            environment.systemPackages = [ pkgs.nur.repos.MiyakoMeow.beatoraja ];
+          })
 
           # Home Manager setup
           home-manager.nixosModules.home-manager {

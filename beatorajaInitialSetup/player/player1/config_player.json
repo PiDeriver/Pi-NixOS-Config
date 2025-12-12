@@ -1,0 +1,6352 @@
+{
+"id": "player1",
+"name": "PiDeriver",
+"gauge": 4,
+"random": 0,
+"random2": 0,
+"doubleoption": 0,
+"chartReplicationMode": "RIVALCHART",
+"targetid": "RATE_A",
+"targetlist": [
+	"RATE_A-",
+	"RATE_A",
+	"RATE_A+",
+	"RATE_AA-",
+	"RATE_AA",
+	"RATE_AA+",
+	"RATE_AAA-",
+	"RATE_AAA",
+	"RATE_AAA+",
+	"RATE_MAX-",
+	"MAX",
+	"RANK_NEXT",
+	"IR_NEXT_1",
+	"IR_NEXT_2",
+	"IR_NEXT_3",
+	"IR_NEXT_4",
+	"IR_NEXT_5",
+	"IR_NEXT_10",
+	"IR_RANK_1",
+	"IR_RANK_5",
+	"IR_RANK_10",
+	"IR_RANK_20",
+	"IR_RANK_30",
+	"IR_RANK_40",
+	"IR_RANK_50",
+	"IR_RANKRATE_5",
+	"IR_RANKRATE_10",
+	"IR_RANKRATE_15",
+	"IR_RANKRATE_20",
+	"IR_RANKRATE_25",
+	"IR_RANKRATE_30",
+	"IR_RANKRATE_35",
+	"IR_RANKRATE_40",
+	"IR_RANKRATE_45",
+	"IR_RANKRATE_50",
+	"RIVAL_RANK_1",
+	"RIVAL_RANK_2",
+	"RIVAL_RANK_3",
+	"RIVAL_NEXT_1",
+	"RIVAL_NEXT_2",
+	"RIVAL_NEXT_3"
+],
+"judgetiming": 0,
+"notesDisplayTimingAutoAdjust": false,
+"mode": null,
+"misslayerDuration": 500,
+"lnmode": 1,
+"scrollMode": 0,
+"scrollSection": 4,
+"scrollRate": 0.5,
+"longnoteMode": 0,
+"longnoteRate": 1,
+"customJudge": false,
+"keyJudgeWindowRatePerfectGreat": 400,
+"keyJudgeWindowRateGreat": 400,
+"keyJudgeWindowRateGood": 100,
+"scratchJudgeWindowRatePerfectGreat": 400,
+"scratchJudgeWindowRateGreat": 400,
+"scratchJudgeWindowRateGood": 100,
+"mineMode": 0,
+"bpmguide": false,
+"extranoteType": 0,
+"extranoteDepth": 0,
+"extranoteScratch": false,
+"showjudgearea": false,
+"markprocessednote": false,
+"hranThresholdBPM": 120,
+"gaugeAutoShift": 3,
+"bottomShiftableGauge": 2,
+"autosavereplay": [ 0, 0, 0, 0 ],
+"sevenToNinePattern": 0,
+"sevenToNineType": 0,
+"exitPressDuration": 1000,
+"isGuideSE": false,
+"isWindowHold": false,
+"isRandomSelect": true,
+"skin": [
+	{
+		"path": "skin/Pi_ECFN/play/play7.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "プレーサイド",
+					"value": 920
+				},
+				{
+					"name": "スコアグラフ",
+					"value": 901
+				},
+				{
+					"name": "スコアグラフ位置",
+					"value": 902
+				},
+				{
+					"name": "ジャッジカウント",
+					"value": 905
+				},
+				{
+					"name": "手元用クロマキー",
+					"value": 924
+				},
+				{
+					"name": "スコア差分",
+					"value": 907
+				},
+				{
+					"name": "判定タイミング表示",
+					"value": 912
+				},
+				{
+					"name": "判定タイミング値表示(グラフ必須)",
+					"value": 915
+				},
+				{
+					"name": "ステージファイル表示",
+					"value": 926
+				},
+				{
+					"name": "BGA表示方法",
+					"value": 929
+				},
+				{
+					"name": "閉店アニメ",
+					"value": 930
+				},
+				{
+					"name": "判定文字規格",
+					"value": 932
+				}
+			],
+			"file": [
+				{
+					"name": "Frame",
+					"path": "Default"
+				},
+				{
+					"name": "Note",
+					"path": "photon.png"
+				},
+				{
+					"name": "Bomb",
+					"path": "PinkBomb.png"
+				},
+				{
+					"name": "Truntable",
+					"path": "TB_AC Pink.png"
+				},
+				{
+					"name": "Gauge",
+					"path": "hex.png"
+				},
+				{
+					"name": "Judge",
+					"path": "vdl.png"
+				},
+				{
+					"name": "LegacyJudge",
+					"path": "default.png"
+				},
+				{
+					"name": "Laser",
+					"path": "default_pink.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "kurumiruku_CoverPink.png"
+				},
+				{
+					"name": "Lift",
+					"path": "kurumiruku_CoverPink-L1.png"
+				},
+				{
+					"name": "GraphBG",
+					"path": "GraphBG_hiyoyo.png"
+				},
+				{
+					"name": "glow",
+					"path": "Sz.png"
+				},
+				{
+					"name": "ProgressBar",
+					"path": "Sz.png"
+				},
+				{
+					"name": "FullCombo",
+					"path": "#DefaultPink.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "Laser Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Bomb Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Count Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "BGA Brightness Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Lane Background Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ScoreDiff Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "RealTimeJudge Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "judgetiming_window Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ModernChic/play5_hw.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "プレイサイド",
+					"value": 900
+				},
+				{
+					"name": "プレイ位置",
+					"value": 902
+				},
+				{
+					"name": "ターゲット差分",
+					"value": 920
+				},
+				{
+					"name": "ターゲット差分の種類",
+					"value": 922
+				},
+				{
+					"name": "ターゲット差分表示位置",
+					"value": 924
+				},
+				{
+					"name": "判定タイミング",
+					"value": 928
+				},
+				{
+					"name": "判定タイミングの種類",
+					"value": 930
+				},
+				{
+					"name": "判定タイミング表示位置",
+					"value": 932
+				},
+				{
+					"name": "判定タイミングボム",
+					"value": 953
+				},
+				{
+					"name": "ボムの種類",
+					"value": 951
+				},
+				{
+					"name": "グラフバーの伸びる向き",
+					"value": 908
+				},
+				{
+					"name": "スコアグラフ、ノート分布、タイミングエリアの配置",
+					"value": 906
+				},
+				{
+					"name": "画像フォント",
+					"value": 904
+				},
+				{
+					"name": "グローランプ",
+					"value": 956
+				},
+				{
+					"name": "ゲージMAXインジケータ",
+					"value": 958
+				},
+				{
+					"name": "ゲージ",
+					"value": 959
+				},
+				{
+					"name": "グラフエリア",
+					"value": 910
+				},
+				{
+					"name": "ノート分布",
+					"value": 961
+				},
+				{
+					"name": "ノート分布パターン",
+					"value": 963
+				},
+				{
+					"name": "タイミンググラフ",
+					"value": 966
+				},
+				{
+					"name": "タイミンググラフパターン",
+					"value": 968
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）表示位置",
+					"value": 970
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）倍率",
+					"value": 973
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）配色パターン",
+					"value": 975
+				},
+				{
+					"name": "ヒットエラービジュアライザーパターン（分布グラフ）",
+					"value": 979
+				},
+				{
+					"name": "オートプレイ＆リプレイ時の案内",
+					"value": 983
+				},
+				{
+					"name": "キービームの高さ",
+					"value": 941
+				},
+				{
+					"name": "キービームの消失時間",
+					"value": 946
+				},
+				{
+					"name": "キービームの消失パターン",
+					"value": 950
+				},
+				{
+					"name": "BGA表示パターン",
+					"value": 913
+				},
+				{
+					"name": "汎用BGAの種類",
+					"value": 917
+				},
+				{
+					"name": "戦闘モード",
+					"value": 986
+				},
+				{
+					"name": "終了時にレーンカバーを下ろす",
+					"value": 988
+				},
+				{
+					"name": "プレイ状況詳細モード",
+					"value": 990
+				},
+				{
+					"name": "レーンカバーローテーション",
+					"value": 992
+				},
+				{
+					"name": "スコアフラップ",
+					"value": 994
+				},
+				{
+					"name": "5鍵用レーンカバー（5鍵モード時のみ）",
+					"value": 985
+				}
+			],
+			"file": [
+				{
+					"name": "背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "グラフバー用背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "汎用BGA（動画）",
+					"path": "#default.mp4"
+				},
+				{
+					"name": "汎用BGA（画像）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ノーツ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定文字",
+					"path": "#default.png"
+				},
+				{
+					"name": "レーンカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "リフト",
+					"path": "#default.png"
+				},
+				{
+					"name": "ボム（ModernChic規格）",
+					"path": "diamond SCUROed..png"
+				},
+				{
+					"name": "ボム（OADX規格）",
+					"path": "dummy.png"
+				},
+				{
+					"name": "フルコンボエフェクト",
+					"path": "#default.png"
+				},
+				{
+					"name": "キービーム",
+					"path": "#default.png"
+				},
+				{
+					"name": "キーイメージ",
+					"path": "harf.png"
+				},
+				{
+					"name": "キーフラッシュ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定ライン色",
+					"path": "#default.png"
+				},
+				{
+					"name": "グローランプ（判定ライン上のやつ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "プログレスランプ（進捗バーのあれ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージMAXインジケータランプ",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "スクラッチイメージ",
+					"path": "#default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "BGAの明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "レーンの明るさ 0~255（255で真っ暗になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "小節線の明るさ 0~255（255で見えなくなります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グラフエリア背景画像の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "判定ラインの高さ（0以下はデフォルト値12になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グローランプの高さ（0以下はデフォルト値48になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ターゲット差分、判定タイミングの位置",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ボムの大きさ 1~100%（範囲外は100%になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "タイミンググラフの位置（プレイエリア側時に有効）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ECFN/play/play14.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "プレーサイド",
+					"value": 920
+				},
+				{
+					"name": "スコアグラフ",
+					"value": 900
+				},
+				{
+					"name": "ジャッジカウント",
+					"value": 905
+				},
+				{
+					"name": "手元用クロマキー",
+					"value": 924
+				},
+				{
+					"name": "スコア差分",
+					"value": 907
+				},
+				{
+					"name": "スコア差分表示方法",
+					"value": 940
+				},
+				{
+					"name": "判定タイミング表示",
+					"value": 910
+				},
+				{
+					"name": "判定タイミング値表示(グラフ必須)",
+					"value": 913
+				},
+				{
+					"name": "ステージファイル表示",
+					"value": 926
+				},
+				{
+					"name": "BGA表示方法",
+					"value": 929
+				},
+				{
+					"name": "閉店アニメ",
+					"value": 930
+				}
+			],
+			"file": [
+				{
+					"name": "Frame",
+					"path": "Default.png"
+				},
+				{
+					"name": "Note",
+					"path": "light.png"
+				},
+				{
+					"name": "Bomb",
+					"path": "default.png"
+				},
+				{
+					"name": "Truntable",
+					"path": "TB_AC.png"
+				},
+				{
+					"name": "Gauge",
+					"path": "default.png"
+				},
+				{
+					"name": "Judge",
+					"path": "default.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "Sz.png"
+				},
+				{
+					"name": "Lift",
+					"path": "Sz.png"
+				},
+				{
+					"name": "GraphBG",
+					"path": "default.png"
+				},
+				{
+					"name": "glow",
+					"path": "Sz.png"
+				},
+				{
+					"name": "FullCombo",
+					"path": "#Default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "Laser Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Bomb Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Count Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "BGA Brightness Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Lane Background Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ScoreDiff Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "RealTimeJudge Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "judgetiming_window Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ModernChic/play10_hw.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "ターゲット差分",
+					"value": 900
+				},
+				{
+					"name": "ターゲット差分の種類",
+					"value": 902
+				},
+				{
+					"name": "ターゲット差分表示位置",
+					"value": 904
+				},
+				{
+					"name": "判定タイミング",
+					"value": 907
+				},
+				{
+					"name": "判定タイミングの種類",
+					"value": 909
+				},
+				{
+					"name": "判定タイミング表示位置",
+					"value": 911
+				},
+				{
+					"name": "判定タイミングボム",
+					"value": 914
+				},
+				{
+					"name": "ボムの種類",
+					"value": 916
+				},
+				{
+					"name": "グラフバー表示位置",
+					"value": 918
+				},
+				{
+					"name": "プレイ位置",
+					"value": 922
+				},
+				{
+					"name": "画像フォント",
+					"value": 924
+				},
+				{
+					"name": "タイミンググラフ倍率",
+					"value": 942
+				},
+				{
+					"name": "タイミンググラフ配色パターン",
+					"value": 944
+				},
+				{
+					"name": "ヒットエラービジュアライザーパターン",
+					"value": 948
+				},
+				{
+					"name": "グローランプ",
+					"value": 927
+				},
+				{
+					"name": "ゲージMAXインジケータ",
+					"value": 929
+				},
+				{
+					"name": "ゲージ",
+					"value": 930
+				},
+				{
+					"name": "ノート分布",
+					"value": 932
+				},
+				{
+					"name": "ノート分布パターン",
+					"value": 934
+				},
+				{
+					"name": "タイミンググラフ",
+					"value": 937
+				},
+				{
+					"name": "タイミンググラフ表示位置",
+					"value": 939
+				},
+				{
+					"name": "オートプレイ＆リプレイ時の案内",
+					"value": 952
+				},
+				{
+					"name": "キービームの高さ",
+					"value": 960
+				},
+				{
+					"name": "キービームの消失時間",
+					"value": 965
+				},
+				{
+					"name": "キービームの消失パターン",
+					"value": 969
+				},
+				{
+					"name": "グルーヴゲージの向き",
+					"value": 970
+				},
+				{
+					"name": "BGA表示パターン",
+					"value": 972
+				},
+				{
+					"name": "終了時にレーンカバーを下ろす",
+					"value": 978
+				},
+				{
+					"name": "左右のレーンカバーをローテーション表示",
+					"value": 975
+				},
+				{
+					"name": "10鍵用レーンカバー（10鍵モード時のみ）",
+					"value": 954
+				}
+			],
+			"file": [
+				{
+					"name": "背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "グラフバー用背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "ノーツ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定文字",
+					"path": "#default.png"
+				},
+				{
+					"name": "レーンカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "リフトカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "ボム（ModernChic規格）",
+					"path": "diamond SCUROed..png"
+				},
+				{
+					"name": "ボム（OADX規格）",
+					"path": "dummy.png"
+				},
+				{
+					"name": "フルコンボエフェクト",
+					"path": "#default.png"
+				},
+				{
+					"name": "キービーム",
+					"path": "#default.png"
+				},
+				{
+					"name": "キーイメージ",
+					"path": "harf.png"
+				},
+				{
+					"name": "キーフラッシュ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定ライン色",
+					"path": "#default.png"
+				},
+				{
+					"name": "グローランプ（判定ライン上のやつ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "プログレスランプ（進捗バーのあれ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージMAXインジケータランプ",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "スクラッチイメージ",
+					"path": "#default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "BGAの明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "レーンの明るさ 0~255（255で真っ暗になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "小節線の明るさ 0~255（255で見えなくなります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グラフエリア背景画像の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "判定ラインの高さ（0以下はデフォルト値12になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グローランプの高さ（0以下はデフォルト値48になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ターゲット差分、判定タイミングの位置",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ボムの大きさ 1~100%（範囲外は100%になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "タイミンググラフの位置（プレイエリア側時に有効）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/DotPop_v1_2/play9-1440.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "Timing display type",
+					"value": 902
+				},
+				{
+					"name": "Score display type",
+					"value": 903
+				},
+				{
+					"name": "Judge count box",
+					"value": 905
+				},
+				{
+					"name": "Scoregraph display",
+					"value": 908
+				},
+				{
+					"name": "BGA window display",
+					"value": 910
+				},
+				{
+					"name": "BGA in background",
+					"value": 915
+				},
+				{
+					"name": "Display extra song info",
+					"value": 916
+				},
+				{
+					"name": "Notes bounce to beat",
+					"value": 918
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "default.png"
+				},
+				{
+					"name": "Lane Background",
+					"path": "black.png"
+				},
+				{
+					"name": "Lane Cover",
+					"path": "default.png"
+				},
+				{
+					"name": "Judge",
+					"path": "judge-default.png"
+				},
+				{
+					"name": "Noteskin",
+					"path": "default.png"
+				},
+				{
+					"name": "Critical Line",
+					"path": "newpink.png"
+				},
+				{
+					"name": "Keybeams",
+					"path": "default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "Background BGA dimming",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Windowed BGA dimming",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/Pi_ECFN/select/select.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "シャッター",
+					"value": 910
+				},
+				{
+					"name": "動画を使用する",
+					"value": 920
+				},
+				{
+					"name": "判定詳細ウィンドウを使用する",
+					"value": 940
+				},
+				{
+					"name": "IRウィンドウを使用する",
+					"value": 930
+				},
+				{
+					"name": "IRウィンドウ位置",
+					"value": 932
+				}
+			],
+			"file": [
+				{
+					"name": "BG",
+					"path": "Random"
+				},
+				{
+					"name": "MV",
+					"path": "default-Pink.mp4"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/Pi_ECFN/decide/decide.luaskin",
+		"properties": {
+			"option": [],
+			"file": [
+				{
+					"name": "BG",
+					"path": "Random"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/Pi_ECFN/RESULT/result.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "LEGACY_VER",
+					"value": 923
+				},
+				{
+					"name": "Playside",
+					"value": 918
+				},
+				{
+					"name": "ExtendFrame",
+					"value": 916
+				},
+				{
+					"name": "LightBG",
+					"value": 920
+				},
+				{
+					"name": "Stage_file",
+					"value": 930
+				},
+				{
+					"name": "シャッター",
+					"value": 940
+				},
+				{
+					"name": "FS_list",
+					"value": 910
+				},
+				{
+					"name": "Particle",
+					"value": 912
+				},
+				{
+					"name": "CLEAR_EFFECT",
+					"value": 914
+				}
+			],
+			"file": [
+				{
+					"name": "---AAA",
+					"path": "Random"
+				},
+				{
+					"name": "---AA",
+					"path": "Random"
+				},
+				{
+					"name": "---A",
+					"path": "Random"
+				},
+				{
+					"name": "---RANK",
+					"path": "DEFAULT.png"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/default/keyconfig/keyconfig.luaskin",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/ModernChic/skinselect.luaskin",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	},
+	{
+		"path": null,
+		"properties": null
+	},
+	{
+		"path": null,
+		"properties": null
+	},
+	{
+		"path": null,
+		"properties": null
+	},
+	{
+		"path": null,
+		"properties": null
+	},
+	{
+		"path": null,
+		"properties": null
+	},
+	{
+		"path": "skin/ECFN/RESULT/course_result.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "LEGACY_VER",
+					"value": 923
+				},
+				{
+					"name": "Playside",
+					"value": 918
+				},
+				{
+					"name": "ExtendFrame",
+					"value": 916
+				},
+				{
+					"name": "LightBG",
+					"value": 920
+				},
+				{
+					"name": "Stage_file",
+					"value": 930
+				},
+				{
+					"name": "シャッター",
+					"value": 940
+				},
+				{
+					"name": "FS_list",
+					"value": 910
+				},
+				{
+					"name": "Particle",
+					"value": 912
+				},
+				{
+					"name": "CLEAR_EFFECT",
+					"value": 914
+				}
+			],
+			"file": [
+				{
+					"name": "---AAA",
+					"path": "Random"
+				},
+				{
+					"name": "---AA",
+					"path": "Random"
+				},
+				{
+					"name": "---A",
+					"path": "Random"
+				},
+				{
+					"name": "---RANK",
+					"path": "DEFAULT.png"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/default/play24.json",
+		"properties": {
+			"option": [
+				{
+					"name": "Lane Geometry",
+					"value": 920
+				},
+				{
+					"name": "Score Graph",
+					"value": 900
+				},
+				{
+					"name": "Judge Count",
+					"value": 905
+				},
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Theme",
+					"path": "pink.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/play24double.json",
+		"properties": {
+			"option": [
+				{
+					"name": "Lane Geometry",
+					"value": 920
+				},
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Theme",
+					"path": "pink.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": null,
+		"properties": null
+	}
+],
+"skinHistory": [
+	{
+		"path": "skin/ModernChic/play7_hw.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "プレイサイド",
+					"value": 900
+				},
+				{
+					"name": "プレイ位置",
+					"value": 902
+				},
+				{
+					"name": "ターゲット差分",
+					"value": 920
+				},
+				{
+					"name": "ターゲット差分の種類",
+					"value": 922
+				},
+				{
+					"name": "ターゲット差分表示位置",
+					"value": 924
+				},
+				{
+					"name": "判定タイミング",
+					"value": 928
+				},
+				{
+					"name": "判定タイミングの種類",
+					"value": 930
+				},
+				{
+					"name": "判定タイミング表示位置",
+					"value": 932
+				},
+				{
+					"name": "判定タイミングボム",
+					"value": 953
+				},
+				{
+					"name": "ボムの種類",
+					"value": 951
+				},
+				{
+					"name": "グラフバーの伸びる向き",
+					"value": 908
+				},
+				{
+					"name": "スコアグラフ、ノート分布、タイミングエリアの配置",
+					"value": 906
+				},
+				{
+					"name": "画像フォント",
+					"value": 904
+				},
+				{
+					"name": "グローランプ",
+					"value": 956
+				},
+				{
+					"name": "ゲージMAXインジケータ",
+					"value": 958
+				},
+				{
+					"name": "ゲージ",
+					"value": 959
+				},
+				{
+					"name": "グラフエリア",
+					"value": 910
+				},
+				{
+					"name": "ノート分布",
+					"value": 961
+				},
+				{
+					"name": "ノート分布パターン",
+					"value": 963
+				},
+				{
+					"name": "タイミンググラフ",
+					"value": 966
+				},
+				{
+					"name": "タイミンググラフパターン",
+					"value": 968
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）表示位置",
+					"value": 970
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）倍率",
+					"value": 973
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）配色パターン",
+					"value": 975
+				},
+				{
+					"name": "ヒットエラービジュアライザーパターン（分布グラフ）",
+					"value": 979
+				},
+				{
+					"name": "オートプレイ＆リプレイ時の案内",
+					"value": 983
+				},
+				{
+					"name": "キービームの高さ",
+					"value": 941
+				},
+				{
+					"name": "キービームの消失時間",
+					"value": 946
+				},
+				{
+					"name": "キービームの消失パターン",
+					"value": 950
+				},
+				{
+					"name": "BGA表示パターン",
+					"value": 913
+				},
+				{
+					"name": "汎用BGAの種類",
+					"value": 917
+				},
+				{
+					"name": "戦闘モード",
+					"value": 986
+				},
+				{
+					"name": "終了時にレーンカバーを下ろす",
+					"value": 988
+				},
+				{
+					"name": "プレイ状況詳細モード",
+					"value": 990
+				},
+				{
+					"name": "レーンカバーローテーション",
+					"value": 992
+				},
+				{
+					"name": "スコアフラップ",
+					"value": 994
+				}
+			],
+			"file": [
+				{
+					"name": "背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "グラフバー用背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "汎用BGA（動画）",
+					"path": "#default.mp4"
+				},
+				{
+					"name": "汎用BGA（画像）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ノーツ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定文字",
+					"path": "#default.png"
+				},
+				{
+					"name": "レーンカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "リフト",
+					"path": "#default.png"
+				},
+				{
+					"name": "ボム（ModernChic規格）",
+					"path": "diamond SCUROed..png"
+				},
+				{
+					"name": "ボム（OADX規格）",
+					"path": "dummy.png"
+				},
+				{
+					"name": "フルコンボエフェクト",
+					"path": "#default.png"
+				},
+				{
+					"name": "キービーム",
+					"path": "#default.png"
+				},
+				{
+					"name": "キーイメージ",
+					"path": "harf.png"
+				},
+				{
+					"name": "キーフラッシュ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定ライン色",
+					"path": "#default.png"
+				},
+				{
+					"name": "グローランプ（判定ライン上のやつ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "プログレスランプ（進捗バーのあれ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージMAXインジケータランプ",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "スクラッチイメージ",
+					"path": "#default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "BGAの明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "レーンの明るさ 0~255（255で真っ暗になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "小節線の明るさ 0~255（255で見えなくなります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グラフエリア背景画像の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "判定ラインの高さ（0以下はデフォルト値12になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グローランプの高さ（0以下はデフォルト値48になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ターゲット差分、判定タイミングの位置",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ボムの大きさ 1~100%（範囲外は100%になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "タイミンググラフの位置（プレイエリア側時に有効）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/play/play7.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "Play Side",
+					"value": 920
+				},
+				{
+					"name": "Scratch Side",
+					"value": 922
+				},
+				{
+					"name": "Score Graph",
+					"value": 900
+				},
+				{
+					"name": "Judge Count",
+					"value": 905
+				},
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Note",
+					"path": "default.png"
+				},
+				{
+					"name": "Bomb",
+					"path": "bomb.png"
+				},
+				{
+					"name": "Gauge",
+					"path": "gauge.png"
+				},
+				{
+					"name": "Judge",
+					"path": "judge.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "Laser Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Bomb Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Count Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "BGA Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Lane Background Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ModernChic/play5_hw.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "プレイサイド",
+					"value": 900
+				},
+				{
+					"name": "プレイ位置",
+					"value": 902
+				},
+				{
+					"name": "ターゲット差分",
+					"value": 920
+				},
+				{
+					"name": "ターゲット差分の種類",
+					"value": 922
+				},
+				{
+					"name": "ターゲット差分表示位置",
+					"value": 924
+				},
+				{
+					"name": "判定タイミング",
+					"value": 928
+				},
+				{
+					"name": "判定タイミングの種類",
+					"value": 930
+				},
+				{
+					"name": "判定タイミング表示位置",
+					"value": 932
+				},
+				{
+					"name": "判定タイミングボム",
+					"value": 953
+				},
+				{
+					"name": "ボムの種類",
+					"value": 951
+				},
+				{
+					"name": "グラフバーの伸びる向き",
+					"value": 908
+				},
+				{
+					"name": "スコアグラフ、ノート分布、タイミングエリアの配置",
+					"value": 906
+				},
+				{
+					"name": "画像フォント",
+					"value": 904
+				},
+				{
+					"name": "グローランプ",
+					"value": 956
+				},
+				{
+					"name": "ゲージMAXインジケータ",
+					"value": 958
+				},
+				{
+					"name": "ゲージ",
+					"value": 959
+				},
+				{
+					"name": "グラフエリア",
+					"value": 910
+				},
+				{
+					"name": "ノート分布",
+					"value": 961
+				},
+				{
+					"name": "ノート分布パターン",
+					"value": 963
+				},
+				{
+					"name": "タイミンググラフ",
+					"value": 966
+				},
+				{
+					"name": "タイミンググラフパターン",
+					"value": 968
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）表示位置",
+					"value": 970
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）倍率",
+					"value": 973
+				},
+				{
+					"name": "タイミンググラフ（分布グラフ）配色パターン",
+					"value": 975
+				},
+				{
+					"name": "ヒットエラービジュアライザーパターン（分布グラフ）",
+					"value": 979
+				},
+				{
+					"name": "オートプレイ＆リプレイ時の案内",
+					"value": 983
+				},
+				{
+					"name": "キービームの高さ",
+					"value": 941
+				},
+				{
+					"name": "キービームの消失時間",
+					"value": 946
+				},
+				{
+					"name": "キービームの消失パターン",
+					"value": 950
+				},
+				{
+					"name": "BGA表示パターン",
+					"value": 913
+				},
+				{
+					"name": "汎用BGAの種類",
+					"value": 917
+				},
+				{
+					"name": "戦闘モード",
+					"value": 986
+				},
+				{
+					"name": "終了時にレーンカバーを下ろす",
+					"value": 988
+				},
+				{
+					"name": "プレイ状況詳細モード",
+					"value": 990
+				},
+				{
+					"name": "レーンカバーローテーション",
+					"value": 992
+				},
+				{
+					"name": "スコアフラップ",
+					"value": 994
+				},
+				{
+					"name": "5鍵用レーンカバー（5鍵モード時のみ）",
+					"value": 985
+				}
+			],
+			"file": [
+				{
+					"name": "背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "グラフバー用背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "汎用BGA（動画）",
+					"path": "#default.mp4"
+				},
+				{
+					"name": "汎用BGA（画像）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ノーツ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定文字",
+					"path": "#default.png"
+				},
+				{
+					"name": "レーンカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "リフト",
+					"path": "#default.png"
+				},
+				{
+					"name": "ボム（ModernChic規格）",
+					"path": "diamond SCUROed..png"
+				},
+				{
+					"name": "ボム（OADX規格）",
+					"path": "dummy.png"
+				},
+				{
+					"name": "フルコンボエフェクト",
+					"path": "#default.png"
+				},
+				{
+					"name": "キービーム",
+					"path": "#default.png"
+				},
+				{
+					"name": "キーイメージ",
+					"path": "harf.png"
+				},
+				{
+					"name": "キーフラッシュ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定ライン色",
+					"path": "#default.png"
+				},
+				{
+					"name": "グローランプ（判定ライン上のやつ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "プログレスランプ（進捗バーのあれ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージMAXインジケータランプ",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "スクラッチイメージ",
+					"path": "#default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "BGAの明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "レーンの明るさ 0~255（255で真っ暗になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "小節線の明るさ 0~255（255で見えなくなります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グラフエリア背景画像の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "判定ラインの高さ（0以下はデフォルト値12になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グローランプの高さ（0以下はデフォルト値48になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ターゲット差分、判定タイミングの位置",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ボムの大きさ 1~100%（範囲外は100%になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "タイミンググラフの位置（プレイエリア側時に有効）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/play5.json",
+		"properties": {
+			"option": [
+				{
+					"name": "Play Side",
+					"value": 920
+				},
+				{
+					"name": "Score Graph",
+					"value": 900
+				},
+				{
+					"name": "Judge Count",
+					"value": 905
+				},
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Note",
+					"path": "default.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ModernChic/play14_hw.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "ターゲット差分",
+					"value": 900
+				},
+				{
+					"name": "ターゲット差分の種類",
+					"value": 902
+				},
+				{
+					"name": "ターゲット差分表示位置",
+					"value": 904
+				},
+				{
+					"name": "判定タイミング",
+					"value": 907
+				},
+				{
+					"name": "判定タイミングの種類",
+					"value": 909
+				},
+				{
+					"name": "判定タイミング表示位置",
+					"value": 911
+				},
+				{
+					"name": "判定タイミングボム",
+					"value": 914
+				},
+				{
+					"name": "ボムの種類",
+					"value": 916
+				},
+				{
+					"name": "グラフバー表示位置",
+					"value": 918
+				},
+				{
+					"name": "プレイ位置",
+					"value": 922
+				},
+				{
+					"name": "画像フォント",
+					"value": 924
+				},
+				{
+					"name": "タイミンググラフ倍率",
+					"value": 942
+				},
+				{
+					"name": "タイミンググラフ配色パターン",
+					"value": 944
+				},
+				{
+					"name": "ヒットエラービジュアライザーパターン",
+					"value": 948
+				},
+				{
+					"name": "グローランプ",
+					"value": 927
+				},
+				{
+					"name": "ゲージMAXインジケータ",
+					"value": 929
+				},
+				{
+					"name": "ゲージ",
+					"value": 930
+				},
+				{
+					"name": "ノート分布",
+					"value": 932
+				},
+				{
+					"name": "ノート分布パターン",
+					"value": 934
+				},
+				{
+					"name": "タイミンググラフ",
+					"value": 937
+				},
+				{
+					"name": "タイミンググラフ表示位置",
+					"value": 939
+				},
+				{
+					"name": "オートプレイ＆リプレイ時の案内",
+					"value": 952
+				},
+				{
+					"name": "キービームの高さ",
+					"value": 960
+				},
+				{
+					"name": "キービームの消失時間",
+					"value": 965
+				},
+				{
+					"name": "キービームの消失パターン",
+					"value": 969
+				},
+				{
+					"name": "グルーヴゲージの向き",
+					"value": 970
+				},
+				{
+					"name": "BGA表示パターン",
+					"value": 972
+				},
+				{
+					"name": "終了時にレーンカバーを下ろす",
+					"value": 978
+				},
+				{
+					"name": "左右のレーンカバーをローテーション表示",
+					"value": 975
+				}
+			],
+			"file": [
+				{
+					"name": "背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "グラフバー用背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "ノーツ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定文字",
+					"path": "#default.png"
+				},
+				{
+					"name": "レーンカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "リフトカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "ボム（ModernChic規格）",
+					"path": "diamond SCUROed..png"
+				},
+				{
+					"name": "ボム（OADX規格）",
+					"path": "dummy.png"
+				},
+				{
+					"name": "フルコンボエフェクト",
+					"path": "#default.png"
+				},
+				{
+					"name": "キービーム",
+					"path": "#default.png"
+				},
+				{
+					"name": "キーイメージ",
+					"path": "harf.png"
+				},
+				{
+					"name": "キーフラッシュ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定ライン色",
+					"path": "#default.png"
+				},
+				{
+					"name": "グローランプ（判定ライン上のやつ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "プログレスランプ（進捗バーのあれ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージMAXインジケータランプ",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "スクラッチイメージ",
+					"path": "#default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "BGAの明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "レーンの明るさ 0~255（255で真っ暗になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "小節線の明るさ 0~255（255で見えなくなります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グラフエリア背景画像の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "判定ラインの高さ（0以下はデフォルト値12になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グローランプの高さ（0以下はデフォルト値48になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ターゲット差分、判定タイミングの位置",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ボムの大きさ 1~100%（範囲外は100%になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "タイミンググラフの位置（プレイエリア側時に有効）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/play14.json",
+		"properties": {
+			"option": [
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Note",
+					"path": "default.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ModernChic/play10_hw.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "ターゲット差分",
+					"value": 900
+				},
+				{
+					"name": "ターゲット差分の種類",
+					"value": 902
+				},
+				{
+					"name": "ターゲット差分表示位置",
+					"value": 904
+				},
+				{
+					"name": "判定タイミング",
+					"value": 907
+				},
+				{
+					"name": "判定タイミングの種類",
+					"value": 909
+				},
+				{
+					"name": "判定タイミング表示位置",
+					"value": 911
+				},
+				{
+					"name": "判定タイミングボム",
+					"value": 914
+				},
+				{
+					"name": "ボムの種類",
+					"value": 916
+				},
+				{
+					"name": "グラフバー表示位置",
+					"value": 918
+				},
+				{
+					"name": "プレイ位置",
+					"value": 922
+				},
+				{
+					"name": "画像フォント",
+					"value": 924
+				},
+				{
+					"name": "タイミンググラフ倍率",
+					"value": 942
+				},
+				{
+					"name": "タイミンググラフ配色パターン",
+					"value": 944
+				},
+				{
+					"name": "ヒットエラービジュアライザーパターン",
+					"value": 948
+				},
+				{
+					"name": "グローランプ",
+					"value": 927
+				},
+				{
+					"name": "ゲージMAXインジケータ",
+					"value": 929
+				},
+				{
+					"name": "ゲージ",
+					"value": 930
+				},
+				{
+					"name": "ノート分布",
+					"value": 932
+				},
+				{
+					"name": "ノート分布パターン",
+					"value": 934
+				},
+				{
+					"name": "タイミンググラフ",
+					"value": 937
+				},
+				{
+					"name": "タイミンググラフ表示位置",
+					"value": 939
+				},
+				{
+					"name": "オートプレイ＆リプレイ時の案内",
+					"value": 952
+				},
+				{
+					"name": "キービームの高さ",
+					"value": 960
+				},
+				{
+					"name": "キービームの消失時間",
+					"value": 965
+				},
+				{
+					"name": "キービームの消失パターン",
+					"value": 969
+				},
+				{
+					"name": "グルーヴゲージの向き",
+					"value": 970
+				},
+				{
+					"name": "BGA表示パターン",
+					"value": 972
+				},
+				{
+					"name": "終了時にレーンカバーを下ろす",
+					"value": 978
+				},
+				{
+					"name": "左右のレーンカバーをローテーション表示",
+					"value": 975
+				},
+				{
+					"name": "10鍵用レーンカバー（10鍵モード時のみ）",
+					"value": 954
+				}
+			],
+			"file": [
+				{
+					"name": "背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "グラフバー用背景",
+					"path": "#default.png"
+				},
+				{
+					"name": "ノーツ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定文字",
+					"path": "#default.png"
+				},
+				{
+					"name": "レーンカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "リフトカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "ボム（ModernChic規格）",
+					"path": "diamond SCUROed..png"
+				},
+				{
+					"name": "ボム（OADX規格）",
+					"path": "dummy.png"
+				},
+				{
+					"name": "フルコンボエフェクト",
+					"path": "#default.png"
+				},
+				{
+					"name": "キービーム",
+					"path": "#default.png"
+				},
+				{
+					"name": "キーイメージ",
+					"path": "harf.png"
+				},
+				{
+					"name": "キーフラッシュ",
+					"path": "#default.png"
+				},
+				{
+					"name": "判定ライン色",
+					"path": "#default.png"
+				},
+				{
+					"name": "グローランプ（判定ライン上のやつ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "プログレスランプ（進捗バーのあれ）",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージMAXインジケータランプ",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "スクラッチイメージ",
+					"path": "#default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "BGAの明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "レーンの明るさ 0~255（255で真っ暗になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "小節線の明るさ 0~255（255で見えなくなります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グラフエリア背景画像の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "判定ラインの高さ（0以下はデフォルト値12になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "グローランプの高さ（0以下はデフォルト値48になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ターゲット差分、判定タイミングの位置",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ボムの大きさ 1~100%（範囲外は100%になります）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "タイミンググラフの位置（プレイエリア側時に有効）",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/play10.json",
+		"properties": {
+			"option": [
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Note",
+					"path": "default.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/play9.json",
+		"properties": {
+			"option": [
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "POMYU Chara 1P",
+					"path": "Off"
+				},
+				{
+					"name": "POMYU Chara 2P",
+					"path": "Off"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ModernChic/musicselect.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "背景の種類",
+					"value": 900
+				},
+				{
+					"name": "画像フォント",
+					"value": 902
+				},
+				{
+					"name": "ステージ＆バナーファイル",
+					"value": 904
+				},
+				{
+					"name": "曲リストの並び",
+					"value": 906
+				},
+				{
+					"name": "サブタイトルのスクロール",
+					"value": 910
+				},
+				{
+					"name": "ビーム（装飾）",
+					"value": 912
+				},
+				{
+					"name": "開始パターン",
+					"value": 913
+				},
+				{
+					"name": "IR情報表示",
+					"value": 915
+				},
+				{
+					"name": "サイドメニューの開閉状態を保持する",
+					"value": 917
+				},
+				{
+					"name": "スキン更新チェック",
+					"value": 920
+				},
+				{
+					"name": "言語",
+					"value": 921
+				},
+				{
+					"name": "プレイ履歴表示",
+					"value": 924
+				},
+				{
+					"name": "キーマップ表示",
+					"value": 927
+				},
+				{
+					"name": "背景ローテーション",
+					"value": 928
+				},
+				{
+					"name": "BPM連動キャラクター",
+					"value": 931
+				}
+			],
+			"file": [
+				{
+					"name": "背景（静止画）Select/bg/image/*.png",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（動画）Select/bg/movie/*.mp4",
+					"path": "BGmovie01.mp4"
+				},
+				{
+					"name": "BPM連動キャラクター Root/image",
+					"path": "yuki.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/select.json",
+		"properties": {
+			"option": [],
+			"file": [
+				{
+					"name": "Background",
+					"path": "select2.png"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/ModernChic/decide.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "背景の種類",
+					"value": 900
+				},
+				{
+					"name": "画像フォント",
+					"value": 902
+				},
+				{
+					"name": "ステージファイル",
+					"value": 905
+				},
+				{
+					"name": "ノーツ分布グラフ",
+					"value": 907
+				},
+				{
+					"name": "ステージ数表示",
+					"value": 908
+				},
+				{
+					"name": "お役立ち情報表示",
+					"value": 911
+				}
+			],
+			"file": [
+				{
+					"name": "背景（静止画）Decide/bg/image/*.png",
+					"path": "sample.png"
+				},
+				{
+					"name": "背景（動画）Decide/bg/movie/*.mp4",
+					"path": "sample.mp4"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/default/decide/decide.luaskin",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/ModernChic/result.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "画像フォント",
+					"value": 900
+				},
+				{
+					"name": "グラフ&スコア表示位置",
+					"value": 902
+				},
+				{
+					"name": "項目表示切り替え",
+					"value": 904
+				},
+				{
+					"name": "IRメニュー表示",
+					"value": 927
+				},
+				{
+					"name": "IRメニューの種類",
+					"value": 928
+				},
+				{
+					"name": "開始時アニメーション",
+					"value": 907
+				},
+				{
+					"name": "タイムスタンプ",
+					"value": 911
+				},
+				{
+					"name": "修飾（ビーム）",
+					"value": 913
+				},
+				{
+					"name": "修飾（リング）",
+					"value": 915
+				},
+				{
+					"name": "キャラクター表示",
+					"value": 921
+				},
+				{
+					"name": "クリアランクイメージ表示パターン",
+					"value": 937
+				},
+				{
+					"name": "プレイ履歴の保存",
+					"value": 939
+				},
+				{
+					"name": "NOPLAYからのランプ更新保存",
+					"value": 941
+				},
+				{
+					"name": "キャラクターローテーション",
+					"value": 943
+				},
+				{
+					"name": "背景ローテーション",
+					"value": 945
+				},
+				{
+					"name": "背景表示パターン",
+					"value": 916
+				},
+				{
+					"name": "キャラクター表示パターン",
+					"value": 922
+				},
+				{
+					"name": "ステージファイル表示",
+					"value": 908
+				},
+				{
+					"name": "タイミンググラフ倍率",
+					"value": 931
+				},
+				{
+					"name": "タイミンググラフ配色パターン",
+					"value": 933
+				}
+			],
+			"file": [
+				{
+					"name": "クリアランクイメージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "IRカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Clear）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Failed）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（ALL）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（AAA）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（AA）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（A）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（B）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（C）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（D）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（E）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（F）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Clear）",
+					"path": "yuki.png"
+				},
+				{
+					"name": "キャラクター（Failed）",
+					"path": "yuki.png"
+				},
+				{
+					"name": "キャラクター（ALL）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（AAA）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（AA）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（A）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（B）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（C）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（D）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（E）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（F）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Failed）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Assist）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（LaAssist）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Easy）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Normal and NoPlay）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Hard）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Exhard）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（FullCombo）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Perfect）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Max）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Failed）",
+					"path": "yuki.png"
+				},
+				{
+					"name": "キャラクター（Assist）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（LaAssist）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Easy）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Normal and NoPlay）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Hard）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Exhard）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（FullCombo）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Perfect）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Max）",
+					"path": "#default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "キャラクター表示位置調整",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/result/result.luaskin",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/default/keyconfig/keyconfig.luaskin",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/default/skinselect/skinselect.luaskin",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/ModernChic/course.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "画像フォント",
+					"value": 900
+				},
+				{
+					"name": "グラフ&スコア表示位置",
+					"value": 902
+				},
+				{
+					"name": "項目表示切り替え",
+					"value": 904
+				},
+				{
+					"name": "IRメニュー表示",
+					"value": 927
+				},
+				{
+					"name": "IRメニューの種類",
+					"value": 928
+				},
+				{
+					"name": "開始時アニメーション",
+					"value": 907
+				},
+				{
+					"name": "タイムスタンプ",
+					"value": 911
+				},
+				{
+					"name": "修飾（ビーム）",
+					"value": 913
+				},
+				{
+					"name": "修飾（リング）",
+					"value": 915
+				},
+				{
+					"name": "キャラクター表示",
+					"value": 921
+				},
+				{
+					"name": "クリアランクイメージ表示パターン",
+					"value": 937
+				},
+				{
+					"name": "プレイ履歴の保存",
+					"value": 939
+				},
+				{
+					"name": "NOPLAYからのランプ更新保存",
+					"value": 941
+				},
+				{
+					"name": "キャラクターローテーション",
+					"value": 943
+				},
+				{
+					"name": "背景ローテーション",
+					"value": 945
+				},
+				{
+					"name": "背景表示パターン",
+					"value": 916
+				},
+				{
+					"name": "キャラクター表示パターン",
+					"value": 922
+				}
+			],
+			"file": [
+				{
+					"name": "クリアランクイメージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "IRカバー",
+					"path": "#default.png"
+				},
+				{
+					"name": "ゲージ",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Clear）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（Failed）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（ALL）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（AAA）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（AA）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（A）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（B）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（C）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（D）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（E）",
+					"path": "#default.png"
+				},
+				{
+					"name": "背景（F）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（Clear）",
+					"path": "yuki.png"
+				},
+				{
+					"name": "キャラクター（Failed）",
+					"path": "yuki.png"
+				},
+				{
+					"name": "キャラクター（ALL）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（AAA）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（AA）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（A）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（B）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（C）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（D）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（E）",
+					"path": "#default.png"
+				},
+				{
+					"name": "キャラクター（F）",
+					"path": "#default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "背景の明るさ 0~255 (255で真っ暗になります)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "キャラクター表示位置調整",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/graderesult.json",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/default/play24.json",
+		"properties": {
+			"option": [
+				{
+					"name": "Lane Geometry",
+					"value": 920
+				},
+				{
+					"name": "Score Graph",
+					"value": 900
+				},
+				{
+					"name": "Judge Count",
+					"value": 905
+				},
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Theme",
+					"path": "pink.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/default/play24double.json",
+		"properties": {
+			"option": [
+				{
+					"name": "Lane Geometry",
+					"value": 920
+				},
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Theme",
+					"path": "pink.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ModernChic/skinselect.luaskin",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/default/play24.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "Lane Geometry",
+					"value": 920
+				},
+				{
+					"name": "Score Graph",
+					"value": 900
+				},
+				{
+					"name": "Judge Count",
+					"value": 905
+				},
+				{
+					"name": "Judge Detail",
+					"value": 910
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "play3.png"
+				},
+				{
+					"name": "Theme",
+					"path": "pink.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "lanecover2.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ECFN/play/play7.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "プレーサイド",
+					"value": 920
+				},
+				{
+					"name": "スコアグラフ",
+					"value": 901
+				},
+				{
+					"name": "スコアグラフ位置",
+					"value": 902
+				},
+				{
+					"name": "ジャッジカウント",
+					"value": 905
+				},
+				{
+					"name": "手元用クロマキー",
+					"value": 924
+				},
+				{
+					"name": "スコア差分",
+					"value": 907
+				},
+				{
+					"name": "判定タイミング表示",
+					"value": 912
+				},
+				{
+					"name": "判定タイミング値表示(グラフ必須)",
+					"value": 915
+				},
+				{
+					"name": "ステージファイル表示",
+					"value": 926
+				},
+				{
+					"name": "BGA表示方法",
+					"value": 929
+				},
+				{
+					"name": "閉店アニメ",
+					"value": 930
+				},
+				{
+					"name": "判定文字規格",
+					"value": 932
+				}
+			],
+			"file": [
+				{
+					"name": "Frame",
+					"path": "Default"
+				},
+				{
+					"name": "Note",
+					"path": "photon.png"
+				},
+				{
+					"name": "Bomb",
+					"path": "default.png"
+				},
+				{
+					"name": "Truntable",
+					"path": "TB_AC.png"
+				},
+				{
+					"name": "Gauge",
+					"path": "default.png"
+				},
+				{
+					"name": "Judge",
+					"path": "vdl.png"
+				},
+				{
+					"name": "LegacyJudge",
+					"path": "default.png"
+				},
+				{
+					"name": "Laser",
+					"path": "default.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "Sz.png"
+				},
+				{
+					"name": "Lift",
+					"path": "Sz.png"
+				},
+				{
+					"name": "GraphBG",
+					"path": "default.png"
+				},
+				{
+					"name": "glow",
+					"path": "Sz.png"
+				},
+				{
+					"name": "ProgressBar",
+					"path": "Sz.png"
+				},
+				{
+					"name": "FullCombo",
+					"path": "#Default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "Laser Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Bomb Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Count Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "BGA Brightness Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Lane Background Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ScoreDiff Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "RealTimeJudge Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "judgetiming_window Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ECFN/select/select.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "シャッター",
+					"value": 910
+				},
+				{
+					"name": "動画を使用する",
+					"value": 920
+				},
+				{
+					"name": "判定詳細ウィンドウを使用する",
+					"value": 940
+				},
+				{
+					"name": "IRウィンドウを使用する",
+					"value": 930
+				},
+				{
+					"name": "IRウィンドウ位置",
+					"value": 932
+				}
+			],
+			"file": [
+				{
+					"name": "BG",
+					"path": "Default.png"
+				},
+				{
+					"name": "MV",
+					"path": "default.mp4"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/ECFN/decide/decide.luaskin",
+		"properties": {
+			"option": [],
+			"file": [
+				{
+					"name": "BG",
+					"path": "Default.png"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/ECFN/RESULT/result.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "LEGACY_VER",
+					"value": 923
+				},
+				{
+					"name": "Playside",
+					"value": 918
+				},
+				{
+					"name": "ExtendFrame",
+					"value": 916
+				},
+				{
+					"name": "LightBG",
+					"value": 920
+				},
+				{
+					"name": "Stage_file",
+					"value": 930
+				},
+				{
+					"name": "シャッター",
+					"value": 940
+				},
+				{
+					"name": "FS_list",
+					"value": 910
+				},
+				{
+					"name": "Particle",
+					"value": 912
+				},
+				{
+					"name": "CLEAR_EFFECT",
+					"value": 914
+				}
+			],
+			"file": [
+				{
+					"name": "---AAA",
+					"path": "Random"
+				},
+				{
+					"name": "---AA",
+					"path": "Random"
+				},
+				{
+					"name": "---A",
+					"path": "Random"
+				},
+				{
+					"name": "---RANK",
+					"path": "DEFAULT.png"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/ECFN/play/play14.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "プレーサイド",
+					"value": 920
+				},
+				{
+					"name": "スコアグラフ",
+					"value": 900
+				},
+				{
+					"name": "ジャッジカウント",
+					"value": 905
+				},
+				{
+					"name": "手元用クロマキー",
+					"value": 924
+				},
+				{
+					"name": "スコア差分",
+					"value": 907
+				},
+				{
+					"name": "スコア差分表示方法",
+					"value": 940
+				},
+				{
+					"name": "判定タイミング表示",
+					"value": 910
+				},
+				{
+					"name": "判定タイミング値表示(グラフ必須)",
+					"value": 913
+				},
+				{
+					"name": "ステージファイル表示",
+					"value": 926
+				},
+				{
+					"name": "BGA表示方法",
+					"value": 929
+				},
+				{
+					"name": "閉店アニメ",
+					"value": 930
+				}
+			],
+			"file": [
+				{
+					"name": "Frame",
+					"path": "Default.png"
+				},
+				{
+					"name": "Note",
+					"path": "light.png"
+				},
+				{
+					"name": "Bomb",
+					"path": "default.png"
+				},
+				{
+					"name": "Truntable",
+					"path": "TB_AC.png"
+				},
+				{
+					"name": "Gauge",
+					"path": "default.png"
+				},
+				{
+					"name": "Judge",
+					"path": "default.png"
+				},
+				{
+					"name": "Laser",
+					"path": "veryshort.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "Sz.png"
+				},
+				{
+					"name": "Lift",
+					"path": "Sz.png"
+				},
+				{
+					"name": "GraphBG",
+					"path": "default.png"
+				},
+				{
+					"name": "glow",
+					"path": "Sz.png"
+				},
+				{
+					"name": "FullCombo",
+					"path": "#Default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "Laser Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Bomb Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Count Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "BGA Brightness Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Lane Background Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ScoreDiff Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "RealTimeJudge Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "judgetiming_window Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/DotPop_v1_2/play9-1440.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "Timing display type",
+					"value": 902
+				},
+				{
+					"name": "Score display type",
+					"value": 903
+				},
+				{
+					"name": "Judge count box",
+					"value": 905
+				},
+				{
+					"name": "Scoregraph display",
+					"value": 908
+				},
+				{
+					"name": "BGA window display",
+					"value": 910
+				},
+				{
+					"name": "BGA in background",
+					"value": 915
+				},
+				{
+					"name": "Display extra song info",
+					"value": 916
+				},
+				{
+					"name": "Notes bounce to beat",
+					"value": 918
+				}
+			],
+			"file": [
+				{
+					"name": "Background",
+					"path": "default.png"
+				},
+				{
+					"name": "Lane Background",
+					"path": "black.png"
+				},
+				{
+					"name": "Lane Cover",
+					"path": "default.png"
+				},
+				{
+					"name": "Judge",
+					"path": "judge-default.png"
+				},
+				{
+					"name": "Noteskin",
+					"path": "default.png"
+				},
+				{
+					"name": "Critical Line",
+					"path": "newpink.png"
+				},
+				{
+					"name": "Keybeams",
+					"path": "default.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "Background BGA dimming",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Windowed BGA dimming",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/ECFN/RESULT/course_result.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "LEGACY_VER",
+					"value": 923
+				},
+				{
+					"name": "Playside",
+					"value": 918
+				},
+				{
+					"name": "ExtendFrame",
+					"value": 916
+				},
+				{
+					"name": "LightBG",
+					"value": 920
+				},
+				{
+					"name": "Stage_file",
+					"value": 930
+				},
+				{
+					"name": "シャッター",
+					"value": 940
+				},
+				{
+					"name": "FS_list",
+					"value": 910
+				},
+				{
+					"name": "Particle",
+					"value": 912
+				},
+				{
+					"name": "CLEAR_EFFECT",
+					"value": 914
+				}
+			],
+			"file": [
+				{
+					"name": "---AAA",
+					"path": "Random"
+				},
+				{
+					"name": "---AA",
+					"path": "Random"
+				},
+				{
+					"name": "---A",
+					"path": "Random"
+				},
+				{
+					"name": "---RANK",
+					"path": "DEFAULT.png"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/Pi_ECFN/play/play7.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "プレーサイド",
+					"value": 920
+				},
+				{
+					"name": "スコアグラフ",
+					"value": 901
+				},
+				{
+					"name": "スコアグラフ位置",
+					"value": 902
+				},
+				{
+					"name": "ジャッジカウント",
+					"value": 905
+				},
+				{
+					"name": "手元用クロマキー",
+					"value": 924
+				},
+				{
+					"name": "スコア差分",
+					"value": 907
+				},
+				{
+					"name": "判定タイミング表示",
+					"value": 912
+				},
+				{
+					"name": "判定タイミング値表示(グラフ必須)",
+					"value": 915
+				},
+				{
+					"name": "ステージファイル表示",
+					"value": 926
+				},
+				{
+					"name": "BGA表示方法",
+					"value": 929
+				},
+				{
+					"name": "閉店アニメ",
+					"value": 930
+				},
+				{
+					"name": "判定文字規格",
+					"value": 932
+				}
+			],
+			"file": [
+				{
+					"name": "Frame",
+					"path": "Default"
+				},
+				{
+					"name": "Note",
+					"path": "photon.png"
+				},
+				{
+					"name": "Bomb",
+					"path": "PinkBomb.png"
+				},
+				{
+					"name": "Truntable",
+					"path": "TB_AC Pink.png"
+				},
+				{
+					"name": "Gauge",
+					"path": "hex.png"
+				},
+				{
+					"name": "Judge",
+					"path": "vdl.png"
+				},
+				{
+					"name": "LegacyJudge",
+					"path": "default.png"
+				},
+				{
+					"name": "Laser",
+					"path": "default_pink.png"
+				},
+				{
+					"name": "Lanecover",
+					"path": "kurumiruku_CoverPink.png"
+				},
+				{
+					"name": "Lift",
+					"path": "kurumiruku_CoverPink-L1.png"
+				},
+				{
+					"name": "GraphBG",
+					"path": "GraphBG_hiyoyo.png"
+				},
+				{
+					"name": "glow",
+					"path": "Sz.png"
+				},
+				{
+					"name": "ProgressBar",
+					"path": "Sz.png"
+				},
+				{
+					"name": "FullCombo",
+					"path": "#DefaultPink.png"
+				}
+			],
+			"offset": [
+				{
+					"name": "Laser Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Bomb Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Count Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "BGA Brightness Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Lane Background Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "ScoreDiff Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "RealTimeJudge Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "judgetiming_window Offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "All offset(%)",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Notes offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				},
+				{
+					"name": "Judge Detail offset",
+					"x": 0,
+					"y": 0,
+					"w": 0,
+					"h": 0,
+					"r": 0,
+					"a": 0
+				}
+			]
+		}
+	},
+	{
+		"path": "skin/Pi_ECFN/decide/decide.luaskin",
+		"properties": {
+			"option": [],
+			"file": [
+				{
+					"name": "BG",
+					"path": "Random"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/Pi_ECFN/RESULT/result.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "LEGACY_VER",
+					"value": 923
+				},
+				{
+					"name": "Playside",
+					"value": 918
+				},
+				{
+					"name": "ExtendFrame",
+					"value": 916
+				},
+				{
+					"name": "LightBG",
+					"value": 920
+				},
+				{
+					"name": "Stage_file",
+					"value": 930
+				},
+				{
+					"name": "シャッター",
+					"value": 940
+				},
+				{
+					"name": "FS_list",
+					"value": 910
+				},
+				{
+					"name": "Particle",
+					"value": 912
+				},
+				{
+					"name": "CLEAR_EFFECT",
+					"value": 914
+				}
+			],
+			"file": [
+				{
+					"name": "---AAA",
+					"path": "Random"
+				},
+				{
+					"name": "---AA",
+					"path": "BMS_kurumiruku_t.png"
+				},
+				{
+					"name": "---A",
+					"path": "BMS_LerioDraws1.png"
+				},
+				{
+					"name": "---RANK",
+					"path": "DEFAULT.png"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/Pi_ECFN/select/select.luaskin",
+		"properties": {
+			"option": [
+				{
+					"name": "シャッター",
+					"value": 910
+				},
+				{
+					"name": "動画を使用する",
+					"value": 920
+				},
+				{
+					"name": "判定詳細ウィンドウを使用する",
+					"value": 940
+				},
+				{
+					"name": "IRウィンドウを使用する",
+					"value": 930
+				},
+				{
+					"name": "IRウィンドウ位置",
+					"value": 932
+				}
+			],
+			"file": [
+				{
+					"name": "BG",
+					"path": "Random"
+				},
+				{
+					"name": "MV",
+					"path": "default-Pink.mp4"
+				}
+			],
+			"offset": []
+		}
+	},
+	{
+		"path": "skin/Pi_ECFN/select/select.json",
+		"properties": {
+			"option": [],
+			"file": [],
+			"offset": []
+		}
+	}
+],
+"mode5": {
+	"playconfig": {
+		"hispeed": 1,
+		"duration": 500,
+		"enableConstant": false,
+		"constantFadeinTime": 100,
+		"fixhispeed": 3,
+		"hispeedmargin": 0.25,
+		"lanecover": 0.2,
+		"enablelanecover": true,
+		"lift": 0.1,
+		"enablelift": false,
+		"hidden": 0.1,
+		"enablehidden": false,
+		"lanecovermarginlow": 0.001,
+		"lanecovermarginhigh": 0.01,
+		"lanecoverswitchduration": 500,
+		"hispeedautoadjust": false,
+		"judgetype": "Combo"
+	},
+	"keyboard": {
+		"mouseScratchConfig": {
+			"keys": [ -1, -1, -1, -1, -1, -1, -1 ],
+			"start": -1,
+			"select": -1,
+			"mouseScratchEnabled": false,
+			"mouseScratchTimeThreshold": 150,
+			"mouseScratchDistance": 12,
+			"mouseScratchMode": 0
+		},
+		"keys": [ 54, 47, 52, 32, 31, 59, 129 ],
+		"start": 45,
+		"select": 51,
+		"duration": 16
+	},
+	"controller": [
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		}
+	],
+	"midi": {
+		"keys": [
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		"start": {
+			"type": "NOTE",
+			"value": 47
+		},
+		"select": {
+			"type": "NOTE",
+			"value": 48
+		}
+	},
+	"version": 1
+},
+"mode7": {
+	"playconfig": {
+		"hispeed": 6,
+		"duration": 468,
+		"enableConstant": false,
+		"constantFadeinTime": 100,
+		"fixhispeed": 3,
+		"hispeedmargin": 0.25,
+		"lanecover": 0.27,
+		"enablelanecover": true,
+		"lift": 0.245,
+		"enablelift": true,
+		"hidden": 0.1,
+		"enablehidden": false,
+		"lanecovermarginlow": 0.001,
+		"lanecovermarginhigh": 0.01,
+		"lanecoverswitchduration": 500,
+		"hispeedautoadjust": true,
+		"judgetype": "Combo"
+	},
+	"keyboard": {
+		"mouseScratchConfig": {
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": -1,
+			"select": -1,
+			"mouseScratchEnabled": false,
+			"mouseScratchTimeThreshold": 150,
+			"mouseScratchDistance": 12,
+			"mouseScratchMode": 0
+		},
+		"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+		"start": 45,
+		"select": 51,
+		"duration": 16
+	},
+	"controller": [
+		{
+			"name": "PowerA Controller INF&BMS",
+			"keys": [ 0, 1, 2, 3, 4, 5, 6, 32, 33 ],
+			"start": 8,
+			"select": 10,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": true,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		}
+	],
+	"midi": {
+		"keys": [
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		"start": {
+			"type": "NOTE",
+			"value": 47
+		},
+		"select": {
+			"type": "NOTE",
+			"value": 48
+		}
+	},
+	"version": 1
+},
+"mode10": {
+	"playconfig": {
+		"hispeed": 1,
+		"duration": 500,
+		"enableConstant": false,
+		"constantFadeinTime": 100,
+		"fixhispeed": 3,
+		"hispeedmargin": 0.25,
+		"lanecover": 0.2,
+		"enablelanecover": true,
+		"lift": 0.1,
+		"enablelift": false,
+		"hidden": 0.1,
+		"enablehidden": false,
+		"lanecovermarginlow": 0.001,
+		"lanecovermarginhigh": 0.01,
+		"lanecoverswitchduration": 500,
+		"hispeedautoadjust": false,
+		"judgetype": "Combo"
+	},
+	"keyboard": {
+		"mouseScratchConfig": {
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": -1,
+			"select": -1,
+			"mouseScratchEnabled": false,
+			"mouseScratchTimeThreshold": 150,
+			"mouseScratchDistance": 12,
+			"mouseScratchMode": 0
+		},
+		"keys": [ 54, 47, 52, 32, 31, 59, 129, 55, 40, 56, 74, 76, 60, 130 ],
+		"start": 45,
+		"select": 51,
+		"duration": 16
+	},
+	"controller": [
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		},
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		}
+	],
+	"midi": {
+		"keys": [
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		"start": {
+			"type": "NOTE",
+			"value": 47
+		},
+		"select": {
+			"type": "NOTE",
+			"value": 48
+		}
+	},
+	"version": 1
+},
+"mode14": {
+	"playconfig": {
+		"hispeed": 1,
+		"duration": 500,
+		"enableConstant": false,
+		"constantFadeinTime": 100,
+		"fixhispeed": 3,
+		"hispeedmargin": 0.25,
+		"lanecover": 0.2,
+		"enablelanecover": true,
+		"lift": 0.1,
+		"enablelift": false,
+		"hidden": 0.1,
+		"enablehidden": false,
+		"lanecovermarginlow": 0.001,
+		"lanecovermarginhigh": 0.01,
+		"lanecoverswitchduration": 500,
+		"hispeedautoadjust": false,
+		"judgetype": "Combo"
+	},
+	"keyboard": {
+		"mouseScratchConfig": {
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": -1,
+			"select": -1,
+			"mouseScratchEnabled": false,
+			"mouseScratchTimeThreshold": 150,
+			"mouseScratchDistance": 12,
+			"mouseScratchMode": 0
+		},
+		"keys": [ 54, 47, 52, 32, 31, 34, 50, 59, 129, 55, 40, 56, 74, 76, 75, 0, 60, 130 ],
+		"start": 45,
+		"select": 51,
+		"duration": 16
+	},
+	"controller": [
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		},
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		}
+	],
+	"midi": {
+		"keys": [
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		"start": {
+			"type": "NOTE",
+			"value": 47
+		},
+		"select": {
+			"type": "NOTE",
+			"value": 48
+		}
+	},
+	"version": 1
+},
+"mode9": {
+	"playconfig": {
+		"hispeed": 1,
+		"duration": 500,
+		"enableConstant": false,
+		"constantFadeinTime": 100,
+		"fixhispeed": 3,
+		"hispeedmargin": 0.25,
+		"lanecover": 0.2,
+		"enablelanecover": true,
+		"lift": 0.1,
+		"enablelift": false,
+		"hidden": 0.1,
+		"enablehidden": false,
+		"lanecovermarginlow": 0.001,
+		"lanecovermarginhigh": 0.01,
+		"lanecoverswitchduration": 500,
+		"hispeedautoadjust": false,
+		"judgetype": "Combo"
+	},
+	"keyboard": {
+		"mouseScratchConfig": {
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": -1,
+			"select": -1,
+			"mouseScratchEnabled": false,
+			"mouseScratchTimeThreshold": 150,
+			"mouseScratchDistance": 12,
+			"mouseScratchMode": 0
+		},
+		"keys": [ 54, 47, 52, 32, 31, 34, 50, 35, 30 ],
+		"start": 45,
+		"select": 51,
+		"duration": 16
+	},
+	"controller": [
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		}
+	],
+	"midi": {
+		"keys": [
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		"start": {
+			"type": "NOTE",
+			"value": 47
+		},
+		"select": {
+			"type": "NOTE",
+			"value": 48
+		}
+	},
+	"version": 1
+},
+"mode24": {
+	"playconfig": {
+		"hispeed": 1,
+		"duration": 500,
+		"enableConstant": false,
+		"constantFadeinTime": 100,
+		"fixhispeed": 3,
+		"hispeedmargin": 0.25,
+		"lanecover": 0.2,
+		"enablelanecover": true,
+		"lift": 0.1,
+		"enablelift": false,
+		"hidden": 0.1,
+		"enablehidden": false,
+		"lanecovermarginlow": 0.001,
+		"lanecovermarginhigh": 0.01,
+		"lanecoverswitchduration": 500,
+		"hispeedautoadjust": false,
+		"judgetype": "Combo"
+	},
+	"keyboard": {
+		"mouseScratchConfig": {
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": -1,
+			"select": -1,
+			"mouseScratchEnabled": false,
+			"mouseScratchTimeThreshold": 150,
+			"mouseScratchDistance": 12,
+			"mouseScratchMode": 0
+		},
+		"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+		"start": 45,
+		"select": 51,
+		"duration": 16
+	},
+	"controller": [
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		}
+	],
+	"midi": {
+		"keys": [
+			{
+				"type": "NOTE",
+				"value": 48
+			},
+			{
+				"type": "NOTE",
+				"value": 49
+			},
+			{
+				"type": "NOTE",
+				"value": 50
+			},
+			{
+				"type": "NOTE",
+				"value": 51
+			},
+			{
+				"type": "NOTE",
+				"value": 52
+			},
+			{
+				"type": "NOTE",
+				"value": 53
+			},
+			{
+				"type": "NOTE",
+				"value": 54
+			},
+			{
+				"type": "NOTE",
+				"value": 55
+			},
+			{
+				"type": "NOTE",
+				"value": 56
+			},
+			{
+				"type": "NOTE",
+				"value": 57
+			},
+			{
+				"type": "NOTE",
+				"value": 58
+			},
+			{
+				"type": "NOTE",
+				"value": 59
+			},
+			{
+				"type": "NOTE",
+				"value": 60
+			},
+			{
+				"type": "NOTE",
+				"value": 61
+			},
+			{
+				"type": "NOTE",
+				"value": 62
+			},
+			{
+				"type": "NOTE",
+				"value": 63
+			},
+			{
+				"type": "NOTE",
+				"value": 64
+			},
+			{
+				"type": "NOTE",
+				"value": 65
+			},
+			{
+				"type": "NOTE",
+				"value": 66
+			},
+			{
+				"type": "NOTE",
+				"value": 67
+			},
+			{
+				"type": "NOTE",
+				"value": 68
+			},
+			{
+				"type": "NOTE",
+				"value": 69
+			},
+			{
+				"type": "NOTE",
+				"value": 70
+			},
+			{
+				"type": "NOTE",
+				"value": 71
+			},
+			{
+				"type": "PITCH_BEND",
+				"value": 1
+			},
+			{
+				"type": "PITCH_BEND",
+				"value": -1
+			}
+		],
+		"start": {
+			"type": "NOTE",
+			"value": 44
+		},
+		"select": {
+			"type": "NOTE",
+			"value": 46
+		}
+	},
+	"version": 1
+},
+"mode24double": {
+	"playconfig": {
+		"hispeed": 1,
+		"duration": 500,
+		"enableConstant": false,
+		"constantFadeinTime": 100,
+		"fixhispeed": 3,
+		"hispeedmargin": 0.25,
+		"lanecover": 0.2,
+		"enablelanecover": true,
+		"lift": 0.1,
+		"enablelift": false,
+		"hidden": 0.1,
+		"enablehidden": false,
+		"lanecovermarginlow": 0.001,
+		"lanecovermarginhigh": 0.01,
+		"lanecoverswitchduration": 500,
+		"hispeedautoadjust": false,
+		"judgetype": "Combo"
+	},
+	"keyboard": {
+		"mouseScratchConfig": {
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": -1,
+			"select": -1,
+			"mouseScratchEnabled": false,
+			"mouseScratchTimeThreshold": 150,
+			"mouseScratchDistance": 12,
+			"mouseScratchMode": 0
+		},
+		"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+		"start": 45,
+		"select": 51,
+		"duration": 16
+	},
+	"controller": [
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		},
+		{
+			"name": "",
+			"keys": [ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 ],
+			"start": 8,
+			"select": 9,
+			"duration": 16,
+			"jkoc_hack": false,
+			"analogScratch": false,
+			"analogScratchMode": 0,
+			"analogScratchThreshold": 100
+		}
+	],
+	"midi": {
+		"keys": [
+			{
+				"type": "NOTE",
+				"value": 48
+			},
+			{
+				"type": "NOTE",
+				"value": 49
+			},
+			{
+				"type": "NOTE",
+				"value": 50
+			},
+			{
+				"type": "NOTE",
+				"value": 51
+			},
+			{
+				"type": "NOTE",
+				"value": 52
+			},
+			{
+				"type": "NOTE",
+				"value": 53
+			},
+			{
+				"type": "NOTE",
+				"value": 54
+			},
+			{
+				"type": "NOTE",
+				"value": 55
+			},
+			{
+				"type": "NOTE",
+				"value": 56
+			},
+			{
+				"type": "NOTE",
+				"value": 57
+			},
+			{
+				"type": "NOTE",
+				"value": 58
+			},
+			{
+				"type": "NOTE",
+				"value": 59
+			},
+			{
+				"type": "NOTE",
+				"value": 60
+			},
+			{
+				"type": "NOTE",
+				"value": 61
+			},
+			{
+				"type": "NOTE",
+				"value": 62
+			},
+			{
+				"type": "NOTE",
+				"value": 63
+			},
+			{
+				"type": "NOTE",
+				"value": 64
+			},
+			{
+				"type": "NOTE",
+				"value": 65
+			},
+			{
+				"type": "NOTE",
+				"value": 66
+			},
+			{
+				"type": "NOTE",
+				"value": 67
+			},
+			{
+				"type": "NOTE",
+				"value": 68
+			},
+			{
+				"type": "NOTE",
+				"value": 69
+			},
+			{
+				"type": "NOTE",
+				"value": 70
+			},
+			{
+				"type": "NOTE",
+				"value": 71
+			},
+			{
+				"type": "PITCH_BEND",
+				"value": 1
+			},
+			{
+				"type": "PITCH_BEND",
+				"value": -1
+			},
+			{
+				"type": "NOTE",
+				"value": 72
+			},
+			{
+				"type": "NOTE",
+				"value": 73
+			},
+			{
+				"type": "NOTE",
+				"value": 74
+			},
+			{
+				"type": "NOTE",
+				"value": 75
+			},
+			{
+				"type": "NOTE",
+				"value": 76
+			},
+			{
+				"type": "NOTE",
+				"value": 77
+			},
+			{
+				"type": "NOTE",
+				"value": 78
+			},
+			{
+				"type": "NOTE",
+				"value": 79
+			},
+			{
+				"type": "NOTE",
+				"value": 80
+			},
+			{
+				"type": "NOTE",
+				"value": 81
+			},
+			{
+				"type": "NOTE",
+				"value": 82
+			},
+			{
+				"type": "NOTE",
+				"value": 83
+			},
+			{
+				"type": "NOTE",
+				"value": 84
+			},
+			{
+				"type": "NOTE",
+				"value": 85
+			},
+			{
+				"type": "NOTE",
+				"value": 86
+			},
+			{
+				"type": "NOTE",
+				"value": 87
+			},
+			{
+				"type": "NOTE",
+				"value": 88
+			},
+			{
+				"type": "NOTE",
+				"value": 89
+			},
+			{
+				"type": "NOTE",
+				"value": 90
+			},
+			{
+				"type": "NOTE",
+				"value": 91
+			},
+			{
+				"type": "NOTE",
+				"value": 92
+			},
+			{
+				"type": "NOTE",
+				"value": 93
+			},
+			{
+				"type": "NOTE",
+				"value": 94
+			},
+			{
+				"type": "NOTE",
+				"value": 95
+			},
+			{
+				"type": "NOTE",
+				"value": 99
+			},
+			{
+				"type": "NOTE",
+				"value": 97
+			}
+		],
+		"start": {
+			"type": "NOTE",
+			"value": 44
+		},
+		"select": {
+			"type": "NOTE",
+			"value": 46
+		}
+	},
+	"version": 1
+},
+"showhiddennote": false,
+"showpastnote": false,
+"chartPreview": true,
+"sort": 0,
+"sortid": "TITLE",
+"musicselectinput": 0,
+"irconfig": [],
+"twitterConsumerKey": null,
+"twitterConsumerSecret": null,
+"twitterAccessToken": null,
+"twitterAccessTokenSecret": null,
+"enableRequest": false,
+"notifyRequest": false,
+"maxRequestCount": 30,
+"eventMode": false
+}

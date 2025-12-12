@@ -1,0 +1,86 @@
+--[[
+	初期値
+	カスタムオプション：900-999
+	オフセット：40-
+	@author : KASAKO
+]]
+local module = {}
+
+local customoptionNumber = 899
+local categoryNumber = 0
+local offsetNumber = 39
+
+-- カテゴリ分け用のナンバーを付与
+local function addCategoryNumber()
+    categoryNumber = categoryNumber + 1
+	return categoryNumber
+end
+-- カスタムオプションナンバーの付与
+local function addCustomoptionNumber()
+	customoptionNumber = customoptionNumber + 1
+	if customoptionNumber > 999 then
+		print("カスタムナンバーが上限を超えています")
+	end
+	return customoptionNumber
+end
+-- オフセットナンバーを付与
+local function addOffsetNumber()
+	offsetNumber = offsetNumber + 1
+	return offsetNumber
+end
+local customoption = {
+    -- カスタムオプション項目を作成
+    parent = function(name)
+        return {
+            name = name,
+            label = addCategoryNumber()
+        }
+    end,
+	-- カスタムオプション小項目を作成する
+	chiled = function(cName, pName)
+		local num = addCustomoptionNumber()
+		local chiled = {name = cName, num = num}
+		-- カスタムオプション簡易条件式
+		local condition = function() return skin_config.option[pName] == num end
+		return chiled, condition
+	end,
+	-- ファイルパス項目を作成
+	filepath = function(name, path)
+		return {
+			name = name,
+			path = path,
+			label = addCategoryNumber(),
+			def = "#default"
+		}
+	end,
+	-- オフセット項目を作成
+	offset = function(name)
+		local label = addCategoryNumber()
+		local num = addOffsetNumber()
+		local offset = {name = name, label = label, num = num}
+		local info = {
+			num = num,
+			alpha = function() return skin_config.offset[name].a end,
+			width = function() return skin_config.offset[name].w end,
+			height = function() return skin_config.offset[name].h end,
+			x = function() return skin_config.offset[name].x end,
+			y = function() return skin_config.offset[name].y end
+		}
+		return offset, info
+	end
+}
+
+module.property = {}
+module.filepath = {}
+
+--[[
+	リザルト用カスタムカテゴリ
+	カスタムオプション、ファイルパス、オフセットを関連付け
+]]
+module.category = {}
+
+if DEBUG then
+	print("決定時カスタムオプション最大値：" ..customoptionNumber .."\nスキン選択カテゴリ最大値：" ..categoryNumber .."\nスキン選択オフセット最大値：" ..offsetNumber)
+end
+
+return module

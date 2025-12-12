@@ -1,0 +1,2 @@
+Play/parts/common/lanecover/#default.png
+Play/parts/common/lanecover/#default.png

@@ -58,20 +58,20 @@
         };
 
         # Language configurations
-        languages = {
-          enableTreesitter = true;
-          nix = {
-            enable = true;
-            lsp.package = pkgs.nil;
-          };
+#        languages = {
+#          enableTreesitter = true;
+#          nix = {
+#            enable = true;
+#            lsp.package = pkgs.nil;
+#          };
 /*          markdown = {
             enable = true;
             lsp.package = pkgs.marksman;
             extensions.markview-nvim = {
               enable = true;
             }; 
-          };
-*/        };  
+          };*/
+#        };  
         # Clipboard configuration
         clipboard = {
           enable = true;

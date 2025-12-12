@@ -1,0 +1,154 @@
+--[[
+	初期値
+	カスタムオプション：900-999
+	オフセット：40-
+	@author : KASAKO
+]]
+local module = {}
+
+local customoptionNumber = 899
+local categoryNumber = 0
+local offsetNumber = 39
+
+-- カテゴリ分け用のナンバーを付与
+local function addCategoryNumber()
+    categoryNumber = categoryNumber + 1
+	return categoryNumber
+end
+-- カスタムオプションナンバーの付与
+local function addCustomoptionNumber()
+	customoptionNumber = customoptionNumber + 1
+	if customoptionNumber > 999 then
+		print("カスタムナンバーが上限を超えています")
+	end
+	return customoptionNumber
+end
+-- オフセットナンバーを付与
+local function addOffsetNumber()
+	offsetNumber = offsetNumber + 1
+	return offsetNumber
+end
+local customoption = {
+    -- カスタムオプション項目を作成
+    parent = function(name)
+        return {
+            name = name,
+            label = addCategoryNumber()
+        }
+    end,
+	-- カスタムオプション小項目を作成する
+	chiled = function(cName, pName)
+		local num = addCustomoptionNumber()
+		local chiled = {name = cName, num = num}
+		-- カスタムオプション簡易条件式
+		local condition = function() return skin_config.option[pName] == num end
+		return chiled, condition
+	end,
+	-- ファイルパス項目を作成
+	filepath = function(name, path)
+		return {
+			name = name,
+			path = path,
+			label = addCategoryNumber(),
+			def = "#default"
+		}
+	end,
+	-- オフセット項目を作成
+	offset = function(name)
+		local label = addCategoryNumber()
+		local num = addOffsetNumber()
+		local offset = {name = name, label = label, num = num}
+		local info = {
+			num = num,
+			alpha = function() return skin_config.offset[name].a end,
+			width = function() return skin_config.offset[name].w end,
+			height = function() return skin_config.offset[name].h end,
+			x = function() return skin_config.offset[name].x end,
+			y = function() return skin_config.offset[name].y end
+		}
+		return offset, info
+	end
+}
+
+local bgPattern = customoption.parent("背景の種類")
+bgPattern.image, module.isBgImage = customoption.chiled("静止画", bgPattern.name)
+bgPattern.movie, module.isBgMovie = customoption.chiled("動画", bgPattern.name)
+local bitmapFont = customoption.parent("画像フォント")
+bitmapFont.off, module.isOutlineFont = customoption.chiled("無効", bitmapFont.name)
+bitmapFont.on, module.isBitmapFont = customoption.chiled("有効（高負荷）", bitmapFont.name)
+local stageFile = customoption.parent("ステージファイル")
+stageFile.off, module.isStagefileOff = customoption.chiled("無効", stageFile.name)
+stageFile.on, module.isStagefileOn = customoption.chiled("有効", stageFile.name)
+local notesGraph = customoption.parent("ノーツ分布グラフ")
+notesGraph.off, module.isNotesGraphOff = customoption.chiled("無効", notesGraph.name)
+notesGraph.on, module.isNotesGraphOn = customoption.chiled("有効", notesGraph.name)
+local viewStage = customoption.parent("ステージ数表示")
+viewStage.off, module.isviewStageOff = customoption.chiled("無効", viewStage.name)
+viewStage.on, module.isviewStageOn = customoption.chiled("有効", viewStage.name)
+local viewTips = customoption.parent("お役立ち情報表示")
+viewTips.off, module.isviewTipsOff = customoption.chiled("無効", viewTips.name)
+viewTips.on, module.isviewTipsOn = customoption.chiled("有効", viewTips.name)
+
+local bgImage = customoption.filepath("背景（静止画）Decide/bg/image/*.png", "Decide/bg/image/*.png")
+local bgMovie = customoption.filepath("背景（動画）Decide/bg/movie/*.mp4", "Decide/bg/movie/*.mp4")
+
+module.property = {
+    --カスタムオプション定義
+    {name = bgPattern.name, category = bgPattern.label, def = bgPattern.image.name, item = {
+        {name = bgPattern.image.name, op = bgPattern.image.num},
+        {name = bgPattern.movie.name, op = bgPattern.movie.num},
+    }},
+    {name = bitmapFont.name, category = bitmapFont.label, def = bitmapFont.off.name, item = {
+        {name = bitmapFont.off.name, op = bitmapFont.off.num},
+        {name = bitmapFont.on.name, op = bitmapFont.on.num},
+    }},
+    {name = stageFile.name, category = stageFile.label, def = stageFile.on.name, item = {
+        {name = stageFile.off.name, op = stageFile.off.num},
+        {name = stageFile.on.name, op = stageFile.on.num},
+    }},
+	{name = notesGraph.name, category = notesGraph.label, def = notesGraph.on.name, item = {
+		{name = notesGraph.off.name, op = notesGraph.off.num},
+		{name = notesGraph.on.name, op = notesGraph.on.num},
+	}},
+	{name = viewStage.name, def = viewStage.off.name, category = viewStage.label, item = {
+		{name = viewStage.off.name, op = viewStage.off.num},
+		{name = viewStage.on.name, op = viewStage.on.num},
+	}},
+	{name = viewTips.name, def = viewTips.on.name, category = viewTips.label, item = {
+		{name = viewTips.off.name, op = viewTips.off.num},
+		{name = viewTips.on.name, op = viewTips.on.num},
+	}},
+}
+
+module.filepath = {
+    {name = bgImage.name, path = bgImage.path, category = bgImage.label, def = "sample"},
+    {name = bgMovie.name, path = bgMovie.path, category = bgMovie.label, def = "sample"},
+}
+
+--[[
+	リザルト用カスタムカテゴリ
+	カスタムオプション、ファイルパス、オフセットを関連付け
+]]
+module.category = {
+    --カスタムオプション定義
+	{name = "メインオプション", item = {
+        bitmapFont.label,
+        stageFile.label,
+		notesGraph.label,
+		viewTips.label
+	}},
+	{name = "背景パターン", item = {
+        bgPattern.label,
+        bgImage.label,
+        bgMovie.label
+	}},
+	{name = "ステージ数表示（ModernChicResultスキンの使用と『プレイ履歴の保存』を有効にする必要があります。）", item = {
+		viewStage.label
+	}},
+}
+
+if DEBUG then
+	print("決定時カスタムオプション最大値：" ..customoptionNumber .."\n決定時カテゴリ最大値：" ..categoryNumber .."\n決定時オフセット最大値：" ..offsetNumber)
+end
+
+return module
