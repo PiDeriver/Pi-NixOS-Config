@@ -15,6 +15,7 @@
     nixModules/audio.nix
 #    nixModules/print.nix
     nixModules/bluetooth.nix
+    nixModules/udev.nix
     
     ### Users ###
     nixModules/users/user_pideriver.nix
