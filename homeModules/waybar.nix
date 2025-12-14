@@ -149,7 +149,8 @@ mainBar = {
 #    };
 
     "clock"= {
-#        "format"= "{=%I=%M %p}";
+#        "format"= "{=%A %R}";
+        "format" = "{:%A %R}";
         "rotate"= 0;
 #        "format-alt"= "{=%R 󰃭 %d·%m·%y}";
         "tooltip-format"= "<span>{calendar}</span>";
@@ -164,13 +165,13 @@ mainBar = {
                 "today"= "<span color='#ff6699'><b>{}</b></span>";
             };
         };
-#        "actions"= {
-#            "on-click-right"= "mode";
-#            "on-click-forward"= "tz_up";
-#            "on-click-backward"= "tz_down";
-#            "on-scroll-up"= "shift_up";
-#            "on-scroll-down"= "shift_down";
-#        };
+        "actions"= {
+            "on-click-right"= "mode";
+            "on-click-forward"= "tz_up";
+            "on-click-backward"= "tz_down";
+            "on-scroll-up"= "shift_up";
+            "on-scroll-down"= "shift_down";
+        };
     };
 
     "tray"= {
