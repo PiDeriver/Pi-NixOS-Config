@@ -1,6 +1,6 @@
 {
 "playername": "player1",
-"displaymode": "BORDERLESS",
+"displaymode": "FULLSCREEN",
 "vsync": false,
 "resolution": "WQHD",
 "useResolution": true,
@@ -9,15 +9,15 @@
 "folderlamp": true,
 "audio": {
 	"driver": "PortAudio",
-	"driverName": "sysdefault",
+	"driverName": "default",
 	"deviceBufferSize": 384,
 	"deviceSimultaneousSources": 128,
 	"sampleRate": 0,
 	"freqOption": "FREQUENCY",
 	"fastForward": "FREQUENCY",
-	"systemvolume": 0.3097826,
-	"keyvolume": 0.3097826,
-	"bgvolume": 0.3043478,
+	"systemvolume": 0.5,
+	"keyvolume": 0.5,
+	"bgvolume": 0.5,
 	"isLoopResultSound": false,
 	"isLoopCourseResultSound": false
 },
@@ -28,9 +28,9 @@
 "scrolldurationlow": 300,
 "scrolldurationhigh": 50,
 "analogScroll": true,
-"analogTicksPerScroll": 10,
+"analogTicksPerScroll": 3,
 "songPreview": "LOOP",
-"cacheSkinImage": true,
+"cacheSkinImage": false,
 "useSongInfo": true,
 "songpath": "songdata.db",
 "songinfopath": "songinfo.db",
@@ -42,7 +42,13 @@
 "systemfontpath": "font/VL-Gothic-Regular.ttf",
 "messagefontpath": "font/VL-Gothic-Regular.ttf",
 "bmsroot": [
-
+	"/home/pideriver/Games/BMS_Music/SP_Insane+20221015_solid/",
+	"/tmp/beatoraja.QCR/ipfs",
+	"/tmp/beatoraja.zA6/ipfs",
+	"/tmp/beatoraja.yMx/ipfs",
+	"/tmp/beatoraja.82H/ipfs",
+	"/tmp/beatoraja.KPn/ipfs",
+	"/tmp/beatoraja.gUw/ipfs"
 ],
 "tableURL": [
 	"http://bmsnormal2.syuriken.jp/table.html",

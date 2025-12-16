@@ -60,13 +60,13 @@
 "scrollRate": 0.5,
 "longnoteMode": 0,
 "longnoteRate": 1,
-"customJudge": false,
-"keyJudgeWindowRatePerfectGreat": 400,
-"keyJudgeWindowRateGreat": 400,
-"keyJudgeWindowRateGood": 100,
-"scratchJudgeWindowRatePerfectGreat": 400,
-"scratchJudgeWindowRateGreat": 400,
-"scratchJudgeWindowRateGood": 100,
+"customJudge": true,
+"keyJudgeWindowRatePerfectGreat": 83,
+"keyJudgeWindowRateGreat": 55,
+"keyJudgeWindowRateGood": 77,
+"scratchJudgeWindowRatePerfectGreat": 83,
+"scratchJudgeWindowRateGreat": 55,
+"scratchJudgeWindowRateGood": 77,
 "mineMode": 0,
 "bpmguide": false,
 "extranoteType": 0,
@@ -5585,7 +5585,7 @@
 		"lanecovermarginhigh": 0.01,
 		"lanecoverswitchduration": 500,
 		"hispeedautoadjust": true,
-		"judgetype": "Combo"
+		"judgetype": "Lowest"
 	},
 	"keyboard": {
 		"mouseScratchConfig": {
