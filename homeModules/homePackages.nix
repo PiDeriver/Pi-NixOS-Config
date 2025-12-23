@@ -34,6 +34,9 @@
     # Disk tool
     gparted
     ntfs3g
+    # Remote drive tools
+    cifs-utils
+    nfs-utils
 
     ### Data manipulation ###
 
@@ -51,7 +54,6 @@
 
     ### Alternate browsers ###
     ungoogled-chromium
-#    librewolf
 
     ### Security ###
     # Password Manager
@@ -88,14 +90,10 @@
     # Pictures
     krita
     gimp
-#    feh
     qimgv
 
     ### Backup Utility ###
     luckybackup
-
-    ### Custom Cursor ###
-#    win2xcur
 
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### Desktop only ###

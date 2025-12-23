@@ -10,6 +10,8 @@
       disks = "sudo -E gparted";
       bms-init = "$HOME/.dotfiles/beatorajaInitialSetup/BMS-init.sh";
       bms = "beatoraja;$HOME/.dotfiles/beatorajaInitialSetup/BMS-save.sh -pf";
+      mountRemoteDrives = "bash $HOME/scripts/mountRemoteDrives.sh";
+      umountRemoteDrives = "bash $HOME/scripts/umountRemoteDrives.sh";
     };
   }; 
 }
