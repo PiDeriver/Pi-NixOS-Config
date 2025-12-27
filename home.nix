@@ -16,6 +16,7 @@
     homeModules/mako.nix
     # window portal
     homeModules/xdg-portal.nix
+    homeModules/xdg-autostart.nix
     # screenshot util
     homeModules/hyprshot.nix
     # Java

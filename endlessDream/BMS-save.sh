@@ -1,31 +1,31 @@
-cd $HOME/.local/share/beatoraja
+cd $HOME/.local/share/lr2oraja-endlessdream
 
 saveAll(){
   echo "Save All"
-  cp -r favorite $HOME/.dotfiles/beatorajaInitialSetup
-  cp -r player $HOME/.dotfiles/beatorajaInitialSetup
-  cp -r skin $HOME/.dotfiles/beatorajaInitialSetup
-  cp config_sys.json $HOME/.dotfiles/beatorajaInitialSetup 
+  cp -r favorite $HOME/.dotfiles/endlessDream
+  cp -r player $HOME/.dotfiles/endlessDream
+  cp -r skin $HOME/.dotfiles/endlessDream
+  cp config_sys.json $HOME/.dotfiles/endlessDream 
 }
 
 saveConfig(){
   echo "Save config_sys.json"
-  cp config_sys.json $HOME/.dotfiles/beatorajaInitialSetup
+  cp config_sys.json $HOME/.dotfiles/endlessDream
 }
 
 savePlayer(){
   echo "Save player folder"
-  cp -r player $HOME/.dotfiles/beatorajaInitialSetup
+  cp -r player $HOME/.dotfiles/endlessDream
 }
 
 saveFavorite(){
   echo "Save favorite folder"
-  cp -r favorite $HOME/.dotfiles/beatorajaInitialSetup
+  cp -r favorite $HOME/.dotfiles/endlessDream
 }
 
 saveSkin(){
   echo "Save Skin"
-  cp -r skin $HOME/.dotfiles/beatorajaInitialSetup
+  cp -r skin $HOME/.dotfiles/endlessDream
 }
 
 while getopts 'acpfs' OPTION; do

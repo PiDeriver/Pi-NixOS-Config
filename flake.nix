@@ -65,7 +65,11 @@
           # This adds the NUR nixpkgs overlay.
           # Example:
           ({ pkgs, ... }: {
-            environment.systemPackages = [ pkgs.nur.repos.MiyakoMeow.beatoraja ];
+            environment.systemPackages = [ 
+#              pkgs.nur.repos.MiyakoMeow.beatoraja
+              pkgs.nur.repos.MiyakoMeow.lr2oraja-endlessdream
+              pkgs.nur.repos.MiyakoMeow.lampghost
+            ];
           })
 
           # Home Manager setup
