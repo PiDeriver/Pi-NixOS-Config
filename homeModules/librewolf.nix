@@ -11,25 +11,26 @@
     };
   in
 {
-  programs.librewolf = {
+  programs.firefox = {
     enable = true;
+    package = pkgs.librewolf;
     languagePacks = [ "de" "en-US" "ja" ];
     /* ---- POLICIES ---- */
     # Check about:policies#documentation for options.
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
-#      EnableTrackingProtection = {
-#        Value= true;
-#        Locked = true;
-#        Cryptomining = true;
-#        Fingerprinting = true;
-#      };
-      DisablePocket = true;
-      DisableFirefoxAccounts = true;
-      DisableAccounts = true;
+      EnableTrackingProtection = {
+        Value= true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+      DisablePocket = false;
+      DisableFirefoxAccounts = false;
+      DisableAccounts = false;
       DisableFirefoxScreenshots = true;
-#      OverrideFirstRunPage = "";
+      OverrideFirstRunPage = "";
       OverridePostUpdatePage = "";
       DontCheckDefaultBrowser = true;
       DisplayBookmarksToolbar = "newtab"; # alternatives: "always" or "newtab"
@@ -55,13 +56,37 @@
           installation_mode = "force_installed";
           private_browsing = true;
         };
+        # SponsorBlock
+        "sponsorBlocker@ajay.app" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4541835/sponsorblock-5.14.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        # TamperMonkey
+        "firefox@tampermonkey.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4405733/tampermonkey-5.3.3.xpi";
+          installation_mode = "force_installed";
+        };
+#        # VTT Enhancer
+#        "{ffed5dfa-f0e1-403d-905d-ac3f698660a7}" = {
+#          install_url = "https://addons.mozilla.org/firefox/downloads/file/4362860/roll20_enhancement_suite-1.28.22.xpi";
+#          installation-mode = "force-installed";
+#        };
+        # Bitwarden
+#        https://addons.mozilla.org/firefox/downloads/file/4599707/bitwarden_password_manager-2025.10.0.xpi
+        # Youtube Livestreams Theater mode
+#        https://addons.mozilla.org/firefox/downloads/file/4593934/youtubelivestreamstheatermode-4.1.2.xpi
+        # Enhancer for Youtube
+#        https://www.mrfdev.com/downloads/enhancer_for_youtube-2.0.130.1.xpi
+        # 7TV
+#        https://extension.7tv.gg/v3.1.13/ext.xpi
         # ...
       };
       /* ---- PREFERENCES ---- */
       # Check about:config for options.
       Preferences = { 
         "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
-        "extensions.pocket.enabled" = lock-false;
+        "extensions.pocket.enabled" = lock-true;
         "extensions.screenshots.disabled" = lock-true;
         "browser.topsites.contile.enabled" = lock-false;
         "browser.formfill.enable" = lock-false;

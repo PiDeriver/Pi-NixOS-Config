@@ -28,7 +28,6 @@
     homeModules/${userSettings.terminal}.nix
     # browser
     homeModules/${userSettings.browser}.nix
-    homeModules/librewolf.nix
     # file manager
     homeModules/${userSettings.fileManager}.nix
     # text editor   

@@ -40,7 +40,7 @@
       username = "pideriver";
       name = "PiDeriver";
       terminal = "kitty";
-      browser = "firefox";
+      browser = "librewolf";
       editor = "neovim";
       fileManager = "lf";
     };
