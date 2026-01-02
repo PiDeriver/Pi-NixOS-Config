@@ -68,11 +68,12 @@
     winetricks
     wineWowPackages.full
     bottles
+    heroic
     # Wine Manager
     protonplus
     # Console Emulators
     dolphin-emu
-    parallel-launcher
+#    parallel-launcher #This package broke on OS update
     azahar
     melonDS
     cemu
@@ -106,7 +107,7 @@
     # XLR device
     goxlr-utility
     # Video Downloader
-    ytdownloader
+    tartube-yt-dlp
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
     ### Laptop only ###
