@@ -56,6 +56,7 @@
 
     # discord client
     homeModules/vesktop.nix
+    homeModules/defaultsDesktop.nix
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
     ### laptop only ###
