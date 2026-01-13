@@ -96,7 +96,7 @@
 				},
 				{
 					"name": "スコアグラフ",
-					"value": 900
+					"value": 901
 				},
 				{
 					"name": "スコアグラフ位置",
@@ -104,7 +104,7 @@
 				},
 				{
 					"name": "ジャッジカウント",
-					"value": 905
+					"value": 906
 				},
 				{
 					"name": "手元用クロマキー",
@@ -128,7 +128,7 @@
 				},
 				{
 					"name": "BGA表示方法",
-					"value": 929
+					"value": 928
 				},
 				{
 					"name": "閉店アニメ",
@@ -170,7 +170,7 @@
 				},
 				{
 					"name": "Laser",
-					"path": "default_pink.png"
+					"path": "veryshort_pink.png"
 				},
 				{
 					"name": "Lanecover",
@@ -178,7 +178,7 @@
 				},
 				{
 					"name": "Lift",
-					"path": "kurumiruku_Cover-L1.png"
+					"path": "kurumiruku_CoverPink-L1.png"
 				},
 				{
 					"name": "GraphBG",
@@ -1905,7 +1905,7 @@
 				},
 				{
 					"name": "スコアグラフ",
-					"value": 900
+					"value": 901
 				},
 				{
 					"name": "スコアグラフ位置",
@@ -1913,7 +1913,7 @@
 				},
 				{
 					"name": "ジャッジカウント",
-					"value": 905
+					"value": 906
 				},
 				{
 					"name": "手元用クロマキー",
@@ -1937,7 +1937,7 @@
 				},
 				{
 					"name": "BGA表示方法",
-					"value": 929
+					"value": 928
 				},
 				{
 					"name": "閉店アニメ",
@@ -1979,7 +1979,7 @@
 				},
 				{
 					"name": "Laser",
-					"path": "default_pink.png"
+					"path": "veryshort_pink.png"
 				},
 				{
 					"name": "Lanecover",
@@ -1987,7 +1987,7 @@
 				},
 				{
 					"name": "Lift",
-					"path": "kurumiruku_Cover-L1.png"
+					"path": "kurumiruku_CoverPink-L1.png"
 				},
 				{
 					"name": "GraphBG",
@@ -3607,6 +3607,19 @@
 			],
 			"offset": []
 		}
+	},
+	{
+		"path": "skin/Pi_ECFN/select/select.json",
+		"properties": {
+			"option": [],
+			"file": [
+				{
+					"name": "Background",
+					"path": "Random"
+				}
+			],
+			"offset": []
+		}
 	}
 ],
 "mode5": {
@@ -4448,8 +4461,8 @@
 "showhiddennote": false,
 "showpastnote": false,
 "chartPreview": true,
-"sort": 2,
-"sortid": "BPM",
+"sort": 0,
+"sortid": "TITLE",
 "musicselectinput": 0,
 "irconfig": [],
 "twitterConsumerKey": null,

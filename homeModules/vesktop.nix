@@ -1,4 +1,4 @@
-{ ... }: 
+{pkgs-stable, ... }: 
 {
   stylix.targets = {
     vesktop.enable = false;
@@ -7,6 +7,7 @@
 
   programs.vesktop = {
     enable = true;
+    package = pkgs-stable.vesktop;
     vencord.themes = {
       nixVeskTheme = import ./vesktopcss.nix;
     };

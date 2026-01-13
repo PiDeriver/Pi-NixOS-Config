@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +25,7 @@
     };
     # ...
   };
-  outputs = {self, nixpkgs, home-manager, stylix, nvf, nur, ... }: let
+  outputs = {self, nixpkgs, nixpkgs-stable, home-manager, stylix, nvf, nur, ... }: let
     lib = nixpkgs.lib;
     # ---- SYSTEM SETTINGS ---- #
     commonSystemSettings = {
@@ -34,6 +35,7 @@
     };
     
     pkgs = import nixpkgs { inherit (commonSystemSettings) system; };
+    pkgs-stable = import nixpkgs-stable { inherit (commonSystemSettings) system; };
 
     # ---- USER SETTINGS ---- #
     userSettings = {
@@ -87,6 +89,7 @@
             home-manager.extraSpecialArgs = {
               inherit systemSettings;
               inherit userSettings;
+              inherit pkgs-stable;
             };
           }
         ];

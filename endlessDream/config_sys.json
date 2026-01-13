@@ -23,7 +23,7 @@
 	"isLoopResultSound": false,
 	"isLoopCourseResultSound": false
 },
-"maxFramePerSecond": 0,
+"maxFramePerSecond": 1000,
 "prepareFramePerSecond": 0,
 "maxSearchBarCount": 10,
 "skipDecideScreen": false,
@@ -45,7 +45,19 @@
 "systemfontpath": "font/VL-Gothic-Regular.ttf",
 "messagefontpath": "font/VL-Gothic-Regular.ttf",
 "bmsroot": [
-	"/home/pideriver/Games/BMS_Music/SP_Insane+20221015_solid/"
+	"/home/pideriver/Games/BMS_Music/SP_Insane+20221015_solid/",
+	"/tmp/lr2oraja-endlessdream.vcz/ipfs",
+	"/tmp/lr2oraja-endlessdream.vcz/http_download",
+	"/tmp/lr2oraja-endlessdream.fPv/ipfs",
+	"/tmp/lr2oraja-endlessdream.fPv/http_download",
+	"/tmp/lr2oraja-endlessdream.zrF/ipfs",
+	"/tmp/lr2oraja-endlessdream.zrF/http_download",
+	"/tmp/lr2oraja-endlessdream.yn8/ipfs",
+	"/tmp/lr2oraja-endlessdream.yn8/http_download",
+	"/tmp/lr2oraja-endlessdream.7P5/ipfs",
+	"/tmp/lr2oraja-endlessdream.7P5/http_download",
+	"/tmp/lr2oraja-endlessdream.v5V/ipfs",
+	"/tmp/lr2oraja-endlessdream.v5V/http_download"
 ],
 "tableURL": [
 	"https://mqppppp.neocities.org/StardustTable.html",

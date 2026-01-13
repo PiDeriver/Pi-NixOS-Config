@@ -1,6 +1,6 @@
-{ pkgs, systemSettings, ... }:
+{ pkgs, pkgs-stable, systemSettings, ... }:
 {
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     ### CLI utils ###
 
     # fetch files from web address
@@ -73,7 +73,7 @@
     protonplus
     # Console Emulators
     dolphin-emu
-#    parallel-launcher #This package broke on OS update
+#    parallel-launcher #This package broke on OS updatei
     azahar
     melonDS
     cemu
@@ -114,7 +114,10 @@
 
     # DDR emulator
     stepmania
-  ];
+  ])++ (with pkgs-stable; [
+    ### Packages that break often and don't need to be bleeding edge ###
+    parallel-launcher
+  ]);
 
   #Add enviroment path for konaste
   home.sessionPath = [ "$HOME/.local/bin" ];
