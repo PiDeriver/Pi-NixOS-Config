@@ -29,8 +29,8 @@
     pavucontrol
     # Command line monitor tool
     xorg.xrandr
-    # GTK patchbay for pipewire
-    helvum
+    # Audio patchbay
+    qpwgraph
     # Disk tool
     gparted
     ntfs3g

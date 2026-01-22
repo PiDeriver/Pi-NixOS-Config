@@ -5,7 +5,7 @@
     shellAliases = {
       ll = "ls -l";
       ".." = "cd ..";
-      update = "(cd $HOME/.dotfiles/; sudo nixos-rebuild switch --impure --flake . 2>&1 | grep -E -v 'Added input|follows|github:')";
+      update = "(cd $HOME/.dotfiles/; sudo nixos-rebuild switch --impure --flake . --option cores 8 --option max-jobs 6 2>&1 | grep -E -v 'Added input|follows|github:')";
       cfetch = "(cd $HOME/.dotfiles/cfetch-main/; ./cfetch)";
       disks = "sudo -E gparted";
       bms-init = "$HOME/.dotfiles/endlessDream/BMS-init.sh";

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs-stable, ... }:
 
   let
     lock-false = {
@@ -13,7 +13,7 @@
 {
   programs.firefox = {
     enable = true;
-    package = pkgs.librewolf;
+    package = pkgs-stable.librewolf;
     languagePacks = [ "de" "en-US" "ja" ];
     /* ---- POLICIES ---- */
     # Check about:policies#documentation for options.
