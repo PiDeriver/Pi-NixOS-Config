@@ -1,7 +1,8 @@
-{ ... }: 
+{ config, ... }: 
 {
   programs.zsh = {
     enable = true;
+    dotDir = "${config.home.homeDirectory}/.config/zsh";
     shellAliases = {
       ll = "ls -l";
       ".." = "cd ..";

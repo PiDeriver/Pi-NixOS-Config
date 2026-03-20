@@ -1,6 +1,9 @@
 { pkgs, pkgs-stable, systemSettings, ... }:
 {
-  home.packages = (with pkgs; [
+  #Defaulting to stable packages in the first section then using the second section for unstable packages
+  home.packages = (with pkgs-stable; [
+    ##### Stable Packages #####
+
     ### CLI utils ###
 
     # fetch files from web address
@@ -46,11 +49,10 @@
     # wayland clipboard utilities
     wl-clipboard
     # Open-source office suite
-#    libreoffice
+    libreoffice
     # Zip Files
     zip
     unzip
-    p7zip
     # Ebook Reader
     foliate
     # drag and drop utility
@@ -64,6 +66,33 @@
     bitwarden-desktop
     # VPN
     protonvpn-gui
+
+    ### Games/Emulation ###
+    # Console Emulators
+    parallel-launcher
+
+    ### Video/Audio/Pictures ###
+    # Music
+    spotify
+    # Pictures
+    krita
+    gimp
+    qimgv
+
+    ### Backup Utility ###
+    luckybackup
+
+  ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
+    ### Desktop only (stable) ###
+    # Video Editor
+    kdePackages.kdenlive
+    
+  ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
+    ### Laptop only (stable) ###
+
+    # ...
+  ])++ (with pkgs; [
+    ##### Unstable Packages #####
 
     ### Games/Emulation ###
     # Sound Voltex Emulator
@@ -83,51 +112,30 @@
     # Archipelago
     archipelago
     poptracker
-    #Minecraft
-    prismlauncher
 
     ### Video/Audio/Pictures ###
     # Video
     vlc
     # Recording
     obs-studio
-    # Music
-    spotify
-    # Pictures
-    krita
-    gimp
-    qimgv
-
-    ### Backup Utility ###
-    luckybackup
 
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
-    ### Desktop only ###
-    # Video Editor
-#    kdePackages.kdenlive #broke on unstable
-    # Audio Editor
-    reaper
+    ### Desktop only (Unstable) ###
     # Torrent Client
     qbittorrent
     # XLR device
     goxlr-utility
     # Video Downloader
     tartube-yt-dlp
-    # Possible clients for discord alternative
+    # Possible client for discord alternative
     element-desktop
-    cinny-desktop #Broken atm
-    revolt-desktop
-    # ...
+
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
-    ### Laptop only ###
+    ### Laptop only (Unstable) ###
 
     # DDR emulator
     stepmania
-  ])++ (with pkgs-stable; [
-    ### Packages that break often and don't need to be bleeding edge ###
-    parallel-launcher
-    kdePackages.kdenlive
-#    libreoffice
+
   ]);
 
   #Add enviroment path for konaste

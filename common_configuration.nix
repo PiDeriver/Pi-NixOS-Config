@@ -13,7 +13,7 @@
     nixModules/${systemSettings.hostname}_gpu.nix
     nixModules/keyboard.nix
     nixModules/audio.nix
-#    nixModules/print.nix
+    nixModules/print.nix
     nixModules/bluetooth.nix
     nixModules/udev.nix
     
@@ -35,6 +35,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
+#  nixpkgs-stable.config.allowUnfree = true;
   # enable flatpak
   services.flatpak.enable = true;
   

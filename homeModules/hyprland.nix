@@ -94,6 +94,7 @@
       bind = [
 
 	"$mod, RETURN, exec, $terminal"
+        "$mod, KP_Enter, exec, $terminal"
 	"$mod, C, killactive"
 	"$mod, Escape, exit"
 	"$mod, F, exec, $browser"
