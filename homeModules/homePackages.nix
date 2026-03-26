@@ -63,7 +63,7 @@
     # Password Manager
     bitwarden-desktop
     # VPN
-    protonvpn-gui
+    proton-vpn
 
     ### Games/Emulation ###
     # Sound Voltex Emulator
