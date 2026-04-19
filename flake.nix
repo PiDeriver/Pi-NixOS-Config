@@ -34,8 +34,8 @@
       locale = "en_US.UTF-8";
     };
     
-    pkgs = import nixpkgs { inherit (commonSystemSettings) system; };
-    pkgs-stable = import nixpkgs-stable { inherit (commonSystemSettings) system; };
+    pkgs = import nixpkgs { inherit (commonSystemSettings) system; config.allowUnfree = true;};
+    pkgs-stable = import nixpkgs-stable { inherit (commonSystemSettings) system; config.allowUnfree = true;};
 
     # ---- USER SETTINGS ---- #
     userSettings = {

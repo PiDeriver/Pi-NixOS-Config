@@ -126,7 +126,10 @@
   ])++ (with pkgs-stable; [
     ### Packages that break often and don't need to be bleeding edge ###
     parallel-launcher
+#    cemu
+#    dolphin-emu
     kdePackages.kdenlive
+#    protonvpn-gui
 #    libreoffice
   ]);
 
