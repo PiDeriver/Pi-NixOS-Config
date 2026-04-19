@@ -6,10 +6,8 @@
     # fetch files from web address
     wget
 
-    # Linux コナステ dependancies
+    # Used for desktop integration
     xdg-utils
-    zenity
-    (import ../konaste-linux/install-konaste.nix)
 
     # get detailed hardware information
     lshw
