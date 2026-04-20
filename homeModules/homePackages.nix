@@ -1,7 +1,9 @@
 { pkgs, pkgs-stable, systemSettings, ... }:
 {
+  # First section is for unstable packages and the later sections are for stable
   home.packages = (with pkgs; [
-    ### CLI utils ###
+    ### Stable Packages ###
+    ## CLI utils ##
 
     # fetch files from web address
     wget
@@ -22,7 +24,7 @@
     ani-cli
     ani-skip
 
-    ### Hardware and Peripherals ###
+    ## Hardware and Peripherals ##
 
     # Open-source CLI tool to manage headset settings
     headsetcontrol
@@ -39,12 +41,10 @@
     cifs-utils
     nfs-utils
 
-    ### Data manipulation ###
+    ## Data manipulation ##
 
     # wayland clipboard utilities
     wl-clipboard
-    # Open-source office suite
-#    libreoffice
     # Zip Files
     zip
     unzip
@@ -54,16 +54,16 @@
     # drag and drop utility
     dragon-drop
 
-    ### Alternate browsers ###
+    ## Alternate browsers ##
     ungoogled-chromium
 
-    ### Security ###
+    ## Security ##
     # Password Manager
     bitwarden-desktop
     # VPN
     proton-vpn
 
-    ### Games/Emulation ###
+    ## Games/Emulation ##
     # Sound Voltex Emulator
     unnamed-sdvx-clone
     # Wine Emulator
@@ -73,63 +73,86 @@
     heroic
     # Wine Manager
     protonplus
-    # Console Emulators
-    dolphin-emu
-    azahar
-    melonds
-    cemu
     # Archipelago
     archipelago
     poptracker
     #Minecraft
     prismlauncher
 
-    ### Video/Audio/Pictures ###
+    ## Video/Audio/Pictures ##
     # Video
     vlc
+    # Music
+    strawberry
+    tauon
+#    sayonara
+    quodlibet-full
     # Recording
     obs-studio
-    # Music
- #   spotify
     # Pictures
     krita
     gimp
     qimgv
 
-    ### Backup Utility ###
-    luckybackup
-
+    # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
-    ### Desktop only ###
-    # Video Editor
-#    kdePackages.kdenlive #broke on unstable
-    # Audio Editor
-    reaper
+    ### Unstable Desktop only ###
+    
     # Torrent Client
     qbittorrent
+
     # XLR device
     goxlr-utility
+
     # Video Downloader
     tartube-yt-dlp
+
     # Possible clients for discord alternative
     element-desktop
-    cinny-desktop #Broken atm
+    cinny-desktop
     revolt-desktop
+
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
-    ### Laptop only ###
+    ### Unstable Laptop only ###
+    # Possible clients for discord alternative
+    element-desktop
+    cinny-desktop
+    revolt-desktop
+    
+    # ...
+  ])++ (with pkgs; [
+    #### Stable Packages ####
+    # Music Player
+    spotify
+    # Open-source office suite
+    libreoffice
 
+    # Console Emulators
+    dolphin-emu
+    parallel-launcher
+    azahar
+    melonds
+    cemu
+
+    # Backup Utility
+    luckybackup
+
+    #...
+  ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
+    ### Stable Desktop only ###
+    # Audio Editor
+    reaper
+    # Video Editor
+    kdePackages.kdenlive
+    
+    # ...
+  ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
+    ### Stable Laptop only ###
     # DDR emulator
     stepmania
-  ])++ (with pkgs-stable; [
-    ### Packages that break often and don't need to be bleeding edge ###
-    parallel-launcher
-    spotify
-#    cemu
-#    dolphin-emu
-    kdePackages.kdenlive
-#    protonvpn-gui
-#    libreoffice
+
+    # ...
   ]);
 
   #Add enviroment path for konaste
