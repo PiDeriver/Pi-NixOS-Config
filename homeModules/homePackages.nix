@@ -90,7 +90,7 @@
     # Recording
     obs-studio
     # Music
-    spotify
+ #   spotify
     # Pictures
     krita
     gimp
@@ -124,6 +124,7 @@
   ])++ (with pkgs-stable; [
     ### Packages that break often and don't need to be bleeding edge ###
     parallel-launcher
+    spotify
 #    cemu
 #    dolphin-emu
     kdePackages.kdenlive

@@ -64,7 +64,9 @@
 
       exec-once = [
         "waybar &"
-        "hyprctl setcursor Chiharu 12"
+        "hyprctl setcursor Chiharu 12 &"
+        "goxlr-daemon &"
+        "fcitx5"
       ];
 
       ### hotkeys ###
