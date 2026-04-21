@@ -61,7 +61,7 @@
     # Password Manager
     bitwarden-desktop
     # VPN
-    proton-vpn
+#    proton-vpn #Currently broken on unstable
 
     ## Games/Emulation ##
     # Sound Voltex Emulator
@@ -76,7 +76,7 @@
     # Archipelago
     archipelago
     poptracker
-    #Minecraft
+    # Minecraft
     prismlauncher
 
     ## Video/Audio/Pictures ##
@@ -85,7 +85,7 @@
     # Music
     strawberry
     tauon
-#    sayonara
+#    sayonara #Broken atm
     quodlibet-full
     # Recording
     obs-studio
@@ -125,8 +125,12 @@
     #### Stable Packages ####
     # Music Player
     spotify
+
     # Open-source office suite
     libreoffice
+
+    # VPN
+    protonvpn-gui
 
     # Console Emulators
     dolphin-emu

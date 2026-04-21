@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --cmd \"Hyprland > /dev/null\""; # Or your preferred shell
+        command = "${pkgs.tuigreet}/bin/tuigreet --cmd \"start-hyprland > /dev/null\""; # Or your preferred shell
       };
     };
   };
