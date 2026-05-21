@@ -43,7 +43,7 @@
     homeModules/fzf.nix
 
     ### Wine programs ###
-    homeModules/lutris.nix
+ #   homeModules/lutris.nix #openldap dependacy broken and will not build
 
     ### Data manipulation ###
     homeModules/obsidian.nix

@@ -3,6 +3,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
+    configType = "hyprlang";
     settings =
       let
         isDesktop = (systemSettings.hostname == "pi-nixos-desktop");
@@ -93,6 +94,12 @@
           "$mod, Escape, exit"
       ];
 
+      bindm = [
+        ### window manipulation ###
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
+
       bind = [
 
 	"$mod, RETURN, exec, $terminal"
@@ -110,6 +117,10 @@
 	  
 	# Ctrl + PrintScreen -> Capture active window
 	"CTRL, Print, exec, hyprshot -m window"
+
+        ### window manipulation ###
+        "$mod, T, togglefloating"
+        "$mod, Y, fullscreen"
 
 	### workspaces ###
 

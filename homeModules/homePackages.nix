@@ -69,7 +69,7 @@
     # Wine Emulator
     winetricks
     wineWow64Packages.waylandFull
-    bottles
+#    bottles #openldap dependacy broken on unstable
     heroic
     # Wine Manager
     protonplus
@@ -130,7 +130,7 @@
     libreoffice
 
     # VPN
-    protonvpn-gui
+    proton-vpn
 
     # Console Emulators
     dolphin-emu
