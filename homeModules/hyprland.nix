@@ -132,7 +132,7 @@
 	
 	# change workspace orientation
 	"$mod, P, pseudo"
-	"$mod, J, togglesplit"
+#	"$mod, J, togglesplit"
 	# Zero-in Workspace
 	"$mod, KP_Insert, togglespecialworkspace, magic"
 	"$mod SHIFT, KP_Insert, movetoworkspace, special:magic"

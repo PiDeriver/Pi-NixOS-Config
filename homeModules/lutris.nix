@@ -1,8 +1,8 @@
-{pkgs, ... }: 
+{pkgs-stable, ... }: 
 {
   programs.lutris = {
     enable = true;
-    extraPackages = with pkgs; [mangohud winetricks gamemode umu-launcher libadwaita];
-    protonPackages = [ pkgs.proton-ge-bin ];
+    extraPackages = with pkgs-stable; [mangohud winetricks gamemode umu-launcher libadwaita];
+    protonPackages = [ pkgs-stable.proton-ge-bin ];
   };
 }

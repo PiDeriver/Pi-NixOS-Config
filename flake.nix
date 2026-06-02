@@ -68,9 +68,9 @@
           # Example:
           ({ pkgs, ... }: {
             environment.systemPackages = [ 
-#              pkgs.nur.repos.MiyakoMeow.beatoraja
-              pkgs.nur.repos.MiyakoMeow.lr2oraja-endlessdream
-              pkgs.nur.repos.MiyakoMeow.lampghost
+#              pkgs.nur.repos.MiyakoMeow.beatoraja #It looks like MiyakoMeow's github account that was hosting their packages is gone. I hope they come back soon or someone repackages them ;-;
+#              pkgs.nur.repos.MiyakoMeow.lr2oraja-endlessdream
+#              pkgs.nur.repos.MiyakoMeow.lampghost
             ];
           })
 
