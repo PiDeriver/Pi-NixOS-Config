@@ -15,6 +15,7 @@
     enable = true;
     package = pkgs-stable.librewolf;
     languagePacks = [ "de" "en-US" "ja" ];
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     /* ---- POLICIES ---- */
     # Check about:policies#documentation for options.
     policies = {
@@ -106,4 +107,5 @@
       };
     };
   };
+  stylix.targets.firefox.enable = false;
 }

@@ -59,7 +59,7 @@
 
     ## Security ##
     # Password Manager
-    bitwarden-desktop
+#    bitwarden-desktop #Uses EOL electron version. Needs upstream fix
     # VPN
 #    proton-vpn #Currently broken on unstable
 
