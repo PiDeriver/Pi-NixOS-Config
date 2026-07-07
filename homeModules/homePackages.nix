@@ -24,6 +24,9 @@
     ani-cli
     ani-skip
 
+    # Key Generation
+    openssl_3
+
     ## Hardware and Peripherals ##
 
     # Open-source CLI tool to manage headset settings
@@ -37,6 +40,8 @@
     # Disk tool
     gparted
     ntfs3g
+    # Disk health checking and monitoring
+    smartmontools
     # Remote drive tools
     cifs-utils
     nfs-utils
@@ -56,6 +61,7 @@
 
     ## Alternate browsers ##
     ungoogled-chromium
+    brave
 
     ## Security ##
     # Password Manager
@@ -110,7 +116,7 @@
     # Possible clients for discord alternative
     element-desktop
     cinny-desktop
-    revolt-desktop
+#    revolt-desktop
 
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
@@ -118,7 +124,7 @@
     # Possible clients for discord alternative
     element-desktop
     cinny-desktop
-    revolt-desktop
+ #   revolt-desktop
     
     # ...
   ])++ (with pkgs; [

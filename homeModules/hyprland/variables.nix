@@ -1,6 +1,6 @@
 {userSettings, systemSettings, ... }: 
 {
-  environment.etc."xdg/hypr/variables.lua".text = ''
+  environment.etc."${config.xdg.configHome}/hypr/variables.lua".text = ''
     mod = "SUPER"
     hostName = "${systemSettings.hostName}";
     terminal = "${userSettings.terminal}";

@@ -21,6 +21,8 @@
     homeModules/hyprshot.nix
     # Java
     homeModules/java.nix
+    # Keyring
+    homeModules/keyring.nix
 
     ### basic programs ###
 
