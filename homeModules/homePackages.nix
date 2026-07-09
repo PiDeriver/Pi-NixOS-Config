@@ -2,7 +2,7 @@
 {
   # First section is for unstable packages and the later sections are for stable
   home.packages = (with pkgs; [
-    ### Stable Packages ###
+    ### Unstable Packages ###
     ## CLI utils ##
 
     # fetch files from web address
@@ -48,6 +48,13 @@
 
     ## Data manipulation ##
 
+    # GUI file manager
+    nemo-with-extensions
+    nemo-python
+    nemo-emblems
+    nemo-fileroller
+    file-roller #This is an archive manager
+    kdePackages.filelight #GUI disk space usage
     # wayland clipboard utilities
     wl-clipboard
     # Zip Files
@@ -65,9 +72,9 @@
 
     ## Security ##
     # Password Manager
-#    bitwarden-desktop #Uses EOL electron version. Needs upstream fix
+#    bitwarden-desktop
     # VPN
-#    proton-vpn #Currently broken on unstable
+    proton-vpn
 
     ## Games/Emulation ##
     # Sound Voltex Emulator
@@ -75,7 +82,7 @@
     # Wine Emulator
     winetricks
     wineWow64Packages.waylandFull
-#    bottles #openldap dependacy broken on unstable
+    bottles
     heroic
     # Wine Manager
     protonplus
@@ -127,7 +134,7 @@
  #   revolt-desktop
     
     # ...
-  ])++ (with pkgs; [
+  ])++ (with pkgs-stable; [
     #### Stable Packages ####
     # Music Player
     spotify
@@ -136,7 +143,7 @@
     libreoffice
 
     # VPN
-    proton-vpn
+#    proton-vpn
 
     # Console Emulators
     dolphin-emu
