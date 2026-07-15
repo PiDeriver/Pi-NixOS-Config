@@ -52,6 +52,7 @@
     nemo-with-extensions
     nemo-python
     nemo-emblems
+    folder-color-switcher
     nemo-fileroller
     file-roller #This is an archive manager
     kdePackages.filelight #GUI disk space usage
@@ -82,7 +83,7 @@
     # Wine Emulator
     winetricks
     wineWow64Packages.waylandFull
-    bottles
+#    bottles
     heroic
     # Wine Manager
     protonplus
@@ -91,6 +92,8 @@
     poptracker
     # Minecraft
     prismlauncher
+    # Console
+    shadps4-qtlauncher
 
     ## Video/Audio/Pictures ##
     # Video

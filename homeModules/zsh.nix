@@ -12,8 +12,7 @@
       disks = "sudo -E gparted";
       bms-init = "$HOME/.dotfiles/endlessDream/BMS-init.sh";
       bms = "lr2oraja-endlessdream;$HOME/.dotfiles/endlessDream/BMS-save.sh -pf";
-      mountRemoteDrives = "bash $HOME/scripts/mountRemoteDrives.sh";
-      umountRemoteDrives = "bash $HOME/scripts/umountRemoteDrives.sh";
+      collectGarbage = "sudo nix-collect-garbage --delete-older-than 30d";
     };
   }; 
 }
