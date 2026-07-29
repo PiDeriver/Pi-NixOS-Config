@@ -45,6 +45,8 @@
     # Remote drive tools
     cifs-utils
     nfs-utils
+    # Rip blu ray and dvd
+#    makemkv
 
     ## Data manipulation ##
 
@@ -94,15 +96,13 @@
     prismlauncher
     # Console
     shadps4-qtlauncher
+    eden
 
     ## Video/Audio/Pictures ##
     # Video
     vlc
     # Music
-    strawberry
-    tauon
-#    sayonara #Broken atm
-    quodlibet-full
+    finamp
     # Recording
     obs-studio
     # Pictures
@@ -134,7 +134,6 @@
     # Possible clients for discord alternative
     element-desktop
     cinny-desktop
- #   revolt-desktop
     
     # ...
   ])++ (with pkgs-stable; [
@@ -145,15 +144,13 @@
     # Open-source office suite
     libreoffice
 
-    # VPN
-#    proton-vpn
-
     # Console Emulators
     dolphin-emu
     parallel-launcher
     azahar
     melonds
     cemu
+    ppsspp-sdl-wayland
 
     # Backup Utility
     luckybackup

@@ -1,4 +1,4 @@
-{ config, pkgs-stable, ... }:
+{ config, pkgs, ... }:
 
   let
     lock-false = {
@@ -13,7 +13,7 @@
 {
   programs.firefox = {
     enable = true;
-    package = pkgs-stable.librewolf;
+    package = pkgs.librewolf;
     languagePacks = [ "de" "en-US" "ja" ];
     configPath = "${config.xdg.configHome}/mozilla/firefox";
     /* ---- POLICIES ---- */

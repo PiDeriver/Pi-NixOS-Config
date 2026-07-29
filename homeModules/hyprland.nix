@@ -82,6 +82,7 @@
           "CTRL&ALT&SHIFT, right, exec, hyprctl keyword monitor DP-3, 2560x1440@120Hz, auto-right, 1, transform, 3"
           "CTRL&ALT&SHIFT, up, exec, hyprctl keyword monitor DP-3, 2560x1440@120Hz, auto-right, 1, transform, 0"
           "CTRL&ALT&SHIFT, down, exec, hyprctl keyword monitor DP-3, 2560x1440@120Hz, auto-right, 1, transform, 2"
+          "$mod, Escape, exit"
       ] else [
           "CTRL&ALT, left, exec, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 1"
           "CTRL&ALT, right, exec, hyprctl keyword monitor eDP-1, preferred, auto-left, 1, transform, 3"
@@ -105,7 +106,7 @@
 	"$mod, RETURN, exec, $terminal"
         "$mod, KP_Enter, exec, $terminal"
 	"$mod, C, killactive"
-	"$mod, Escape, exit"
+#	"$mod, Escape, exit"
 	"$mod, F, exec, $browser"
 	"$mod, R, exec, $menu"
         
