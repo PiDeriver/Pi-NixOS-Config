@@ -1,23 +1,28 @@
 --Variables and Programs
-local mod = "SUPER"
-local terminal = "${userSettings.terminal}"
-local browser = "${userSettings.browser}"
+--local mod = "SUPER"
+--local terminal = "${userSettings.terminal}"
+--local browser = "${userSettings.browser}"
+--local menu = "rofi -show drun -show-icons"
+
+local browser = "librewolf"
 local menu = "rofi -show drun -show-icons"
+local mod = "SUPER"
+local terminal = "kitty"
 
 
 --***Keybinds***
 
 --**Long Press (Rotating monitors and shutdown)**
 --Rotate Primary Monitor
-hl.bind(mod .. " + CTRL + ALT + down",hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 0}),{long_press = true})
-hl.bind(mod .. " + CTRL + ALT + left",hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 1}),{long_press = true})
-hl.bind(mod .. " + CTRL + ALT + up",hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 2}),{long_press = true})
-hl.bind(mod .. " + CTRL + ALT + right",hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 3}),{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + down",hl.dsp.exec_cmd("hyprctl keyword monitor HDMI-A-1, 2560x1440@120Hz, auto-left, 1, transform, 0"),{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + left",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 1}) end,{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + up",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 2}) end,{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + right",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 3}) end,{long_press = true})
 --Rotate Secondary Monitor
-hl.bind(mod .. " + CTRL + ALT + SHIFT + down",hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 0}),{long_press = true})
-hl.bind(mod .. " + CTRL + ALT + SHIFT + left",hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 1}),{long_press = true})
-hl.bind(mod .. " + CTRL + ALT + SHIFT + up",hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 2}),{long_press = true})
-hl.bind(mod .. " + CTRL + ALT + SHIFT + right",hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 3}),{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + SHIFT + down",function() return hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 0}) end,{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + SHIFT + left",function() return hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 1}) end,{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + SHIFT + up",function() return hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 2}) end,{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + SHIFT + right",function() return hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 3}) end,{long_press = true})
 --if above doesn't work, refactor to version below
 --hl.bind(mod .. " + CTRL + ALT + down",hl.dsp.exec_cmd("hyprctl keyword monitor HDMI-A-1, 2560x1440@120Hz, auto-left, 1, transform, 0"),{long_press = true})
 
@@ -27,8 +32,8 @@ hl.bind(mod .. "+ Escape",hl.dsp.exec_cmd("shutdown now"),{long_press = true})
 
 
 --**Mouse Binds**
-hl.bind(mod .. "+ Escape",hl.dsp.drag(),{mouse = true})
-hl.bind(mod .. "+ Escape",hl.dsp.resize(),{mouse = true})
+hl.bind(mod .. "+ mouse:272",hl.dsp.window.drag(),{mouse = true})
+hl.bind(mod .. "+ mouse:273",hl.dsp.window.resize(),{mouse = true})
 
 
 --**Terminal and Programs**
@@ -77,8 +82,8 @@ for i = 1, 9 do
     hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
     --Map Numpad 1-9
     local numpadkey = { "KP_End", "KP_Down", "KP_Next", "KP_Left", "KP_Begin", "KP_Right", "KP_Home", "KP_Up", "KP_Prior" }
-    hl.bind("SUPER + code:" .. numpadkey[i],hl.dsp.focus({ workspace = i })
-    hl.bind(mod .. " + SHIFT + code:" .. numpadkey[i], hl.dsp.window.move({ workspace = i })
+    hl.bind("SUPER + " .. numpadkey[i],hl.dsp.focus({ workspace = i }))
+    hl.bind(mod .. " + SHIFT + " .. numpadkey[i], hl.dsp.window.move({ workspace = i }))
 end
 
 --[[

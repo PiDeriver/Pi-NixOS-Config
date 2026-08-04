@@ -1,6 +1,6 @@
 hl.on("hyprland.start", function () 
   hl.exec_cmd("waybar &")
-  hl.exec_cmd(hyprctl setcursor Chiharu 12 &")
+  hl.exec_cmd("hyprctl setcursor Chiharu 12 &")
   hl.exec_cmd("goxlr-daemon &")
   hl.exec_cmd("fcitx5 &")
 end)

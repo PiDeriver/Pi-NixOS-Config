@@ -17,7 +17,7 @@
     # System Monitor
     monitor
 
-    #Tool to list open files
+    # Tool to list open files
     lsof
 
     # Anime Tools
@@ -26,6 +26,9 @@
 
     # Key Generation
     openssl_3
+
+    # Download tool
+    fanbox-dl
 
     ## Hardware and Peripherals ##
 
@@ -45,9 +48,7 @@
     # Remote drive tools
     cifs-utils
     nfs-utils
-    # Rip blu ray and dvd
-#    makemkv
-
+    
     ## Data manipulation ##
 
     # GUI file manager
@@ -64,6 +65,7 @@
     zip
     unzip
     p7zip
+    unrar
     # Ebook Reader
     foliate
     # drag and drop utility
@@ -122,6 +124,10 @@
 
     # Video Downloader
     tartube-yt-dlp
+
+    # Rip blu ray and dvd
+    makemkv
+
 
     # Possible clients for discord alternative
     element-desktop
