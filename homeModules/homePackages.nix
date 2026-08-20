@@ -28,7 +28,7 @@
     openssl_3
 
     # Download tool
-    fanbox-dl
+#    fanbox-dl
 
     ## Hardware and Peripherals ##
 
@@ -126,7 +126,7 @@
     tartube-yt-dlp
 
     # Rip blu ray and dvd
-    makemkv
+#    makemkv
 
 
     # Possible clients for discord alternative
