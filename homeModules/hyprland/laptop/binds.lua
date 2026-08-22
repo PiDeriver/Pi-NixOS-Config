@@ -2,15 +2,15 @@
 
 --**Long Press (Rotating monitors and shutdown)**
 --Rotate Primary Monitor
-hl.bind("CTRL + ALT + down",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 0}) end,{long_press = true})
-hl.bind("CTRL + ALT + left",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 1}) end,{long_press = true})
-hl.bind("CTRL + ALT + up",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 2}) end,{long_press = true})
-hl.bind("CTRL + ALT + right",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 3}) end,{long_press = true})
+hl.bind("CTRL + ALT + down",function() return hl.monitor({output = "eDP-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 0}) end,{long_press = true})
+hl.bind("CTRL + ALT + left",function() return hl.monitor({output = "eDP-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 1}) end,{long_press = true})
+hl.bind("CTRL + ALT + up",function() return hl.monitor({output = "eDP-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 2}) end,{long_press = true})
+hl.bind("CTRL + ALT + right",function() return hl.monitor({output = "eDP-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 3}) end,{long_press = true})
 --Rotate Secondary Monitor
-hl.bind("CTRL + ALT + SHIFT + down",function() return hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 0}) end,{long_press = true})
-hl.bind("CTRL + ALT + SHIFT + left",function() return hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 1}) end,{long_press = true})
-hl.bind("CTRL + ALT + SHIFT + up",function() return hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 2}) end,{long_press = true})
-hl.bind("CTRL + ALT + SHIFT + right",function() return hl.monitor({output = "DP-3", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 3}) end,{long_press = true})
+hl.bind("CTRL + ALT + SHIFT + down",function() return hl.monitor({output = "HDMI-A-4", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 0}) end,{long_press = true})
+hl.bind("CTRL + ALT + SHIFT + left",function() return hl.monitor({output = "HDMI-A-4", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 1}) end,{long_press = true})
+hl.bind("CTRL + ALT + SHIFT + up",function() return hl.monitor({output = "HDMI-A-4", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 2}) end,{long_press = true})
+hl.bind("CTRL + ALT + SHIFT + right",function() return hl.monitor({output = "HDMI-A-4", mode = "2560x1440@120Hz", position = "auto-right", scale = 1, transform = 3}) end,{long_press = true})
 
 
 --shutdown now
