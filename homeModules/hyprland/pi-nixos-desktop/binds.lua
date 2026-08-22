@@ -1,15 +1,3 @@
---Variables and Programs
---local mod = "SUPER"
---local terminal = "${userSettings.terminal}"
---local browser = "${userSettings.browser}"
---local menu = "rofi -show drun -show-icons"
-
-local browser = "librewolf"
-local menu = "rofi -show drun -show-icons"
-local mod = "SUPER"
-local terminal = "kitty"
-
-
 --***Keybinds***
 
 --**Long Press (Rotating monitors and shutdown)**

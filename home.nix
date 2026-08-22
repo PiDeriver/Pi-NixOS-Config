@@ -5,7 +5,7 @@
     ### environment ###
 
     # window manager
-    homeModules/hyprland.nix
+    homeModules/hyprlua.nix
     # taskbar
     homeModules/waybar.nix
     # menu generator
