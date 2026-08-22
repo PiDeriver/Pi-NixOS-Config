@@ -13,7 +13,7 @@
       disks = "sudo -E gparted";
       bms-init = "$HOME/.dotfiles/endlessDream/BMS-init.sh";
       bms = "lr2oraja-endlessdream;$HOME/.dotfiles/endlessDream/BMS-save.sh -pf";
-      collectGarbage = "sudo nix-collect-garbage --delete-older-than 30d";
+      collectGarbage = "sudo nix-collect-garbage --delete-older-than 7d";
     };
   }; 
 }

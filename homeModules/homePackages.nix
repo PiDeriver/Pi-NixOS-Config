@@ -99,6 +99,7 @@
     # Console
     shadps4-qtlauncher
     eden
+    dolphin-emu
 
     ## Video/Audio/Pictures ##
     # Video
@@ -151,7 +152,7 @@
     libreoffice
 
     # Console Emulators
-    dolphin-emu
+#    dolphin-emu
     parallel-launcher
     azahar
     melonds
