@@ -2,7 +2,7 @@
 
 --**Long Press (Rotating monitors and shutdown)**
 --Rotate Primary Monitor
-hl.bind(mod .. " + CTRL + ALT + down",hl.dsp.exec_cmd("hyprctl keyword monitor HDMI-A-1, 2560x1440@120Hz, auto-left, 1, transform, 0"),{long_press = true})
+hl.bind(mod .. " + CTRL + ALT + down",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 0}) end,{long_press = true})
 hl.bind(mod .. " + CTRL + ALT + left",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 1}) end,{long_press = true})
 hl.bind(mod .. " + CTRL + ALT + up",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 2}) end,{long_press = true})
 hl.bind(mod .. " + CTRL + ALT + right",function() return hl.monitor({output = "HDMI-A-1", mode = "2560x1440@120Hz", position = "auto-left", scale = 1, transform = 3}) end,{long_press = true})
@@ -44,7 +44,7 @@ hl.bind(mod .. " + SHIFT + C", hl.dsp.window.kill())
 --Window Manipulation
 hl.bind(mod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mod .. " + Y", hl.dsp.window.fullscreen({ action = "toggle" }))
-hl.bind(mod .. " + Y", hl.dsp.window.pseudo({ action = "toggle" }))
+hl.bind(mod .. " + P", hl.dsp.window.pseudo({ action = "toggle" }))
 
 
 --**Workspaces**
@@ -73,27 +73,3 @@ for i = 1, 9 do
     hl.bind("SUPER + " .. numpadkey[i],hl.dsp.focus({ workspace = i }))
     hl.bind(mod .. " + SHIFT + " .. numpadkey[i], hl.dsp.window.move({ workspace = i }))
 end
-
---[[
-
-for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i}))
-    hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-end
-
---*Map Workspaces to Numpad*
-
-for i = 1, 10 do
-    local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
-    hl.bind("SUPER + code:" .. numpadkey[i],hl.dsp.focus({ workspace = i })
-    hl.bind(mod .. " + SHIFT + code:" .. numpadkey[i], hl.dsp.window.move({ workspace = i })
-end
-
-
-for i = 1, 10 do
-    local numpadkey = { "KP_End", "KP_Down", "KP_Next", "KP_Left", "KP_Begin", "KP_Right", "KP_Home", "KP_Up", "KP_Prior" }
-    hl.bind("SUPER + code:" .. numpadkey[i],hl.dsp.focus({ workspace = i })
-    hl.bind(mod .. " + SHIFT + code:" .. numpadkey[i], hl.dsp.window.move({ workspace = i })
-end
---]]
