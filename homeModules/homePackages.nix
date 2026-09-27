@@ -16,6 +16,7 @@
 
     # System Monitor
     monitor
+    btop
 
     # Tool to list open files
     lsof
@@ -27,8 +28,8 @@
     # Key Generation
     openssl_3
 
-    # Download tool
-#    fanbox-dl
+    # Conversion Tool
+    ffmpeg-full
 
     ## Hardware and Peripherals ##
 
@@ -104,6 +105,7 @@
     ## Video/Audio/Pictures ##
     # Video
     vlc
+    jellyfin-desktop
     # Music
     finamp
     # Recording
@@ -112,6 +114,8 @@
     krita
     gimp
     qimgv
+    # GUI Wallpaper Setter
+    waypaper
 
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
@@ -126,6 +130,9 @@
     # Video Downloader
     tartube-yt-dlp
 
+    # Download Tool
+    gallery-dl
+
     # Rip blu ray and dvd
 #    makemkv
 
@@ -133,6 +140,7 @@
     # Possible clients for discord alternative
     element-desktop
     cinny-desktop
+#    sable
 #    revolt-desktop
 
     # ...
@@ -141,6 +149,7 @@
     # Possible clients for discord alternative
     element-desktop
     cinny-desktop
+#    sable
     
     # ...
   ])++ (with pkgs-stable; [

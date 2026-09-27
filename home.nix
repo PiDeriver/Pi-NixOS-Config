@@ -11,7 +11,8 @@
     # menu generator
     homeModules/rofi.nix
     # wallpaper util
-    homeModules/hyprpaper.nix
+#    homeModules/hyprpaper.nix
+    homeModules/awww.nix
     # notification daemon
     homeModules/mako.nix
     # window portal
