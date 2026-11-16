@@ -25,9 +25,6 @@
     ani-cli
     ani-skip
 
-    # Key Generation
-    openssl_3
-
     # Conversion Tool
     ffmpeg-full
 
@@ -74,24 +71,25 @@
 
     ## Alternate browsers ##
     ungoogled-chromium
-    brave
+#    brave #Removed from nix packages
 
     ## Security ##
-    # Password Manager
-#    bitwarden-desktop
     # VPN
     proton-vpn
 
     ## Games/Emulation ##
+
     # Sound Voltex Emulator
     unnamed-sdvx-clone
     # Wine Emulator
     winetricks
-    wineWow64Packages.waylandFull
-#    bottles
+    wine-wayland
+#    wineasio
     heroic
     # Wine Manager
     protonplus
+    # Mod launchers
+    r2modman
     # Archipelago
     archipelago
     poptracker
@@ -103,6 +101,7 @@
     dolphin-emu
 
     ## Video/Audio/Pictures ##
+
     # Video
     vlc
     jellyfin-desktop
@@ -128,7 +127,7 @@
     goxlr-utility
 
     # Video Downloader
-    tartube-yt-dlp
+ #   tartube-yt-dlp #broken
 
     # Download Tool
     gallery-dl
@@ -146,16 +145,14 @@
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
     ### Unstable Laptop only ###
+
     # Possible clients for discord alternative
     element-desktop
     cinny-desktop
-#    sable
     
     # ...
   ])++ (with pkgs-stable; [
     #### Stable Packages ####
-    # Music Player
-    spotify
 
     # Open-source office suite
     libreoffice
@@ -174,6 +171,7 @@
     #...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-desktop") [
     ### Stable Desktop only ###
+
     # Audio Editor
     reaper
     # Video Editor
@@ -182,6 +180,7 @@
     # ...
   ] ++ lib.optionals (systemSettings.hostname == "pi-nixos-laptop") [
     ### Stable Laptop only ###
+
     # DDR emulator
     stepmania
 
